@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
 </head>
 
-<body ng-app="mediaRekt">
+<body ng-app="mediaRekt" ng-controller="MainController">
     <nav id="navi" class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -38,7 +38,6 @@
                     <li><a href="#">Images</a></li>
                     <li><a href="#">Audio</a></li>
                     <li><a href="#">Video</a></li>
-                    <!--<li><a href="#"></a></li>-->
                 </ul>
                 <!--                    <ul class="nav navbar-nav navbar-right" id="login">
                         <li><a id="loginButton" href="#"><span></span> Login</a></li>
@@ -56,7 +55,7 @@
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
                     <p> asddas</p>
-                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}">
+                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     <br>
                     <button class="btn btn-success">Comment</button>
                     <button class="btn btn-primary">Share</button>
@@ -68,23 +67,6 @@
     </div>
 
 
-
-    <!--
-    <div class="container" ng-controller="GetFileController">
-        <div id="tasku" ng-repeat="file in files">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-sx-6">
-                    <div class="w3-card-12" style="width:50%">
-                        <img src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="Car" style="width:100%">
-                        <div class="w3-container">
-                            <p>{{ file.title }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
--->
 
     <!--MODAL STUFf-->
 
@@ -127,15 +109,6 @@
                 </div>
 
                 <div class="modal-body">
-                    <!--                    <form id="signupForm">
-                        <input type="text" id="username" name="username" placeholder="Username" /> /
-                        <br>
-                        <input type="text" id="email" name="password" placeholder="Email" />
-                        <br>
-                        <input type="password" id="passwordconf" placeholder="Cornfirm Password" />
-                        <br>
-                        <input type="text" id="password" name="email" placeholder="Password" />
-                    </form>-->
                     <register-form></register-form>
                 </div>
 
@@ -158,15 +131,6 @@
                 </div>
                 <div class="modal-body">
                     <login-form></login-form>
-                    <!--                
-                    <form id="loginForm">
-                    <input type="text" id="usernameLogIn" placeholder="Username" name="username" />
-                    <br>
-                    <input type="password" id="passwordLogIn" placeholder="Password" name="password" />
-                    <br>
-                    <button id="forgotpass" type="button" class="btn btn-forgot" data-dismiss="modal">Forgot password?</button>
-                    </form>
--->
                 </div>
                 <div class="modal-footer">
                     <button id="notuser" type="button" class="btn btn-primary" data-dismiss="modal">Not user? Sign up, here!</button>
@@ -248,8 +212,9 @@
     <script src="scripts/Controllers/getFileController.js"></script>
     <script src="scripts/Controllers/signupController.js"></script>
     <script src="scripts/Controllers/uploadController.js"></script>
-    <script src="scripts/Services/ajaxFactory.js"></script>
     <script src="scripts/Controllers/loginController.js"></script>
+    <script src="scripts/Controllers/mainController.js"></script>
+    <script src="scripts/Services/ajaxFactory.js"></script>
     <script src="scripts/Directives/registerForm.js"></script>
     <script src="scripts/Directives/loginForm.js"></script>
 </body>
