@@ -1,0 +1,1 @@
+var mediaRekt = angular.module('mediaRekt', ["infinite-scroll"]);

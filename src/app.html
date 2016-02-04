@@ -1,21 +1,234 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta httpequiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MediaRekt</title>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap Template</title>
     <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body ng-controller="GreetingsController as greetingsCtrl">
-    
-    <h1>{{greetingsCtrl.greeting}}</h1>
-    <p>This is {{greetingsCtrl.who | uppercase}} speaking.</p>
-    
-    <div ng-controller="ContentController as contentCtrl">
-      <p>{{contentCtrl.content}}</p>
+    <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
+</head>
+
+<body ng-app="mediaRekt">
+    <nav id="navi" class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button id="uploadbutton" ng-click="showUpload()" type="button" class="btn btn-success">Upload</button>
+                <a class="navbar-brand" href="#" id="logo">{{ title }}</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNav">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html" id="home">Home</a></li>
+                    <li><a href="#" ng-click="showSearch()" id="search">Search</a></li>
+                    <li><a href="#" id="myprofile">My Images</a></li>
+                    <li><a href="#" id="myfavourites">My favourites</a></li>
+                    <li><a href="#" ng-click="showSignup()" id="signup">Signup</a></li>
+                    <li><a href="#" ng-click="showLogin()" id="login">Login</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="#">Images</a></li>
+                    <li><a href="#">Audio</a></li>
+                    <li><a href="#">Video</a></li>
+                    <!--<li><a href="#"></a></li>-->
+                </ul>
+                <!--                    <ul class="nav navbar-nav navbar-right" id="login">
+                        <li><a id="loginButton" href="#"><span></span> Login</a></li>
+                    </ul>-->
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" ng-controller="GetFileController">
+        <div id="tasku" ng-repeat="file in files">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-sx-6">
+                    <p>{{ file.title }}</p>
+                    <p> asddas</p>
+                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}">
+                    <br>
+                    <button class="btn btn-success">Comment</button>
+                    <button class="btn btn-primary">Share</button>
+                    <button class="btn btn-info">Comment</button>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--
+    <div class="container" ng-controller="GetFileController">
+        <div id="tasku" ng-repeat="file in files">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-sx-6">
+                    <div class="w3-card-12" style="width:50%">
+                        <img src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="Car" style="width:100%">
+                        <div class="w3-container">
+                            <p>{{ file.title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+    <!--MODAL STUFf-->
+
+    <!--UPLOAD IMAGE-->
+    <div class="modal fade" id="uploadUpMod" tabindex="-1" role="dialog" ng-controller="UploadController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Upload</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadform">
+                        <!--<img src="#" width="150" height="150">-->
+                        <canvas id="previewCanvas" style="width: 100%;"> </canvas>
+                        <input id="imgInp" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)">
+                        <br>
+                        <input type="hidden" name="user" value="12">
+                        <textarea class="form-control" rows="1" id="titleinput" name="title" placeholder="Title"></textarea>
+                        <br>
+                        <textarea class="form-control" rows="4" id="descriptioninput" name="description" placeholder="Description (max 140 characters)"></textarea>
+                        <p id="remain"></p>
+                        <br>
+                        <button id="upload" class="btn btn-success btn-sm" ng-click="uploadFile()">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SIGN UP-->
+    <div ng-controller="NavController" class="modal fade" id="signUpMod" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" ng-controller="SignupController">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">SIGNUP</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!--                    <form id="signupForm">
+                        <input type="text" id="username" name="username" placeholder="Username" /> /
+                        <br>
+                        <input type="text" id="email" name="password" placeholder="Email" />
+                        <br>
+                        <input type="password" id="passwordconf" placeholder="Cornfirm Password" />
+                        <br>
+                        <input type="text" id="password" name="email" placeholder="Password" />
+                    </form>-->
+                    <register-form></register-form>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="alreadyuser" type="button" class="btn btn-primary" data-dismiss="modal">Already a user? Login here!</button>
+                    <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()">Sign up!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--LOGIN-->
+    <div class="modal fade" id="logInMod" tabindex="-1" role="dialog" ng-controller="LoginController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Type your username and password</h4>
+                </div>
+                <div class="modal-body">
+                    <login-form></login-form>
+                    <!--                
+                    <form id="loginForm">
+                    <input type="text" id="usernameLogIn" placeholder="Username" name="username" />
+                    <br>
+                    <input type="password" id="passwordLogIn" placeholder="Password" name="password" />
+                    <br>
+                    <button id="forgotpass" type="button" class="btn btn-forgot" data-dismiss="modal">Forgot password?</button>
+                    </form>
+-->
+                </div>
+                <div class="modal-footer">
+                    <button id="notuser" type="button" class="btn btn-primary" data-dismiss="modal">Not user? Sign up, here!</button>
+                    <button id="logincheck" type="button" class="btn btn-default" ng-click="login()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SEARCH-->
+    <div class="modal fade" id="searchMod" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Search images based on their titles or user</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search titles" id="searchbox">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search users" id="searchboxUser">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search description" id="searchboxDesc">
+                        </div>
+                        <!--<button type="submit" class="btn btn-default" id="submitsearch" >Submit</button>-->
+                        <!--<button class="btn btn-default" id="submitsearch" >Submit</button>-->
+                    </form>
+                    <button class="btn btn-success" id="submitsearch">Search</button>
+                </div>
+                <!--modal-body-->
+            </div>
+            <!--modal-content-->
+        </div>
+        <!--modal-dialog-->
+    </div>
+    <!--modal-fade-->
+
+    <!--FORGOT PASSWORD?!-->
+    <div class="modal fade" id="forgotMod" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Type your username and email to retrieve your password</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="usernameForgot" placeholder="Username" />
+                    <br>
+                    <input type="password" id="emailForgot" placeholder="Email" />
+                </div>
+                <div class="modal-footer">
+                    <button id="forgotcheck" type="button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -25,10 +238,20 @@
 
     <!-- Include angular files & plugins -->
     <script src="../bower_components/angular/angular.js"></script>
-    
-    <!-- Include My App's JS file(s)-->
-    <script src="app.js"></script>
-    <script src="my-module.js"></script>
 
-  </body>
+    <!-- Include My App's JS file(s)-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/Controllers/navController.js"></script>
+    <script src="scripts/Controllers/scrollController.js"></script>
+    <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
+    <script src="scripts/fileService.js"></script>
+    <script src="scripts/Controllers/getFileController.js"></script>
+    <script src="scripts/Controllers/signupController.js"></script>
+    <script src="scripts/Controllers/uploadController.js"></script>
+    <script src="scripts/Services/ajaxFactory.js"></script>
+    <script src="scripts/Controllers/loginController.js"></script>
+    <script src="scripts/Directives/registerForm.js"></script>
+    <script src="scripts/Directives/loginForm.js"></script>
+</body>
+
 </html>

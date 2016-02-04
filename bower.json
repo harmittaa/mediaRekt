@@ -1,8 +1,8 @@
 {
-  "name": "temp-app-name",
-  "description": "Simple seed template for an angular app.",
+  "name": "MediaRekt",
+  "description": "MediaRekt project by team Slytherin.",
   "authors": [
-    "developerName"
+    "Matti Mäki-Kihniä, Antti Valkonen, Mikael Gousetis"
   ],
   "license": "ISC",
   "private": true,
