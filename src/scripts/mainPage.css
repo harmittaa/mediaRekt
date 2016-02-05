@@ -84,13 +84,24 @@ p {
     font-size: 0.8em;
 }
 
+#filler {
+    background-color: aqua;
+    padding:15px;
+}
+
+#contentFilters {
+    background-color: azure;
+}
+
 body{
     /*background-color: #9E9E9E;*/
+    
     background-color: #616161;
 }
 
 #navi {
     background-color: #f5f5f5;
+    
 }
 
 #footerID {

@@ -26,4 +26,11 @@ mediaRekt.controller("NavController", ["$scope", function ($scope) {
         console.log("logInMod called");
         $('#logInMod').modal('show');
     };
+
+    // removes the user info from localStorage
+    $scope.logout = function () {
+        console.log("log out");
+        localStorage.removeItem("user");
+        localStorage.setItem("logged", "false");
+    };
 }]);

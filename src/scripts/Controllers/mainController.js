@@ -6,4 +6,10 @@ mediaRekt.controller("MainController", function ($scope) {
         // open the desired html file with fileId in url
         window.location.assign("test.html?id=" + element.file.fileId);
     };
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            console.log("bottom");
+        }
+    });
 });

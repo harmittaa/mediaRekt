@@ -33,11 +33,6 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
     // register user
     ajaxMethods.register = function (formData) {
         console.log("Register service");
-/*        var data = {
-            "username": "sdasadsad",
-            "password": "asdkljalsdkjkjdlsa",
-            "email": "perkele"
-        }*/
         var registerInfo = {
             method: "POST",
             url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/register",
