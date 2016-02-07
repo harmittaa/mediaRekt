@@ -9,6 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/src/scripts/social-sharing.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
 </head>
 
@@ -22,7 +23,7 @@
                 <button type="button" class="btn btn-default"><img src="images/ic_play_arrow_black_24dp.png"></button>
                 <button type="button" class="btn btn-default"><img src="images/ic_hearing_black_24dp.png"></button>
 
-                <a class="navbar-brand" href="#" id="logo">{{ title }}</a>
+                <a class="navbar-brand" href="#" id="logo"><!--{{ title }}--></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -39,11 +40,7 @@
                     <li><a href="#" ng-click="showSignup()" id="signup">Signup</a></li>
                     <li><a href="#" ng-click="showLogin()" id="login">Login</a></li>
                     <li><a href="#" id="logout" ng-click="logout()">Logout</a></li>
-                    <li class="nav-divider"></li>
-                    <li><a href="#">Images</a></li>
-                    <li><a href="#">Audio</a></li>
-                    <li><a href="#">Video</a></li>
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -62,8 +59,17 @@
                     <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     <br>
                     <button class="btn btn-success">Comment</button>
-                    <button class="btn btn-primary">Share</button>
-                    <button class="btn btn-info">Comment</button>
+                    </br>
+                    <!-- Twitter -->
+<a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+ <!-- Facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+<!-- Google+ -->
+<a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+<!-- StumbleUpon -->
+<a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+<!-- LinkedIn --> 
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
                     <br>
                 </div>
             </div>
