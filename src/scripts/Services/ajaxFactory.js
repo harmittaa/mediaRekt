@@ -14,7 +14,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(uploadInfo);
     };
-    
+
     // log in
     ajaxMethods.login = function (formData) {
         console.log("Login service");
@@ -29,7 +29,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(loginInfo);
     };
-    
+
     // register user
     ajaxMethods.register = function (formData) {
         console.log("Register service");
@@ -44,7 +44,25 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(registerInfo);
     };
-    
-    
+
+    ajaxMethods.getAllFiles = function () {
+        console.log("Get all files service");
+        var getAllFilesInfo = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/files"
+        };
+        return $http(getAllFilesInfo);
+    };
+
+    ajaxMethods.getFilesByType = function (data) {
+        console.log("Get files by type service");
+        var getFilesByType = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/" + data
+        };
+        return $http(getFilesByType);
+    };
+
+
     return ajaxMethods;
 });
