@@ -1,6 +1,6 @@
 // gets the data from the fileService and sets it to $scope.files
 
-mediaRekt.controller("ContentController", function ($scope, AjaxFactory, fileService, ShareDataFactory) {
+mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataFactory) {
     $scope.loadAmount = 5;
 
     // splits the fileType from mimeType and returns to html

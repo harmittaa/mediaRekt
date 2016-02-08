@@ -14,49 +14,7 @@
 </head>
 
 <body ng-app="mediaRekt" ng-controller="MainController">
-    <nav id="navi" class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                
-                <button id="uploadbutton" ng-click="showUpload()" type="button" class="btn btn-success">Upload</button>
-
-                <div class="btn-group" ng-controller="FileTypeController">
-                <button type="button" class="btn btn-default btn-lg" ng-click="getImages()">
-                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-                </button>
-                
-                <button type="button" class="btn btn-default btn-lg" ng-click="getVideo()" >
-                    <span class="glyphicon glyphicon-facetime-video
-" aria-hidden="true"></span>
-                </button>
-                
-                <button type="button" class="btn btn-default btn-lg" ng-click="getAudio()">
-                    <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                </button>
-                </div>
-                
-                <a class="navbar-brand" href="#" id="logo">{{ title }}</a>
-                <a class="navbar-brand" href="#" id="logo"><!--{{ title }}--></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="myNav">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html" id="home">Home</a></li>
-                    <li><a href="#" ng-click="showSearch()" id="search">Search</a></li>
-                    <li><a href="#" id="myprofile">My Images</a></li>
-                    <li><a href="#" id="myfavourites">My favourites</a></li>
-                    <li><a href="#" ng-click="showSignup()" id="signup">Signup</a></li>
-                    <li><a href="#" ng-click="showLogin()" id="login">Login</a></li>
-                    <li><a href="#" id="logout" ng-click="logout()">Logout</a></li>
-                    </ul>
-            </div>
-        </div>
-    </nav>
+    <navbar></navbar>
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12" id="filler">
@@ -211,11 +169,13 @@
     <script src="scripts/Controllers/loginController.js"></script>
     <script src="scripts/Controllers/mainController.js"></script>
     <script src="scripts/Controllers/fileTypeController.js"></script>
+    <script src="scripts/Controllers/imageController.js"></script>    
     <script src="scripts/Services/ajaxFactory.js"></script>
     <script src="scripts/Services/shareDataFactory.js"></script>
     <script src="scripts/Directives/registerForm.js"></script>
     <script src="scripts/Directives/loginForm.js"></script>
     <script src="scripts/Directives/showContent.js"></script>
+    <script src="scripts/Directives/navbar.js"></script>
 </body>
 
 </html>

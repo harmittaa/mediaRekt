@@ -62,6 +62,15 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(getFilesByType);
     };
+    
+    ajaxMethods.getFileById = function (data) {
+        console.log("getting file by ID");
+        var getFileById = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/file/" + data
+        };
+        return $http(getFileById);
+    }
 
 
     return ajaxMethods;

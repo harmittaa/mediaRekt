@@ -13,6 +13,11 @@
 </head>
 
 <body ng-app="mediaRekt" ng-controller="ImageController">
+    <navbar></navbar>
+    <br>
+    <br>
+    <h1>{{ currentContent.data.title }}</h1>
+    <h2>TEST</h2>
     
     
     
@@ -31,15 +36,19 @@
     <script src="scripts/Controllers/scrollController.js"></script>
     <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
     <script src="scripts/fileService.js"></script>
-    <script src="scripts/Controllers/getFileController.js"></script>
+    <script src="scripts/Controllers/contentController.js"></script>
     <script src="scripts/Controllers/signupController.js"></script>
     <script src="scripts/Controllers/uploadController.js"></script>
     <script src="scripts/Controllers/loginController.js"></script>
     <script src="scripts/Controllers/mainController.js"></script>
+    <script src="scripts/Controllers/fileTypeController.js"></script>
+    <script src="scripts/Controllers/imageController.js"></script>
     <script src="scripts/Services/ajaxFactory.js"></script>
+    <script src="scripts/Services/shareDataFactory.js"></script>
     <script src="scripts/Directives/registerForm.js"></script>
     <script src="scripts/Directives/loginForm.js"></script>
-    <script src="scripts/Controllers/imageController.js"></script>
+    <script src="scripts/Directives/showContent.js"></script>
+    <script src="scripts/Directives/navbar.js"></script>
 </body>
 
 </html>
