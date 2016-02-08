@@ -1,5 +1,3 @@
-// gets the data from the fileService and sets it to $scope.files
-
 mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataFactory) {
     $scope.loadAmount = 5;
 

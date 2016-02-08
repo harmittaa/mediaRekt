@@ -23,8 +23,8 @@
             <div class="col-md-6 col-md-offset-3">
                 <p>Test test test</p>
 
-                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
-                <!--<canvas id="testCanvas" width="200" height="200"></canvas>-->
+                <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
+                <canvas id="testCanvas" width="200" height="200"></canvas>
                 <!-- Twitter -->
                 <a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
                 <!-- Facebook -->
@@ -35,8 +35,9 @@
                 <a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
                 <!-- LinkedIn -->
                 <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
-                <br></br>
-            <button type="button" class="btn btn-primary">Comment</button>
+                <br>
+                <button type="button" ng-click="blackAndWhite()" class="btn btn-primary">B&#33;W</button>
+                <button type="button" ng-click="glfxTest()" class="btn btn-primary">GLFX</button>
             </div>
         </div>
     </div>
@@ -57,7 +58,6 @@
     <script src="scripts/Controllers/navController.js"></script>
     <script src="scripts/Controllers/scrollController.js"></script>
     <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
-    <script src="scripts/fileService.js"></script>
     <script src="scripts/Controllers/contentController.js"></script>
     <script src="scripts/Controllers/signupController.js"></script>
     <script src="scripts/Controllers/uploadController.js"></script>
@@ -71,6 +71,7 @@
     <script src="scripts/Directives/loginForm.js"></script>
     <script src="scripts/Directives/showContent.js"></script>
     <script src="scripts/Directives/navbar.js"></script>
+    <script src="scripts/glfx.js"></script>
 </body>
 
 </html>
