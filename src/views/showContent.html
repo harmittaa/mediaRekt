@@ -1,0 +1,47 @@
+<div id="contents" class="container" ng-controller="GetFileController">
+    <button ng-click="getContent()">GetContent</button>
+    <div id="tasku" ng-if="getType(file.mimeType) == 'image'" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-sx-6">
+                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
+                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                </video>
+                <br>
+                <button class="btn btn-success">Comment</button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'audio'" when-scrolled="loadContent()">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-sx-6">
+                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
+                <audio controls>
+                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
+                </audio>
+                <br>
+                <button class="btn btn-success">Comment</button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'video'" when-scrolled="loadContent()">
+        <div class="row" ng-if="getType(file.mimeType) == 'video'">
+            <div class="col-md-6 col-sm-6 col-sx-6">
+                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
+                <video width="200" controls>
+                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
+                </video>
+                <br>
+                <button class="btn btn-success">Comment</button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <button ng-click="loadContent()">Load more stuff</button>
+</div>

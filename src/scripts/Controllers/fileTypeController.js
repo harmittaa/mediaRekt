@@ -6,6 +6,10 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
         AjaxFactory.getFilesByType("image").then(function successCallback(response) {
             console.log(response);
             ShareDataFactory.setData(response);
+            console.log("setting data to contentdata.data");
+            $scope.contentData.data = response.data;
+            
+            console.log($scope.contentData.data);
         }, function errorCallback(response) {
             console.log(response);
         });
@@ -17,9 +21,14 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
         AjaxFactory.getFilesByType("video").then(function successCallback(response) {
             console.log(response);
             ShareDataFactory.setData(response);
+            console.log("setting data to contentdata.data");
+            $scope.contentData.data = response.data;
+            console.log($scope.contentData.data);
         }, function errorCallback(response) {
             console.log(response);
         });
+        
+        /*$("#contents").load("views/video.html");*/
     };
 
     $scope.getAudio = function () {
@@ -28,8 +37,11 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
         AjaxFactory.getFilesByType("audio").then(function successCallback(response) {
             console.log(response);
             ShareDataFactory.setData(response);
+            $scope.contentData.data = response.data;
         }, function errorCallback(response) {
             console.log(response);
         });
     };
+    
+    
 });

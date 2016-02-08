@@ -63,9 +63,10 @@
         </div>
     </div>
 
-    <div class="container" ng-controller="GetFileController">
+    <show-content></show-content>
+<!--    <div id="contents" class="container" ng-controller="GetFileController">
         <button ng-click="getContent()">GetContent</button>
-        <div id="tasku" ng-repeat="file in files | limitTo:loadAmount" when-scrolled="loadContent()">
+<        <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
@@ -74,22 +75,12 @@
                     <br>
                     <button class="btn btn-success">Comment</button>
                     <br>
-                    <!-- Twitter -->
-<a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
- <!-- Facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-<!-- Google+ -->
-<a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
-<!-- StumbleUpon -->
-<a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
-<!-- LinkedIn --> 
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
                     <br>
                 </div>
             </div>
         </div>
-        <button ng-click="loadContent()">Load more stuff</button>
-    </div>
+        <button ng-click="loadContent()">Load more stuff</button> 
+    </div> -->
 
 
 
@@ -106,7 +97,6 @@
                 </div>
                 <div class="modal-body">
                     <form id="uploadform">
-                        <!--<img src="#" width="150" height="150">-->
                         <canvas id="previewCanvas" style="width: 100%;"> </canvas>
                         <input id="imgInp" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)">
                         <br>
@@ -244,6 +234,7 @@
     <script src="scripts/Services/shareDataFactory.js"></script>
     <script src="scripts/Directives/registerForm.js"></script>
     <script src="scripts/Directives/loginForm.js"></script>
+    <script src="scripts/Directives/showContent.js"></script>
 </body>
 
 </html>

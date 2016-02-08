@@ -1,4 +1,8 @@
-mediaRekt.controller("MainController", function ($scope) {
+mediaRekt.controller("MainController", function ($scope, $sce) {
+    
+    $scope.selectedType = {type: "image"};
+    $scope.contentData = {data: []};
+    
 
     // open image in new window
     $scope.openImageView = function (element) {
@@ -12,4 +16,8 @@ mediaRekt.controller("MainController", function ($scope) {
             console.log("bottom");
         }
     });
+    
+    $scope.trustURL = function(url) {
+        return $sce.trustAsResourceUrl(url);
+    }
 });

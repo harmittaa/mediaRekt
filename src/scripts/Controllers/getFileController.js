@@ -2,15 +2,22 @@
 
 mediaRekt.controller("GetFileController", function ($scope, AjaxFactory, fileService, ShareDataFactory) {
     $scope.loadAmount = 5;
+    
+    $scope.getType = function(type) {
+        return type.substr(0,5);
+    };
 
     $scope.getContent = function () {
-        $scope.files = ShareDataFactory.getData();
+        /*$scope.files = ShareDataFactory.getData();*/
         console.log($scope.files);
+/*
             fileService.success(function (data) {
             console.log("getting files");
             $scope.files = data;
+            $scope.contentData.data = data;
             ShareDataFactory.setData($scope.files);
         });
+*/
 
     };
 
