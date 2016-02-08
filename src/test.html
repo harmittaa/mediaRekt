@@ -17,10 +17,20 @@
     <br>
     <br>
     <h1>{{ currentContent.data.title }}</h1>
-    <h2>TEST</h2>
-    
-    
-    
+    <h2>{{ currentContent.data.userId }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p>Test test test</p>
+                
+                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
+                <canvas id="testCanvas" width="200" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>

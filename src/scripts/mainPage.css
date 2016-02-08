@@ -1,13 +1,17 @@
 /*SIDEBAR*/
+
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 
 /* entypo */
+
 [class*="entypo-"]:before {
     font-family: "entypo", sans-serif;
 }
-a { 
+
+a {
     text-decoration: none;
 }
+
 ul {
     list-style: none;
     margin: 0;
@@ -19,18 +23,25 @@ ul {
     color: black;
 }
 
+#testCanvas {
+    background-color: blue;
+    width: 100%;
+    height: auto;
+}
 
 .container {
     margin: 0 auto;
     padding: 20px 50px;
     background: white;
 }
+
 #sticky-social {
     left: 0;
     position: fixed;
     top: 150px;
     z-index: 10;
 }
+
 #sticky-social a {
     background: #333;
     color: #fff;
@@ -42,31 +53,43 @@ ul {
     text-align: center;
     width: 35px;
 }
+
 #sticky-social a span {
     line-height: 35px;
     left: -120px;
     position: absolute;
-    text-align:center;
-    width:120px;
+    text-align: center;
+    width: 120px;
 }
+
 #sticky-social a:hover span {
     left: 100%;
 }
+
 #sticky-social a[class*="facebook"],
 #sticky-social a[class*="facebook"]:hover,
-#sticky-social a[class*="facebook"] span { background: #3b5998; }
+#sticky-social a[class*="facebook"] span {
+    background: #3b5998;
+}
 
 #sticky-social a[class*="twitter"],
 #sticky-social a[class*="twitter"]:hover,
-#sticky-social a[class*="twitter"] span { background: #00aced; }
+#sticky-social a[class*="twitter"] span {
+    background: #00aced;
+}
 
 #sticky-social a[class*="shuffle"],
 #sticky-social a[class*="shuffle"]:hover,
-#sticky-social a[class*="shuffle"] span { background: #517fa4; }  
+#sticky-social a[class*="shuffle"] span {
+    background: #517fa4;
+}
 
 #sticky-social a[class*="heart"],
 #sticky-social a[class*="heart"]:hover,
-#sticky-social a[class*="heart"] span { background: #EF5350; }
+#sticky-social a[class*="heart"] span {
+    background: #EF5350;
+}
+
 
 /*SIDEBAR*/
 
@@ -75,7 +98,7 @@ p {
     font-size: 1.25em;
 }
 
-#currentRatingBox{
+#currentRatingBox {
     color: #f5f5f5;
 }
 
@@ -86,50 +109,48 @@ p {
 
 #filler {
     background-color: aqua;
-    padding:15px;
+    padding: 15px;
 }
 
 #contentFilters {
     background-color: azure;
 }
 
-body{
+body {
     /*background-color: #9E9E9E;*/
-    
     background-color: #616161;
 }
 
 #navi {
     background-color: #f5f5f5;
-    
 }
 
 #footerID {
     background-color: #f5f5f5;
 }
 
-#commentdiv{
+#commentdiv {
     background-color: #fafafa;
 }
 
-#uploadbutton{
+#uploadbutton {
     margin-top: 7px;
 }
 
-#submitcomment{
+#submitcomment {
     margin-top: 5px;
 }
 
-#rowId{
+#rowId {
     margin-top: 60px;
 }
 
-#removebutton{
+#removebutton {
     margin-bottom: 5px;
     margin-top: 5px;
 }
 
-#blah{
+#blah {
     margin-bottom: 5px;
 }
 
@@ -138,11 +159,13 @@ body{
     direction: rtl;
     text-align: center;
 }
+
 .rating > span {
     display: inline-block;
     position: relative;
     width: 1.3em;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
     content: "\2605";
@@ -151,39 +174,47 @@ body{
 
 #currentRating {
     text-align: center;
-
 }
 
-#favouritediv > span{
+#favouritediv > span {
     font-size: 2.5em;
     color: #FFFF66;
     background-color: #1a242f;
 }
 
+
 /*COMMENT BUBBLE*/
+
 .panel {
-    position:relative;
+    position: relative;
 }
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-    position:absolute;
-    top:11px;left:-16px;
-    right:100%;
-    width:0;
-    height:0;
-    display:block;
-    content:" ";
-    border-color:transparent;
-    border-style:solid solid outset;
-    pointer-events:none;
+
+.panel>.panel-heading:after,
+.panel>.panel-heading:before {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
 }
-.panel>.panel-heading:after{
-    border-width:7px;
-    border-right-color:#f7f7f7;
-    margin-top:1px;
-    margin-left:2px;
+
+.panel>.panel-heading:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
 }
-.panel>.panel-heading:before{
-    border-right-color:#ddd;
-    border-width:8px;
+
+.panel>.panel-heading:before {
+    border-right-color: #ddd;
+    border-width: 8px;
 }
+
+
 /*COMMENT BUBBLE*/
