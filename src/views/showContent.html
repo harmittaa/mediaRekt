@@ -1,5 +1,4 @@
-<div id="contents" class="container" ng-controller="GetFileController">
-    <button ng-click="getContent()">GetContent</button>
+<div id="contents" class="container" ng-controller="ContentController">
     <div id="tasku" ng-if="getType(file.mimeType) == 'image'" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-sx-6">

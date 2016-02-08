@@ -1,0 +1,16 @@
+// gets the data from the fileService and sets it to $scope.files
+
+mediaRekt.controller("ContentController", function ($scope, AjaxFactory, fileService, ShareDataFactory) {
+    $scope.loadAmount = 5;
+
+    // splits the fileType from mimeType and returns to html
+    $scope.getType = function (type) {
+        return type.substr(0, 5);
+    };
+
+    // load more content to show on gallery
+    $scope.loadContent = function () {
+        console.log("loading content!");
+        $scope.loadAmount += 5;
+    };
+});

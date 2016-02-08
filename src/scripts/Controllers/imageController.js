@@ -5,7 +5,4 @@ mediaRekt.controller("ImageController", function ($scope) {
     var urlParam = window.location.href.split("=");
     var contentId = urlParam[1];
     console.log(contentId);
-    
-                                               
-    
 });

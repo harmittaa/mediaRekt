@@ -64,25 +64,6 @@
     </div>
 
     <show-content></show-content>
-<!--    <div id="contents" class="container" ng-controller="GetFileController">
-        <button ng-click="getContent()">GetContent</button>
-<        <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-sx-6">
-                    <p>{{ file.title }}</p>
-                    <p> asddas</p>
-                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
-                    <br>
-                    <button class="btn btn-success">Comment</button>
-                    <br>
-                    <br>
-                </div>
-            </div>
-        </div>
-        <button ng-click="loadContent()">Load more stuff</button> 
-    </div> -->
-
-
 
     <!--MODAL STUFf-->
 
@@ -224,7 +205,7 @@
     <script src="scripts/Controllers/scrollController.js"></script>
     <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
     <script src="scripts/fileService.js"></script>
-    <script src="scripts/Controllers/getFileController.js"></script>
+    <script src="scripts/Controllers/contentController.js"></script>
     <script src="scripts/Controllers/signupController.js"></script>
     <script src="scripts/Controllers/uploadController.js"></script>
     <script src="scripts/Controllers/loginController.js"></script>
