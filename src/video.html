@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta httpequiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image</title>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
+    <link href="/src/scripts/social-sharing.css" rel="stylesheet">
+</head>
+
+<body ng-app="mediaRekt" ng-controller="ImageController">
+    <navbar></navbar>
+    <br>
+    <br>
+    <h1>{{ currentContent.data.title }}</h1>
+    <h2>{{ currentContent.data.userId }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+         <video>
+<source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
+ 
+</video>       
+                <!-- Twitter -->
+                <a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+                <!-- Google+ -->
+                <a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+                <!-- StumbleUpon -->
+                <a href="http://www.stumbleupon.com/submit?url=" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+                <!-- LinkedIn -->
+                <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Include angular files & plugins -->
+    <script src="../bower_components/angular/angular.js"></script>
+
+    <!-- Include My App's JS file(s)-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/Controllers/navController.js"></script>
+    <script src="scripts/Controllers/scrollController.js"></script>
+    <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
+    <script src="scripts/Controllers/contentController.js"></script>
+    <script src="scripts/Controllers/signupController.js"></script>
+    <script src="scripts/Controllers/uploadController.js"></script>
+    <script src="scripts/Controllers/loginController.js"></script>
+    <script src="scripts/Controllers/mainController.js"></script>
+    <script src="scripts/Controllers/fileTypeController.js"></script>
+    <script src="scripts/Controllers/imageController.js"></script>
+    <script src="scripts/Services/ajaxFactory.js"></script>
+    <script src="scripts/Services/shareDataFactory.js"></script>
+    <script src="scripts/Directives/registerForm.js"></script>
+    <script src="scripts/Directives/loginForm.js"></script>
+    <script src="scripts/Directives/showContent.js"></script>
+    <script src="scripts/Directives/navbar.js"></script>
+    <script src="scripts/glfx.js"></script>
+</body>
+
+</html>

@@ -32,8 +32,8 @@
         <div class="row" ng-if="getType(file.mimeType) == 'video'">
             <div class="col-md-6 col-sm-6 col-sx-6">
                 <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
-                <video width="200" controls>
-                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
+                <video width="300">
+                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
                 </video>
                 <br>
                 <button class="btn btn-success">Comment</button>

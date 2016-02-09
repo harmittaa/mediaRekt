@@ -9,6 +9,11 @@ mediaRekt.controller("MainController", function ($scope, $sce) {
         console.log(element.file.fileId);
         window.location.assign("test.html?id=" + element.file.fileId);
     };
+    // open video in new window
+    $scope.openVideoView = function (element) {
+        console.log(element.file.fileId);
+        window.location.assign("video.html?id=" + element.file.fileId);
+    };
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
@@ -18,5 +23,6 @@ mediaRekt.controller("MainController", function ($scope, $sce) {
     
     $scope.trustURL = function(url) {
         return $sce.trustAsResourceUrl(url);
-    }
+    };
+    
 });
