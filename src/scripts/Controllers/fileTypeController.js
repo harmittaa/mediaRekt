@@ -2,7 +2,6 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
 
     $scope.getImages = function () {
         $scope.datas = ShareDataFactory.getData();
-
         AjaxFactory.getFilesByType("image").then(function successCallback(response) {
             console.log(response);
             ShareDataFactory.setData(response);

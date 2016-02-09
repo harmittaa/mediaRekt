@@ -62,7 +62,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(getFilesByType);
     };
-    
+
     ajaxMethods.getFileById = function (data) {
         console.log("getting file by ID");
         var getFileById = {
@@ -70,8 +70,25 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
             url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/file/" + data
         };
         return $http(getFileById);
-    }
+    };
 
+    ajaxMethods.getUserUploads = function (data) {
+        console.log("getting user uploads");
+        var getUserUploads = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/files/user/" + data
+        };
+        return $http(getUserUploads);
+    };
+
+    ajaxMethods.getUserFavourites = function (data) {
+        console.log("getting user favourites");
+        var getUserFavourites = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/likes/user/" + data
+        };
+        return $http(getUserFavourites);
+    };
 
     return ajaxMethods;
 });

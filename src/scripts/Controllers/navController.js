@@ -1,4 +1,4 @@
-mediaRekt.controller("NavController", ["$scope", function ($scope) {
+mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
     $scope.title = "MediaRekt";
     $scope.hideSignup = true;
     $scope.showNavbar = true;
@@ -33,4 +33,28 @@ mediaRekt.controller("NavController", ["$scope", function ($scope) {
         localStorage.removeItem("user");
         localStorage.setItem("logged", "false");
     };
-}]);
+
+    $scope.userUploads = function () {
+        console.log(localStorage.getItem("user"));
+        AjaxFactory.getUserUploads(localStorage.getItem("user")).then(function successCallback(response) {
+            console.log(response);
+            console.log("setting data to contentdata.data");
+            $scope.contentData.data = response.data;
+            console.log($scope.contentData.data);
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
+
+    $scope.userFavourites = function () {
+        console.log(localStorage.getItem("user"));
+        AjaxFactory.getUserFavourites(localStorage.getItem("user")).then(function successCallback(response) {
+            console.log(response);
+            console.log("setting data to contentdata.data");
+            $scope.contentData.data = response.data;
+            console.log($scope.contentData.data);
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
+});

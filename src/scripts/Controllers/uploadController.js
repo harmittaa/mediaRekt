@@ -26,8 +26,6 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
     $scope.resetImage = function () {
         $scope.canvas.width = $scope.image.width;
         $scope.canvas.height = $scope.image.height;
-        
-
     };
 
     // uploading

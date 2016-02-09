@@ -7,13 +7,13 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
     console.log($scope.contentId);
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
-        $scope.currentContent = response;
-        console.log("Data fetched ");
-        console.log($scope.currentContent);
-    }, function errorCallback(response) {
-        console.log(response);
-    })
-    .then(function testtest() {
+            $scope.currentContent = response;
+            console.log("Data fetched ");
+            console.log($scope.currentContent);
+        }, function errorCallback(response) {
+            console.log(response);
+        })
+        .then(function testtest() {
 
             $scope.canvas = document.getElementById("testCanvas");
             $scope.ctx = $scope.canvas.getContext("2d");
@@ -23,28 +23,28 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
                 $scope.ctx.drawImage($scope.image, 0, 0, 300, 300);
                 // desaturation colors
             };
-            
+
             $scope.image.crossOrigin = "anonymous";
             console.log("seeing if path is available");
             console.log($scope.currentContent.data.path);
             $scope.image.src = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
         });
 
-        $scope.blackAndWhite = function () {
-            $scope.imgData = $scope.ctx.getImageData(0, 0, $scope.canvas.width, $scope.canvas.height);
-            $scope.data = $scope.imgData.data;
+    $scope.blackAndWhite = function () {
+        $scope.imgData = $scope.ctx.getImageData(0, 0, $scope.canvas.width, $scope.canvas.height);
+        $scope.data = $scope.imgData.data;
 
-            for (var i = 0; i < $scope.data.length; i += 4) {
-                $scope.grayscale = 0.33 * $scope.data[i] + 0.5 * $scope.data[i + 1] + 0.15 * $scope.data[i + 2];
-                $scope.data[i] = $scope.grayscale;
-                $scope.data[i + 1] = $scope.grayscale;
-                $scope.data[i + 2] = $scope.grayscale;
-            }
-            
-            // write the modified image data
-            $scope.ctx.putImageData($scope.imgData, 0, 0);
+        for (var i = 0; i < $scope.data.length; i += 4) {
+            $scope.grayscale = 0.33 * $scope.data[i] + 0.5 * $scope.data[i + 1] + 0.15 * $scope.data[i + 2];
+            $scope.data[i] = $scope.grayscale;
+            $scope.data[i + 1] = $scope.grayscale;
+            $scope.data[i + 2] = $scope.grayscale;
+        }
 
-        };
+        // write the modified image data
+        $scope.ctx.putImageData($scope.imgData, 0, 0);
+
+    };
 
     $scope.glfxTest = function () {
         console.log("glfx test function");
@@ -89,5 +89,40 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
         // replace the image with the canvas
         image.parentNode.insertBefore(canvas, image);
         image.parentNode.removeChild(image);
+    };
+
+    $scope.saveImage = function () {
+        /*
+                var imgAsDataUrl = $scope.canvas.toDataURL("image/png");
+                var newImg = document.createElement("img");
+                newImg.src = imgAsDataUrl;
+                console.log(imgAsDataUrl);
+        */
+
+        canvas.toBlob(function (blob) {
+            var newImg = document.createElement("img"),
+                url = URL.createObjectURL(blob);
+
+            newImg.onload = function () {
+                // no longer need to read the blob so it's revoked
+                URL.revokeObjectURL(url);
+            };
+
+            newImg.src = url;
+        });
+
+        var uploadData = {
+            "file": newImg,
+            "user": 12,
+            "title": "tontut",
+            "description": "asdasd",
+            "type": "image"
+        }
+        AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
+            console.log(response);
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+
     };
 });
