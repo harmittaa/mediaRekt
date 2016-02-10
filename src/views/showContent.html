@@ -6,7 +6,7 @@
                 <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                 </video>
                 <br>
-                <button class="btn btn-success">Comment</button>
+                <button id="commentBut" class="btn btn-success">Comment</button>
                 <br>
                 <br>
             </div>
@@ -21,7 +21,7 @@
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
                 </audio>
                 <br>
-                <button class="btn btn-success">Comment</button>
+                <button id="commentBut" class="btn btn-success">Comment</button>
                 <br>
                 <br>
             </div>
@@ -36,7 +36,7 @@
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
                 </video>
                 <br>
-                <button class="btn btn-success">Comment</button>
+                <button id="commentBut" class="btn btn-success">Comment</button>
                 <br>
                 <br>
             </div>
