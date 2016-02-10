@@ -2,9 +2,8 @@
     <div id="tasku" ng-if="getType(file.mimeType) == 'image'" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
-                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
-                </video>
+                <p>{{ file.title }}</p>
+                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                 <br>
                 <button id="commentBut" class="btn btn-success">Comment</button>
                 <br>
@@ -16,7 +15,7 @@
     <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'audio'" when-scrolled="loadContent()">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
+                <p>{{ file.title }}</p>
                 <audio controls>
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
                 </audio>
@@ -31,10 +30,12 @@
     <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'video'" when-scrolled="loadContent()">
         <div class="row" ng-if="getType(file.mimeType) == 'video'">
             <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }} and {{getType(file.mimeType)}}</p>
-                <video width="300">
+                <p>{{ file.title }}</p>
+                <!--                <video width="300">
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
-                </video>
+                </video>-->
+                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openVideoView(this)">
+
                 <br>
                 <button id="commentBut" class="btn btn-success">Comment</button>
                 <br>
@@ -42,5 +43,9 @@
             </div>
         </div>
     </div>
-    <button ng-click="loadContent()">Load more stuff</button>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success btn-block" id="loadMore" ng-click="loadContent()">Load more stuff</button>
+        </div>
+    </div>
 </div>
