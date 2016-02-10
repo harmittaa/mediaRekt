@@ -92,36 +92,47 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
     };
 
     $scope.saveImage = function () {
-        /*
-                var imgAsDataUrl = $scope.canvas.toDataURL("image/png");
-                var newImg = document.createElement("img");
-                newImg.src = imgAsDataUrl;
-                console.log(imgAsDataUrl);
-        */
 
-        canvas.toBlob(function (blob) {
-            var newImg = document.createElement("img"),
-                url = URL.createObjectURL(blob);
+        var imgAsDataUrl = $scope.canvas.toDataURL("image/png");
+        var newImg = document.createElement("img");
+        newImg.src = imgAsDataUrl;
+        console.log(imgAsDataUrl);
 
-            newImg.onload = function () {
-                // no longer need to read the blob so it's revoked
-                URL.revokeObjectURL(url);
-            };
+        $scope.uploadFormData = new FormData();
+        $scope.uploadFormData.append("file", $scope.dataURItoBlob(imgAsDataUrl), "pic.png");
+        $scope.uploadFormData.append("type", "image");
+        $scope.uploadFormData.append("mime-type", "image/png");
+        $scope.uploadFormData.append("user", "1");
+        $scope.uploadFormData.append("title", "test");
+        $scope.uploadFormData.append("description", "too short???");
 
-            newImg.src = url;
-        });
 
-        var uploadData = {
-            "file": newImg,
-            "user": 12,
-            "title": "tontut",
-            "description": "asdasd",
-            "type": "image"
-        };
-        AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
+        AjaxFactory.uploadFile($scope.uploadFormData).then(function successCallback(response) {
             console.log(response);
         }, function errorCallback(response) {
             console.log(response);
+        });
+    };
+
+    $scope.dataURItoBlob = function (dataURI) {
+        // convert base64/URLEncoded data component to raw binary data held in a string
+        var byteString;
+        if (dataURI.split(',')[0].indexOf('base64') >= 0)
+            byteString = atob(dataURI.split(',')[1]);
+        else
+            byteString = unescape(dataURI.split(',')[1]);
+
+        // separate out the mime component
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+        // write the bytes of the string to a typed array
+        var ia = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+
+        return new Blob([ia], {
+            type: mimeString
         });
     };
 });

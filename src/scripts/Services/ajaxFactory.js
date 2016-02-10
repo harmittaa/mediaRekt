@@ -117,6 +117,15 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(searchByDescription);
     };
+    
+    ajaxMethods.findUserById = function (data) {
+        console.log("Finding user by ID");
+        var findUserById = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/user" + data,
+        };
+        return $http(findUserById);
+    };
 
     return ajaxMethods;
 });
