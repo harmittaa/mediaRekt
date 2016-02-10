@@ -26,7 +26,7 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
 
             $scope.image.crossOrigin = "anonymous";
             console.log("seeing if path is available");
-            console.log($scope.currentContent.data.pöath);
+            console.log($scope.currentContent.data.path);
             $scope.image.src = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
         });
 
@@ -43,7 +43,14 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
 
         // write the modified image data
         $scope.ctx.putImageData($scope.imgData, 0, 0);
+    };
 
+    //add text to image
+    $scope.addText = function () {
+        console.log("adding text");
+        $scope.ctx.font = "30px Arial";
+        $scope.ctx.fillStyle = "red";
+        $scope.ctx.fillText("Hello World", 10, 50);
     };
 
     $scope.saveImage = function () {
@@ -85,4 +92,17 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             type: mimeString
         });
     };
+    
+    $(document).ready(function ($) {
+        $('.rrssb-buttons').rrssb({
+            // required:
+    title: 'ASDASD',
+    url: "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path,
+
+    // optional:
+    description: $scope.currentContent.data.title,
+    emailBody: 'BODY'
+
+        });
+    });
 });

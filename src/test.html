@@ -11,6 +11,7 @@
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/rrssb/css/rrssb.css" rel=stylesheet>
     <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-app="mediaRekt" ng-controller="ImageController">
@@ -70,7 +71,7 @@
                         </li>
                         <li class="rrssb-twitter">
                             <!-- Replace href with your Meta and URL information  -->
-                            <a href="https://twitter.com/intent/tweet?text=Ridiculously%20Responsive%20Social%20Sharing%20Buttons%20by%20%40dbox%20and%20%40joshuatuscan%3A%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%20%7C%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%2Fmedia%2Frrssb-preview.png" class="popup">
+                            <a href="https://twitter.com/intent/tweet?text={{ currentContent.data.title }}" class="popup">
                                 <span class="rrssb-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
               <path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"
@@ -164,11 +165,11 @@
                             </a>
                         </li>
                     </ul>
-                    <br>
+                </div>
                     <button type="button" ng-click="blackAndWhite()" class="btn btn-primary">B&#33;W</button>
+                    <button type="button" ng-click="addText()" class="btn btn-primary">text</button>
                     <button type="button" ng-click="glfxTest()" class="btn btn-primary">GLFX</button>
                     <button type="button" ng-click="saveImage()" class="btn btn-primary">SAVE</button>
-                </div>
             </div>
         </div>
 
