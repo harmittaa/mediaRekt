@@ -3,5 +3,5 @@ mediaRekt.directive("showContent", function() {
        replace: true,
        restrict: "E",
        templateUrl: "views/showContent.html"
-   } 
+   };
 });

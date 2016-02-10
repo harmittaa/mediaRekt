@@ -75,19 +75,19 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             alert(e);
             return;
         }
-        console.log(canvas);
+        /*console.log(canvas);*/
         // convert the image to a texture
         /*image.src = document.getElementById('imageToEdit');*/
         image = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
         console.log("Still works");
-        var texture = canvas.texture(image);
+        /*var texture = canvas.texture(image);*/
         console.log("Still works");
 
         // apply the ink filter
-        canvas.draw(texture).ink(0.25).update();
+        /*canvas.draw(texture).ink(0.25).update();*/
 
         // replace the image with the canvas
-        image.parentNode.insertBefore(canvas, image);
+        /*image.parentNode.insertBefore(canvas, image);*/
         image.parentNode.removeChild(image);
     };
 
@@ -117,12 +117,11 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             "title": "tontut",
             "description": "asdasd",
             "type": "image"
-        }
+        };
         AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
             console.log(response);
         }, function errorCallback(response) {
             console.log(response);
         });
-
     };
 });

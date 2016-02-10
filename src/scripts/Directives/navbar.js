@@ -3,5 +3,5 @@ mediaRekt.directive("navbar", function() {
        replace: true,
        restrict: "E",
        templateUrl: "views/navbar.html"
-   } 
+   };
 });

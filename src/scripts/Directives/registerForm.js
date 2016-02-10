@@ -3,5 +3,5 @@ mediaRekt.directive("registerForm", function () {
        replace: true,
        restrict: "E",
        templateUrl: "views/registerForm.html"
-   } 
+   };
 });

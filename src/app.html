@@ -94,7 +94,7 @@
     </div>
 
     <!--SEARCH-->
-    <div class="modal fade" id="searchMod" tabindex="-1" role="dialog">
+    <div class="modal fade" id="searchMod" tabindex="-1" role="dialog" ng-controller="SearchController">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,18 +106,18 @@
 
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search titles" id="searchbox">
+                            <input ng-model="titleSearch" type="text" class="form-control" placeholder="Search titles" id="searchbox">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search users" id="searchboxUser">
+                            <input ng-model="userSearch" type="text" class="form-control" placeholder="Search users" id="searchboxUser">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search description" id="searchboxDesc">
+                            <input ng-model="descSearch" type="text" class="form-control" placeholder="Search description" id="searchboxDesc">
                         </div>
                         <!--<button type="submit" class="btn btn-default" id="submitsearch" >Submit</button>-->
                         <!--<button class="btn btn-default" id="submitsearch" >Submit</button>-->
                     </form>
-                    <button class="btn btn-success" id="submitsearch">Search</button>
+                    <button class="btn btn-success" id="submitsearch" ng-click="search()">Search</button>
                 </div>
                 <!--modal-body-->
             </div>
@@ -160,20 +160,21 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/Controllers/navController.js"></script>
     <script src="scripts/Controllers/scrollController.js"></script>
-    <script type='text/javascript' src='scripts/ng-infinite-scroll.min.js'></script>
     <script src="scripts/Controllers/contentController.js"></script>
     <script src="scripts/Controllers/signupController.js"></script>
     <script src="scripts/Controllers/uploadController.js"></script>
     <script src="scripts/Controllers/loginController.js"></script>
     <script src="scripts/Controllers/mainController.js"></script>
     <script src="scripts/Controllers/fileTypeController.js"></script>
-    <script src="scripts/Controllers/imageController.js"></script>    
+    <script src="scripts/Controllers/imageController.js"></script>   
+    <script src="scripts/Controllers/searchController.js"></script> 
     <script src="scripts/Services/ajaxFactory.js"></script>
     <script src="scripts/Services/shareDataFactory.js"></script>
     <script src="scripts/Directives/registerForm.js"></script>
     <script src="scripts/Directives/loginForm.js"></script>
     <script src="scripts/Directives/showContent.js"></script>
     <script src="scripts/Directives/navbar.js"></script>
+
 </body>
 
 </html>

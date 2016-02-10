@@ -3,5 +3,5 @@ mediaRekt.directive("loginForm", function() {
       replace: true,
       restrict: "E",
       templateUrl: "views/loginForm.html"
-  }
+  };
 });

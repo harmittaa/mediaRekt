@@ -90,5 +90,33 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         return $http(getUserFavourites);
     };
 
+    ajaxMethods.searchByTitle = function (data) {
+        console.log("searching for title");
+        var searchByTitle = {
+            method: "POST",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/files/search/title/",
+            data: $httpParamSerializer(data),
+            transformRequest: angular.identity,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        };
+        return $http(searchByTitle);
+    };
+
+    ajaxMethods.searchByDescription = function (data) {
+        console.log("searching by description");
+        var searchByDescription = {
+            method: "POST",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/files/search/desc/",
+            data: $httpParamSerializer(data),
+            transformRequest: angular.identity,
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded"
+            }
+        };
+        return $http(searchByDescription);
+    };
+
     return ajaxMethods;
 });

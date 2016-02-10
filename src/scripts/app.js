@@ -1,1 +1,1 @@
-var mediaRekt = angular.module('mediaRekt', ["infinite-scroll"]);
+var mediaRekt = angular.module('mediaRekt', []);
