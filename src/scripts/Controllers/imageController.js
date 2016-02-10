@@ -20,13 +20,13 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
 
             $scope.image = new Image();
             $scope.image.onload = function () {
-                $scope.ctx.drawImage($scope.image, 0, 0, 300, 300);
+                $scope.ctx.drawImage($scope.image, 0, 0, $scope.image.width, $scope.image.height, 0, 0, $scope.canvas.width, $scope.canvas.height);
                 // desaturation colors
             };
 
             $scope.image.crossOrigin = "anonymous";
             console.log("seeing if path is available");
-            console.log($scope.currentContent.data.path);
+            console.log($scope.currentContent.data.pöath);
             $scope.image.src = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
         });
 
@@ -46,67 +46,17 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
 
     };
 
-    $scope.glfxTest = function () {
-        console.log("glfx test function");
-        var image = new Image();
-        image.crossOrigin = "anonymous";
-        /*      try {
-                  $scope.glCanvas = fx.canvas();
-              }  catch (e) {
-                  console.log("canvas creation failed");
-                  console.log(e);
-              }
-                console.log("Still works");
-                
-                $scope.glImage = document.getElementById("#imageToEdit");
-                console.log("Still works");
-                $scope.texture = $scope.glCanvas.texture($scope.glImage);
-                console.log("Still works");
-                
-                $scope.glCanvas.draw($scope.texture).ink(0.25).update();
-                
-                $scope.glImage.parentNode.insertBefore($scope.glCanvas, $scope.glImage);
-                $scope.glImage.parentNode.removeChild($scope.glImage);*/
-
-        // try to create a WebGL canvas (will fail if WebGL isn't supported)
-        try {
-            var canvas = fx.canvas();
-        } catch (e) {
-            alert(e);
-            return;
-        }
-        /*console.log(canvas);*/
-        // convert the image to a texture
-        /*image.src = document.getElementById('imageToEdit');*/
-        image = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
-        console.log("Still works");
-        /*var texture = canvas.texture(image);*/
-        console.log("Still works");
-
-        // apply the ink filter
-        /*canvas.draw(texture).ink(0.25).update();*/
-
-        // replace the image with the canvas
-        /*image.parentNode.insertBefore(canvas, image);*/
-        image.parentNode.removeChild(image);
-    };
-
     $scope.saveImage = function () {
-
         var imgAsDataUrl = $scope.canvas.toDataURL("image/png");
         var newImg = document.createElement("img");
         newImg.src = imgAsDataUrl;
-        console.log(imgAsDataUrl);
-
         $scope.uploadFormData = new FormData();
         $scope.uploadFormData.append("file", $scope.dataURItoBlob(imgAsDataUrl), "pic.png");
         $scope.uploadFormData.append("type", "image");
         $scope.uploadFormData.append("mime-type", "image/png");
-        $scope.uploadFormData.append("user", "1");
+        $scope.uploadFormData.append("user", "20");
         $scope.uploadFormData.append("title", "test");
         $scope.uploadFormData.append("description", "too short???");
-
-
         AjaxFactory.uploadFile($scope.uploadFormData).then(function successCallback(response) {
             console.log(response);
         }, function errorCallback(response) {

@@ -33,16 +33,18 @@ mediaRekt.controller("SearchController", function ($scope, $http, AjaxFactory) {
                 console.log(response);
             });
 
-        } else if ($scope.userSearch !== "") {
+/*        } else if ($scope.userSearch !== "") {
 
             AjaxFactory.findUserById($scope.userSearch).then(function successCallback(response) {
                 console.log(response);
                 $scope.searchUserId = response.data.userId;
+
+                
             }, function errorCallback(response) {
                 console.log(response);
-            })
+            });*/
                 
-                .then(function continueNext() {
+/*              .then(function continueNext() {
                 AjaxFactory.getUserUploads($scope.userSearch).then(function successCallback(response) {
                     console.log("getting uploads");
                     console.log(response);
@@ -52,7 +54,7 @@ mediaRekt.controller("SearchController", function ($scope, $http, AjaxFactory) {
                 }, function errorCallback(response) {
                     console.log(response);
                 });
-            });
+            });*/
 
         } else {
             alert("CHOOSE SOMETHING!");

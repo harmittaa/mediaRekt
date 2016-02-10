@@ -122,7 +122,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         console.log("Finding user by ID");
         var findUserById = {
             method: "GET",
-            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/user" + data,
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/users/"
         };
         return $http(findUserById);
     };
