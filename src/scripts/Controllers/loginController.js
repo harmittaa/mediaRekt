@@ -10,8 +10,10 @@ mediaRekt.controller("LoginController", function ($scope, $http, AjaxFactory) {
             console.log(response.data.userId);
             localStorage.setItem("user", response.data.userId);
             localStorage.setItem("logged", "true");
-            
-            
+            alert("Logged in :))");
+            $("#navi").collapse('hide');
+            console.log("ASDASDAS");
+
         }, function errorCallback(response) {
             console.log(response);
         });

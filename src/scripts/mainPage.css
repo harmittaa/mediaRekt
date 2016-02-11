@@ -106,9 +106,8 @@ p {
 
 /* change modal color */
 .modal-content {
-    background-color:dimgray;
+    background-color: dimgray;
 }
-
 #filler {
     background-color: aqua;
     padding: 15px;
@@ -118,6 +117,7 @@ p {
 }
 body {
     /*background-color: #9E9E9E;*/
+    
     font-family: 'PT Sans', sans-serif;
     background-color: #181316;
 }
@@ -266,6 +266,12 @@ loadMore {
 .panel>.panel-heading:before {
     border-right-color: #ddd;
     border-width: 8px;
+}
+.rrssb-whatsapp a {
+    background: rgb(100, 212, 72) !important;
+}
+.rrssb-whatsapp a:hover {
+    background: rgb(81, 170, 58) !important;
 }
 
 /*COMMENT BUBBLE*/

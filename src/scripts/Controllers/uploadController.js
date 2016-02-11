@@ -37,6 +37,10 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
 
         AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
             console.log(response);
+            console.log("success"); 
+/*            $("#uploadUpMod").hide("slow", function () {
+                alert("Animation complete.");
+            });*/
         }, function errorCallback(response) {
             console.log(response);
         });

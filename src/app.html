@@ -45,7 +45,7 @@
                         <textarea class="form-control" rows="4" id="descriptioninput" name="description" placeholder="Description (max 140 characters)"></textarea>
                         <p id="remain"></p>
                         <br>
-                        <button id="upload" class="btn btn-success btn-sm" ng-click="uploadFile()">Upload</button>
+                        <button id="upload" class="btn btn-success btn-sm" ng-click="uploadFile()" data-dismiss="modal">Upload</button>
                     </form>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 
                 <div class="modal-footer">
                     <button id="alreadyuser" type="button" class="btn btn-primary" data-dismiss="modal">Already a user? Login here!</button>
-                    <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()">Sign up!</button>
+                    <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()" data-dismiss="modal" data-dismiss="modal">Sign up!</button>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="modal-footer">
                     <button id="notuser" type="button" class="btn btn-primary" data-dismiss="modal">Not user? Sign up, here!</button>
-                    <button id="logincheck" type="button" class="btn btn-default" ng-click="login()">Login</button>
+                    <button id="logincheck" type="button" class="btn btn-default" ng-click="login()" data-dismiss="modal">Login</button>
                 </div>
             </div>
         </div>
@@ -109,16 +109,11 @@
                         <div class="form-group">
                             <input ng-model="titleSearch" type="text" class="form-control" placeholder="Search titles" id="searchbox">
                         </div>
-<!--                        <div class="form-group">
-                            <input ng-model="userSearch" type="text" class="form-control" placeholder="Search users" id="searchboxUser">
-                        </div>-->
                         <div class="form-group">
                             <input ng-model="descSearch" type="text" class="form-control" placeholder="Search description" id="searchboxDesc">
                         </div>
-                        <!--<button type="submit" class="btn btn-default" id="submitsearch" >Submit</button>-->
-                        <!--<button class="btn btn-default" id="submitsearch" >Submit</button>-->
                     </form>
-                    <button class="btn btn-success" id="submitsearch" ng-click="search()">Search</button>
+                    <button class="btn btn-success" id="submitsearch" ng-click="search()" data-dismiss="modal">Search</button>
                 </div>
                 <!--modal-body-->
             </div>
