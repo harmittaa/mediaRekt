@@ -22,127 +22,22 @@
     </div>
 
     <show-content></show-content>
-
-    <!--MODAL STUFf-->
+    <!--MODAL STUFF-->
 
     <!--UPLOAD IMAGE-->
-    <div class="modal custom fade" id="uploadUpMod" tabindex="-1" role="dialog" ng-controller="UploadController">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Upload</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="uploadform">
-                        <canvas id="previewCanvas" style="width: 100%;"> </canvas>
-                        <input id="imgInp" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)">
-                        <br>
-                        <input type="hidden" name="user" value="12">
-                        <textarea class="form-control" rows="1" id="titleinput" name="title" placeholder="Title"></textarea>
-                        <br>
-                        <textarea class="form-control" rows="4" id="descriptioninput" name="description" placeholder="Description (max 140 characters)"></textarea>
-                        <p id="remain"></p>
-                        <br>
-                        <button id="upload" class="btn btn-success btn-sm" ng-click="uploadFile()" data-dismiss="modal">Upload</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <<upload-modal></upload-modal>
 
     <!--SIGN UP-->
-    <div ng-controller="NavController" class="modal fade" id="signUpMod" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content" ng-controller="SignupController">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">SIGNUP</h4>
-                </div>
-
-                <div class="modal-body">
-                    <register-form></register-form>
-                </div>
-
-                <div class="modal-footer">
-                    <button id="alreadyuser" type="button" class="btn btn-primary" data-dismiss="modal">Already a user? Login here!</button>
-                    <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()" data-dismiss="modal" data-dismiss="modal">Sign up!</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <register-modal></register-modal>
 
     <!--LOGIN-->
-    <div class="modal fade" id="logInMod" tabindex="-1" role="dialog" ng-controller="LoginController">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Type your username and password</h4>
-                </div>
-                <div class="modal-body">
-                    <login-form></login-form>
-                </div>
-                <div class="modal-footer">
-                    <button id="notuser" type="button" class="btn btn-primary" data-dismiss="modal">Not user? Sign up, here!</button>
-                    <button id="logincheck" type="button" class="btn btn-default" ng-click="login()" data-dismiss="modal">Login</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <login-modal></login-modal>
 
     <!--SEARCH-->
-    <div class="modal fade" id="searchMod" tabindex="-1" role="dialog" ng-controller="SearchController">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Search for content</h4>
-                </div>
-                <div class="modal-body">
-
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input ng-model="titleSearch" type="text" class="form-control" placeholder="Search titles" id="searchbox">
-                        </div>
-                        <div class="form-group">
-                            <input ng-model="descSearch" type="text" class="form-control" placeholder="Search description" id="searchboxDesc">
-                        </div>
-                    </form>
-                    <button class="btn btn-success" id="submitsearch" ng-click="search()" data-dismiss="modal">Search</button>
-                </div>
-                <!--modal-body-->
-            </div>
-            <!--modal-content-->
-        </div>
-        <!--modal-dialog-->
-    </div>
-    <!--modal-fade-->
+    <search-modal></search-modal>
 
     <!--FORGOT PASSWORD?!-->
-    <div class="modal fade" id="forgotMod" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Type your username and email to retrieve your password</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" id="usernameForgot" placeholder="Username" />
-                    <br>
-                    <input type="password" id="emailForgot" placeholder="Email" />
-                </div>
-                <div class="modal-footer">
-                    <button id="forgotcheck" type="button" class="btn btn-primary">Send</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <forgot-password-modal></forgot-password-modal>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -166,11 +61,13 @@
     <script src="scripts/Controllers/searchController.js"></script> 
     <script src="scripts/Services/ajaxFactory.js"></script>
     <script src="scripts/Services/shareDataFactory.js"></script>
-    <script src="scripts/Directives/registerForm.js"></script>
-    <script src="scripts/Directives/loginForm.js"></script>
+    <script src="scripts/Directives/registerModal.js"></script>
+    <script src="scripts/Directives/loginModal.js"></script>
     <script src="scripts/Directives/showContent.js"></script>
     <script src="scripts/Directives/navbar.js"></script>
-
+    <script src="scripts/Directives/uploadModal.js"></script>
+    <script src="scripts/Directives/searchModal.js"></script>
+    <script src="scripts/Directives/forgotPasswordModal.js"></script>
 </body>
 
 </html>

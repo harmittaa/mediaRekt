@@ -14,14 +14,16 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             console.log(response);
         })
         .then(function testtest() {
-
             $scope.canvas = document.getElementById("testCanvas");
             $scope.ctx = $scope.canvas.getContext("2d");
 
             $scope.image = new Image();
+            console.log("setting canvas size");
+
             $scope.image.onload = function () {
+                $scope.canvas.width = $scope.image.width;
+                $scope.canvas.height = $scope.image.height;
                 $scope.ctx.drawImage($scope.image, 0, 0, $scope.image.width, $scope.image.height, 0, 0, $scope.canvas.width, $scope.canvas.height);
-                // desaturation colors
             };
 
             $scope.image.crossOrigin = "anonymous";
@@ -92,16 +94,16 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             type: mimeString
         });
     };
-    
+
     $(document).ready(function ($) {
         $('.rrssb-buttons').rrssb({
             // required:
-    title: 'ASDASD',
-    url: "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path,
+            title: 'ASDASD',
+            url: "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path,
 
-    // optional:
-    description: $scope.currentContent.data.title,
-    emailBody: 'BODY'
+            // optional:
+            description: $scope.currentContent.data.title,
+            emailBody: 'BODY'
 
         });
     });

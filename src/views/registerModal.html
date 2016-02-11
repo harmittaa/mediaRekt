@@ -1,0 +1,26 @@
+<div ng-controller="NavController" class="modal fade" id="signUpMod" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" ng-controller="SignupController">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">SIGNUP</h4>
+            </div>
+
+            <div class="modal-body">
+                <form id="signupForm">
+                    <input type="text" name="username" placeholder="Username" ng-model="regUsername" /> /
+                    <br>
+                    <input type="text" name="password" placeholder="Password" ng-model="regPassword" />
+                    <br>
+                    <input type="text" name="email" placeholder="Email" ng-model="regEmail" />
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button id="alreadyuser" type="button" class="btn btn-primary" data-dismiss="modal">Already a user? Login here!</button>
+                <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()" data-dismiss="modal" data-dismiss="modal">Sign up!</button>
+            </div>
+        </div>
+    </div>
+</div>
