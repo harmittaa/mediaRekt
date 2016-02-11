@@ -120,7 +120,31 @@
                     <button type="button" ng-click="saveImage()" class="btn btn-primary">SAVE</button>
                 </div>
             </div>
-
+        <div class="container" ng-controller="AddCommentController">
+            <div class="row">
+                <div id="commentBox" class="col-md-6 col-md-offset-3">
+                    <form id="commentForm">
+                        <textarea class="form-control" rows="3" name="comment" ng-model="comment" placeholder="Write comment here"></textarea>
+                    <button class="btn btn-success" ng-click="addComment()">Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+           
+            <div ng-controller="CommentController">
+                <div id="commentContainer" class="container" ng-repeat="file in commentData">
+                    <div class="row">
+                        <div id="commentHeader" class="col-md-6 col-md-offset-3">
+                            <h4>{{ file.username }} {{ file.time }}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="commentContent" class="col-md-6 col-md-offset-3">
+                            <p>{{ file.comment }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -154,6 +178,8 @@
             <script src="scripts/Directives/uploadModal.js"></script>
             <script src="scripts/Directives/searchModal.js"></script>
             <script src="scripts/Directives/forgotPasswordModal.js"></script>
+            <script src="scripts/Controllers/commentController.js"></script>
+            <script src="scripts/Controllers/addCommentController.js"></script>
 
 </body>
 

@@ -117,7 +117,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(searchByDescription);
     };
-    
+
     ajaxMethods.findUserById = function (data) {
         console.log("Finding user by ID");
         var findUserById = {
@@ -126,6 +126,29 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(findUserById);
     };
+
+    ajaxMethods.getFileComments = function (data) {
+        console.log("getting file comments");
+        var getFileComments = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/comments/file/" + data
+        };
+        return $http(getFileComments);
+    };
+    
+    ajaxMethods.comment = function (data, formData) {
+        var commentInfo = {
+            method: "POST",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/comment/file/" + data,
+            data: formData,
+            transformRequest: angular.identity,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        };
+        return $http(commentInfo);
+    };
+
 
     return ajaxMethods;
 });

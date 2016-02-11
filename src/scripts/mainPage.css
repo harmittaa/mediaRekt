@@ -273,5 +273,37 @@ loadMore {
 .rrssb-whatsapp a:hover {
     background: rgb(81, 170, 58) !important;
 }
+#commentHeader {
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: cadetblue;
+    padding: 3px;
+}
+#commentContent {
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    background-color: dimgray;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 3px;
+}
+
+#commentBox {
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    background-color: dimgray;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 8px;
+}
+
+#commentContainer {
+    border-radius: 25px;
+}
 
 /*COMMENT BUBBLE*/
