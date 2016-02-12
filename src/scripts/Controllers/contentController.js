@@ -10,7 +10,6 @@ mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDa
         console.log(response);
     });
 
-
     // splits the fileType from mimeType and returns to html
     $scope.getType = function (type) {
         return type.substr(0, 5);

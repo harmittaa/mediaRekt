@@ -99,10 +99,10 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
         $('.rrssb-buttons').rrssb({
             // required:
             title: 'ASDASD',
-            url: "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path,
+            url: "http://util.mw.metropolia.fi/uploads/",
 
             // optional:
-            description: $scope.currentContent.data.title,
+            description: "$scope.currentContent.data.title",
             emailBody: 'BODY'
 
         });

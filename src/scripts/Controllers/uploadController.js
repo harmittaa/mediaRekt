@@ -32,6 +32,12 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
     $scope.uploadFile = function () {
         console.log("uploadFile");
         $scope.formData = new FormData(document.querySelector("#uploadform"));
+        if (localStorage.getItem("user") === null) {
+            $scope.formData.append("user", "1");
+            alert("not logged in!");
+        } else {
+            $scope.formData.append("user", localStorage.getItem("user"));
+        }
         $scope.formData.append("type", $scope.fileType);
         $scope.formData.append("mime-type", $scope.mimeType);
 

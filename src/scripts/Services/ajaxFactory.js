@@ -135,13 +135,12 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         };
         return $http(getFileComments);
     };
-    
+
     ajaxMethods.comment = function (data, formData) {
         var commentInfo = {
             method: "POST",
             url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/comment/file/" + data,
-            data: formData,
-            transformRequest: angular.identity,
+            data: $httpParamSerializer(formData),
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
@@ -149,6 +148,31 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         return $http(commentInfo);
     };
 
+    ajaxMethods.getUserLikes = function (data) {
+        console.log("getting the likes of user");
+        var getUserLikesInfo = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/likes/user/" + data,
+        };
+        return $http(getUserLikesInfo);
+    };
 
+    ajaxMethods.likeImage = function (file, user) {
+        console.log("Like image");
+        var likeImageInfo = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/like/" + file + "/" + user
+        };
+        return $http(likeImageInfo);
+    };
+
+    ajaxMethods.dislikeImage = function (file, user) {
+        console.log("dislike");
+        var dislikeImageInfo = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/unlike/" + file + "/" + user
+        };
+        return $http(dislikeImageInfo);
+    };
     return ajaxMethods;
 });

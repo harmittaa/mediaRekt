@@ -306,4 +306,13 @@ loadMore {
     border-radius: 25px;
 }
 
+#likeButton {
+    border-radius: 20px;
+    padding: inherit;
+}
+
+.likeSpanColor {
+    color: orangered;
+}
+
 /*COMMENT BUBBLE*/
