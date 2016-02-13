@@ -1,43 +1,32 @@
-    <nav id="navi" class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                
-                <button id="uploadbutton" ng-click="showUpload()" type="button" class="btn btn-success">Upload</button>
+<nav id="navi" class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
+    <div class="container-fluid">
+        <div class="navbar-header">
 
-                <div id="mediaButton" class="btn-group" ng-controller="FileTypeController">
-                <button type="button"  class="btn btn-success btn-sm" ng-click="getImages()">
-                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-                </button>
-                
-                <button type="button"  class="btn btn-success btn-sm" ng-click="getVideo()" >
-                    <span class="glyphicon glyphicon-facetime-video
-" aria-hidden="true"></span>
-                </button>
-                
-                <button type="button"  class="btn btn-success btn-sm" ng-click="getAudio()">
-                    <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                </button>
-                </div>
-                
-                <a class="navbar-brand" href="app.html" id="logo">{{ title }}</a>
-                <a class="navbar-brand" href="app.html" id="logo"><!--{{ title }}--></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
+            <button id="uploadbutton" ng-click="showUpload()" type="button" class="btn btn-success">Upload</button>
 
-            <div class="collapse navbar-collapse" id="myNav">
-                <ul class="nav navbar-nav">
-                    <li href="#"><a href="index.html" id="home">Home</a></li>
-                    <li><a href="#" ng-click="showSearch()" id="search">Search</a></li>
-                    <li><a ng-click="userUploads()" id="myprofile">My Images</a></li>
-                    <li><a href="#" ng-click="userFavourites()" id="myfavourites">My favourites</a></li>
-                    <li><a href="#" ng-click="showSignup()" id="signup">Signup</a></li>
-                    <li><a href="#" ng-click="showLogin()" id="login">Login</a></li>
-                    <li><a href="#" id="logout" ng-click="logout()">Logout</a></li>
-                    </ul>
-            </div>
+
+
+            <a class="navbar-brand" href="app.html" id="logo">{{ title }}</a>
+            <a class="navbar-brand" href="app.html" id="logo">
+                <!--{{ title }}-->
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-    </nav>
+
+        <div class="collapse navbar-collapse" id="myNav">
+            <ul class="nav navbar-nav">
+                <li href="#"><a href="index.html" id="home">Home</a></li>
+                <li><a href="#" ng-click="showSearch()" id="search">Search</a></li>
+                <li><a ng-click="userUploads()" id="myprofile">My Images</a></li>
+                <li><a href="#" ng-click="userFavourites()" id="myfavourites">My favourites</a></li>
+                <li><a href="#" ng-click="showSignup()" id="signup">Signup</a></li>
+                <li><a href="#" ng-click="showLogin()" id="login">Login</a></li>
+                <li><a href="#" id="logout" ng-click="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
