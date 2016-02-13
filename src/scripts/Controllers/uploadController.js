@@ -11,7 +11,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
 
         $scope.image = new Image();
         $scope.canvas = angular.element("#previewCanvas")[0];
-        $scope.ctx = $scope.canvas.getContext("webGl");
+        $scope.ctx = $scope.canvas.getContext('2d');
 
         var reader = new FileReader();
 
@@ -21,6 +21,14 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
 
         reader.readAsDataURL(element.files[0]);
         $scope.image.onload = $scope.resetImage;
+        // When image data is loaded (after onload)
+        // Put the data into canvas element
+        $scope.ctx.drawImage($scope.image, 0, 0, $scope.canvas.width = $scope.image.width, $scope.canvas.height = $scope.image.height);
+             
+      // read pixel data
+      $scope.imageData = $scope.ctx.getImageData(0, 0, $scope.canvas.width, $scope.canvas.height);
+      $scope.pixels = $scope.imageData.data;
+      $scope.numPixels = $scope.imageData.width * $scope.imageData.height;
     };
 
     $scope.resetImage = function () {
