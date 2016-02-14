@@ -1,7 +1,7 @@
 // handling the uploading of the picture
 
 mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
-
+//set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
         console.log(element.files[0]);
         $scope.mimeType = element.files[0].type;
@@ -31,10 +31,6 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
       $scope.numPixels = $scope.imageData.width * $scope.imageData.height;
     };
 
-    $scope.resetImage = function () {
-        $scope.canvas.width = $scope.image.width;
-        $scope.canvas.height = $scope.image.height;
-    };
 
     // uploading
     $scope.uploadFile = function () {
