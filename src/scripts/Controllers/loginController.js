@@ -7,12 +7,14 @@ mediaRekt.controller("LoginController", function ($scope, $http, AjaxFactory) {
         };
 
         AjaxFactory.login($scope.loginData).then(function successCallback(response) {
-            console.log(response.data.userId);
-            localStorage.setItem("user", response.data.userId);
-            localStorage.setItem("logged", "true");
-            alert("Logged in :))");
-            $("#navi").collapse('hide');
-            console.log("ASDASDAS");
+            if (response.data.status == "login ok") {
+                console.log(response.data.userId);
+                localStorage.setItem("user", response.data.userId);
+                localStorage.setItem("logged", "true");
+                $("#navi").collapse('hide');
+                console.log("logged in");
+                $('#loginAlert').toggleClass('hide-alert');
+            }
 
         }, function errorCallback(response) {
             console.log(response);

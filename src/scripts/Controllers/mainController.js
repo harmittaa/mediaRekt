@@ -24,5 +24,7 @@ mediaRekt.controller("MainController", function ($scope, $sce) {
     $scope.trustURL = function(url) {
         return $sce.trustAsResourceUrl(url);
     };
-    
+    $scope.closeAlert = function () {
+       $('#loginAlert').toggleClass('hide-alert');  
+    };
 });
