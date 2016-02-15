@@ -106,7 +106,16 @@ p {
 
 /* change modal color */
 .modal-content {
-    background-color: dimgray;
+    background-color: #222222;
+}
+#modalHeader {
+    color: white;
+}
+textarea::-webkit-input-placeholder {
+    color: black !important;
+}
+input::-webkit-input-placeholder {
+    color: black !important;
 }
 #filler {
     background-color: aqua;
@@ -127,7 +136,6 @@ body {
     -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
 }
-
 #alanavi {
     background-color: #222222;
     -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
@@ -305,7 +313,6 @@ loadMore {
     margin-bottom: 20px;
     padding: 3px;
 }
-
 #commentBox {
     border-bottom-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
@@ -315,16 +322,13 @@ loadMore {
     margin-right: 20px;
     padding: 8px;
 }
-
 #commentContainer {
     border-radius: 25px;
 }
-
 #likeButton {
     border-radius: 20px;
     padding: inherit;
 }
-
 .likeSpanColor {
     color: orangered;
 }

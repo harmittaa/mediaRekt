@@ -2,9 +2,9 @@
     <div class="modal-dialog">
         <div class="modal-content" ng-controller="SignupController">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" id="modalHeader" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="modalHeader">&times;</span>
                 </button>
-                <h4 class="modal-title">SIGNUP</h4>
+                <h4 id="modalHeader" class="modal-title">SIGNUP</h4>
             </div>
 
             <div class="modal-body">
@@ -18,8 +18,8 @@
             </div>
 
             <div class="modal-footer">
-                <button id="alreadyuser" type="button" class="btn btn-primary" data-dismiss="modal">Already a user? Login here!</button>
-                <button id="signupcheck" type="button" class="btn btn-default" ng-click="signup()" data-dismiss="modal" data-dismiss="modal">Sign up!</button>
+                <button id="alreadyuser" type="button" class="btn btn-info" data-dismiss="modal">Already a user? Login here!</button>
+                <button id="signupcheck" type="button" class="btn btn-success" ng-click="signup()" data-dismiss="modal" data-dismiss="modal">Sign up!</button>
             </div>
         </div>
     </div>

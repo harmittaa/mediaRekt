@@ -2,9 +2,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="modalHeader">&times;</span>
                 </button>
-                <h4 class="modal-title">Type your username and password</h4>
+                <h4 class="modal-title" id="modalHeader">Type your username and password</h4>
             </div>
             <div class="modal-body">
                 <form id="loginForm">
@@ -16,8 +16,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="notuser" type="button" class="btn btn-primary" data-dismiss="modal">Not user? Sign up, here!</button>
-                <button id="logincheck" type="button" class="btn btn-default" ng-click="login()" data-dismiss="modal">Login</button>
+                <button id="notuser" type="button" class="btn btn-info" data-dismiss="modal">Not user? Sign up, here!</button>
+                <button id="logincheck" type="button" class="btn btn-success" ng-click="login()" data-dismiss="modal">Login</button>
             </div>
         </div>
     </div>
