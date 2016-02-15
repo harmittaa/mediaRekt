@@ -1,3 +1,5 @@
+// handles navbar
+
 mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
     $scope.title = "MediaRekt";
     $scope.hideSignup = true;

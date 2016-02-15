@@ -1,3 +1,5 @@
+// for getting the like status when entering test.html and toggling the like status when user clicks like button
+
 mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory) {
     $scope.liked = false;
     $scope.currentUser = localStorage.getItem("user");

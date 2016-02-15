@@ -1,4 +1,4 @@
-// IMAGE VIEW CONTROLLER
+// test.html main controller, for image editing and setting the image file for user to see
 
 mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
     console.log(window.location.href);

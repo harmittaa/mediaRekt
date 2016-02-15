@@ -1,3 +1,5 @@
+// handles login and shows necessary alerts
+
 mediaRekt.controller("LoginController", function ($scope, $http, AjaxFactory) {
     $scope.login = function () {
         console.log("login function");

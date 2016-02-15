@@ -1,7 +1,7 @@
-// handling the uploading of the picture
+// handling the uploading of the picture, also set image to canvas (not implemented)
 
 mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
-//set the image to be uploaded into a canvas
+    //set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
         console.log(element.files[0]);
         $scope.mimeType = element.files[0].type;
@@ -24,11 +24,11 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
         // When image data is loaded (after onload)
         // Put the data into canvas element
         $scope.ctx.drawImage($scope.image, 0, 0, $scope.canvas.width = $scope.image.width, $scope.canvas.height = $scope.image.height);
-             
-      // read pixel data
-      $scope.imageData = $scope.ctx.getImageData(0, 0, $scope.canvas.width, $scope.canvas.height);
-      $scope.pixels = $scope.imageData.data;
-      $scope.numPixels = $scope.imageData.width * $scope.imageData.height;
+
+        // read pixel data
+        $scope.imageData = $scope.ctx.getImageData(0, 0, $scope.canvas.width, $scope.canvas.height);
+        $scope.pixels = $scope.imageData.data;
+        $scope.numPixels = $scope.imageData.width * $scope.imageData.height;
     };
 
 

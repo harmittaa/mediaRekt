@@ -9,90 +9,69 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/src/scripts/mainPage.css">
+    <link rel="stylesheet" type="text/css" href="/src/scripts/main.css">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-app="mediaRekt" ng-controller="MainController">
-    
+
     <!--UPPER NAVBAR-->
     <navbar></navbar>
 
-<div id="loginAlert" class="alert alert-success hide-alert" role="alert" ng-click="closeAlert()">
-  <a href="#" class="alert-link">Logged in!</a>
-</div>
+    <div id="loginAlert" class="alert alert-success hide-alert" role="alert" ng-click="closeAlert()">
+        <a href="#" class="alert-link">Logged in!</a>
+    </div>
     <show-content></show-content>
     <!--MODAL STUFF-->
 
     <!--UPLOAD IMAGE-->
-    <<upload-modal></upload-modal>
+    <upload-modal></upload-modal>
 
-        <!--SIGN UP-->
-        <register-modal></register-modal>
+    <!--SIGN UP-->
+    <register-modal></register-modal>
 
-        <!--LOGIN-->
-        <login-modal></login-modal>
+    <!--LOGIN-->
+    <login-modal></login-modal>
 
-        <!--SEARCH-->
-        <search-modal></search-modal>
+    <!--SEARCH-->
+    <search-modal></search-modal>
 
-        <!--FORGOT PASSWORD?!-->
-        <forgot-password-modal></forgot-password-modal>
+    <!--FORGOT PASSWORD?!-->
+    <forgot-password-modal></forgot-password-modal>
 
-        <!--LOWER NAVBAR-->
-        <nav id="alanavi" class="navbar navbar-inverse navbar-fixed-bottom" ng-controller="NavController">
-            <div class="container-fluid">
-                <div class="navbar-header" id="navButtons">
+    <!--LOWER NAVBAR-->
+    <lower-navbar></lower-navbar>
 
-                    <button id="loadmoreButton" ng-click="loadContent()" type="button" class="btn btn-success">Load more stuff</button>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-                    <div id="mediaButton" class="btn-group" ng-controller="FileTypeController">
-                        <button type="button" class="btn btn-success " ng-click="getImages()">
-                            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-                        </button>
+    <!-- Include angular files & plugins -->
+    <script src="../bower_components/angular/angular.js"></script>
 
-                        <button type="button" class="btn btn-success " ng-click="getVideo()">
-                            <span class="glyphicon glyphicon-facetime-video
-" aria-hidden="true"></span>
-                        </button>
-
-                        <button type="button" class="btn btn-success " ng-click="getAudio()">
-                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-        <!-- Include angular files & plugins -->
-        <script src="../bower_components/angular/angular.js"></script>
-
-        <!-- Include My App's JS file(s)-->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/Controllers/navController.js"></script>
-        <script src="scripts/Controllers/scrollController.js"></script>
-        <script src="scripts/Controllers/contentController.js"></script>
-        <script src="scripts/Controllers/signupController.js"></script>
-        <script src="scripts/Controllers/uploadController.js"></script>
-        <script src="scripts/Controllers/loginController.js"></script>
-        <script src="scripts/Controllers/mainController.js"></script>
-        <script src="scripts/Controllers/fileTypeController.js"></script>
-        <script src="scripts/Controllers/imageController.js"></script>
-        <script src="scripts/Controllers/searchController.js"></script>
-        <script src="scripts/Services/ajaxFactory.js"></script>
-        <script src="scripts/Services/shareDataFactory.js"></script>
-        <script src="scripts/Directives/registerModal.js"></script>
-        <script src="scripts/Directives/loginModal.js"></script>
-        <script src="scripts/Directives/showContent.js"></script>
-        <script src="scripts/Directives/navbar.js"></script>
-        <script src="scripts/Directives/uploadModal.js"></script>
-        <script src="scripts/Directives/searchModal.js"></script>
-        <script src="scripts/Directives/forgotPasswordModal.js"></script>
+    <!-- Include My App's JS file(s)-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/Controllers/navController.js"></script>
+    <script src="scripts/Controllers/scrollController.js"></script>
+    <script src="scripts/Controllers/contentController.js"></script>
+    <script src="scripts/Controllers/signupController.js"></script>
+    <script src="scripts/Controllers/uploadController.js"></script>
+    <script src="scripts/Controllers/loginController.js"></script>
+    <script src="scripts/Controllers/mainController.js"></script>
+    <script src="scripts/Controllers/fileTypeController.js"></script>
+    <script src="scripts/Controllers/imageController.js"></script>
+    <script src="scripts/Controllers/searchController.js"></script>
+    <script src="scripts/Services/ajaxFactory.js"></script>
+    <script src="scripts/Services/shareDataFactory.js"></script>
+    <script src="scripts/Directives/registerModal.js"></script>
+    <script src="scripts/Directives/loginModal.js"></script>
+    <script src="scripts/Directives/showContent.js"></script>
+    <script src="scripts/Directives/navbar.js"></script>
+    <script src="scripts/Directives/uploadModal.js"></script>
+    <script src="scripts/Directives/searchModal.js"></script>
+    <script src="scripts/Directives/forgotPasswordModal.js"></script>
+    <script src="scripts/Directives/lowerNavbar.js"></script>
 </body>
 
 </html>

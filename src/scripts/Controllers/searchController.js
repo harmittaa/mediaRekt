@@ -1,8 +1,8 @@
+// handles searching
+
 mediaRekt.controller("SearchController", function ($scope, $http, AjaxFactory) {
     $scope.titleSearch = "";
-    $scope.userSearch = "";
     $scope.descSearch = "";
-    $scope.searchUserId = "";
 
     $scope.search = function () {
         console.log("user clicked search");
@@ -11,7 +11,7 @@ mediaRekt.controller("SearchController", function ($scope, $http, AjaxFactory) {
             $scope.searchInfo = {
                 "title": $scope.titleSearch
             };
-            
+
             AjaxFactory.searchByTitle($scope.searchInfo).then(function successCallback(response) {
                 console.log(response);
                 $scope.contentData.data = response.data;

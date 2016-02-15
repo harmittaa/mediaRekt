@@ -1,3 +1,5 @@
+// main controller of app.html, used for creating trustURL and changing .html files when user clicks on content
+
 mediaRekt.controller("MainController", function ($scope, $sce) {
     
     $scope.selectedType = {type: "image"};

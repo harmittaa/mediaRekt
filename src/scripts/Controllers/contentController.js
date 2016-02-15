@@ -1,3 +1,5 @@
+// getting the data when user selects front page
+
 mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataFactory) {
     $scope.loadAmount = 5;
 

@@ -1,3 +1,5 @@
+// gets new data based on what content user wants to see
+
 mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFactory, AjaxFactory) {
 
     $scope.getImages = function () {
@@ -7,13 +9,13 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
             ShareDataFactory.setData(response);
             console.log("setting data to contentdata.data");
             $scope.contentData.data = response.data;
-            
+
             console.log($scope.contentData.data);
         }, function errorCallback(response) {
             console.log(response);
         });
     };
-    
+
     $scope.getVideo = function () {
         $scope.datas = ShareDataFactory.getData();
 
@@ -26,7 +28,7 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
         }, function errorCallback(response) {
             console.log(response);
         });
-        
+
         /*$("#contents").load("views/video.html");*/
     };
 
@@ -41,6 +43,6 @@ mediaRekt.controller("FileTypeController", function ($scope, $http, ShareDataFac
             console.log(response);
         });
     };
-    
-    
+
+
 });
