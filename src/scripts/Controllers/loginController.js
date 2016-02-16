@@ -15,11 +15,14 @@ mediaRekt.controller("LoginController", function ($scope, $http, AjaxFactory) {
                 localStorage.setItem("logged", "true");
                 $("#navi").collapse('hide');
                 console.log("logged in");
-                $('#loginAlert').toggleClass('hide-alert');
+                $('#loginSuccess').toggleClass('hide-alert');
+            } else {
+                $('#loginFailure').toggleClass('hide-alert');
             }
 
-        }, function errorCallback(response) {
-            console.log(response);
+            function errorCallback(response) {
+                console.log(response);
+            }
         });
     };
 });
