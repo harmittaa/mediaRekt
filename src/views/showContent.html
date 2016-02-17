@@ -34,7 +34,7 @@
                 <!--                <video width="300">
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
                 </video>-->
-                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openVideoView(this)">
+                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
 
                 <br>
                 <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Comment</button>

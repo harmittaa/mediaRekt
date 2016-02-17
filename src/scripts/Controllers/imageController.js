@@ -1,6 +1,6 @@
 // test.html main controller, for image editing and setting the image file for user to see
 
-mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
+mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFactory) {
     console.log(window.location.href);
     var urlParam = window.location.href.split("=");
     $scope.contentId = urlParam[1];
@@ -105,6 +105,14 @@ mediaRekt.controller("ImageController", function ($scope, $http, AjaxFactory) {
             description: "$scope.currentContent.data.title",
             emailBody: 'BODY'
 
-        });
+         });
     });
+    $scope.getType = function (type) {
+        console.log("asdasd " + type);
+        return type.substr(0, 5);
+        
+    };
+    $scope.trustURL = function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
 });
