@@ -368,11 +368,35 @@ loadMore {
     border-radius: 25px;
 }
 #likeButton {
-    border-radius: 20px;
+    
     padding: inherit;
+    width: 77px;
+    height: 34px;
+    border-radius: 4px;
+    background-color: crimson;
+}
+
+#test{
+    padding-left: 15px;
+    padding-top: 9px;
+    
 }
 .likeSpanColor {
     color: orangered;
 }
+
+#shareButtons{
+    padding-left: 15px;
+}
+
+#filterButton{
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.btn-group{
+    display: inline;
+}
+
 
 /*COMMENT BUBBLE*/

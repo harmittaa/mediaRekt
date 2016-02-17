@@ -54,7 +54,7 @@ mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
         AjaxFactory.getUserFavourites(localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
             console.log("setting data to contentdata.data");
-            $scope.contentData.data = response.data;
+            $scope.contentData.data = response.data.reverse();
             console.log($scope.contentData.data);
         }, function errorCallback(response) {
             console.log(response);
