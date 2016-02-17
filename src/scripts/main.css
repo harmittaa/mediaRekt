@@ -22,20 +22,21 @@ ul {
     padding: 50px;
     color: black;
 }
+
 .hide-alert {
     display: none;
 }
+
 #loginSuccess {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    
 }
+
 #loginFailure {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    
 }
 
 #testCanvas {
@@ -141,8 +142,8 @@ input::-webkit-input-placeholder {
 }
 body {
     /*background-color: #9E9E9E;*/
-    padding-top: 70px
-    font-family: 'PT Sans', sans-serif;
+    
+    padding-top: 70px font-family: 'PT Sans', sans-serif;
     background-color: #181316;
 }
 #navi {
@@ -310,14 +311,21 @@ loadMore {
 .rrssb-whatsapp a:hover {
     background: rgb(81, 170, 58) !important;
 }
+#imageTitle {
+    color: white;
+    padding-left: 15px;
+}
 #commentHeader {
     border-top-right-radius: 0.5em;
     border-top-left-radius: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 20px;
-    background-color: cadetblue;
+    background-color: #222222;
     padding: 3px;
+}
+#commentInfo {
+    color: white;
 }
 #commentContent {
     border-bottom-right-radius: 0.5em;

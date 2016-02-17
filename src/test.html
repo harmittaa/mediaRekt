@@ -35,15 +35,16 @@
 
     <br>
     <br>
-    <h1>{{ currentContent.data.title }}</h1>
-    <h2>{{ currentContent.data.userId }}</h2>
+    <h1 id="imageTitle">{{ currentContent.data.title }}</h1>
+    <h4 id="imageTitle">by user: {{ currentContent.data.userId }}</h4>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <p>Test test test</p>
+
 
                 <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
                 <canvas id="testCanvas" width="200" height="200"></canvas>
+                <p>Image description</p>
                 <div>
                     <ul class="rrssb-buttons">
 
@@ -148,7 +149,7 @@
         <div id="commentContainer" class="container" ng-repeat="file in commentData">
             <div class="row">
                 <div id="commentHeader" class="col-md-6 col-md-offset-3">
-                    <h4>{{ file.username }} {{ file.time }}</h4>
+                    <h4 id="commentInfo">{{ file.username }} {{ file.time }}</h4>
                 </div>
             </div>
             <div class="row">
