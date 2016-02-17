@@ -45,6 +45,18 @@ ul {
     margin-right: 50px;
     
 }
+#registerSuccess {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+}
+#registerFailure {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+}
 
 #testCanvas {
     width: 100%;

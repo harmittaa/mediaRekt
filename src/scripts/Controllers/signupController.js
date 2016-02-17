@@ -16,17 +16,15 @@ mediaRekt.controller("SignupController", function ($scope, $http, AjaxFactory) {
         console.log($scope.signupData);
 
         AjaxFactory.register($scope.signupData).then(function successCallback(response) {
-            console.log(response);
-            $scope.closeSignup();
+            if (response.data.status == "ok") {
+                console.log(response);
+                $('#registerSuccess').toggleClass('hide-alert');
+            } else {
+                $('#registerFailure').toggleClass('hide-alert');
+            }
         }, function errorCallback(response) {
             console.log(response);
         });
     };
 
-    $scope.closeSignup = function () {
-        console.log("showSignup called");
-        $('#signup').click(function () {
-            $('#signUpMod').modal('hide');
-        });
-    };
 });
