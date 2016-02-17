@@ -34,6 +34,7 @@ mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
         console.log("log out");
         localStorage.removeItem("user");
         localStorage.setItem("logged", "false");
+        $('#loggedOut').toggleClass('hide-alert');
     };
 
     $scope.userUploads = function () {

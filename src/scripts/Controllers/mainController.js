@@ -32,4 +32,7 @@ mediaRekt.controller("MainController", function ($scope, $sce) {
     $scope.closeFailure = function () {
        $('#loginFailure').toggleClass('hide-alert');
     };
+    $scope.closeLoggedout = function () {
+       $('#loggedOut').toggleClass('hide-alert');
+    };
 });
