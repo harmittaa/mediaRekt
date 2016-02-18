@@ -1,9 +1,9 @@
 // getting the data when user selects front page
 
-mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataFactory) {
+mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataService) {
     $scope.loadAmount = 5;
 
-    AjaxFactory.getFilesByType("image").then(function successCallback(response) {
+    AjaxFactory.getAllFiles().then(function successCallback(response) {
         console.log(response);
         console.log("setting data to contentdata.data");
         $scope.contentData.data = response.data;

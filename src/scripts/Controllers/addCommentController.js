@@ -1,7 +1,6 @@
 // for adding new comment on the test.html page
 
-mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http, AjaxFactory) {
-    console.log("AddCommentController");
+mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http, AjaxFactory, ShareDataService) {
     $scope.user = localStorage.getItem("user");
     $scope.comment = "";
 
