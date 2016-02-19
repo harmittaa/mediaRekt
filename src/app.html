@@ -12,41 +12,17 @@
     <link rel="stylesheet" type="text/css" href="scripts/main.css">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
-
 <body ng-app="mediaRekt" ng-controller="MainController">
 
     <!--UPPER NAVBAR-->
     <navbar></navbar>
 
     <div class="container">
-        <div ui-view></div>
+        <div ui-view>
+            <p> Content comes here </p>
+        </div>
     </div>
 
-
-    <!-- <div id="loginSuccess" class="alert alert-success hide-alert" role="alert" ng-click="closeSuccess()">
-        <strong>Logged in successfully!</strong> Begin uploading or go to <a ng-click="userUploads()" id="myprofile" class="alert-link">your images</a>.
-    </div>
-
-
-    <div id="loginFailure" class="alert alert-danger hide-alert" role="alert" ng-click="closeFailure()">
-        <strong>Wrong username or password!</strong> Please try again.
-    </div>
-    
-        
-<div id="loggedOut" class="alert alert-info hide-alert" role="alert" ng-click="closeLoggedout()">
-  <strong>Logged out.</strong> Be back soon!
-</div>
-    
-        
-<div id="registerSuccess" class="alert alert-info hide-alert" role="alert" ng-click="closeRegistersuccess()">
-  <strong>Registered successfully.</strong> You can now log in!
-</div>
-
-<div id="registerFailure" class="alert alert-danger hide-alert" role="alert" ng-click="closeRegisterfailure()">
-  <strong>Register unsuccessful, either wrong username or password!</strong> Please try again.
-</div>-->
-
-    <!--<show-content></show-content>-->
     <!--MODAL STUFF-->
 
     <!--UPLOAD IMAGE-->
@@ -78,6 +54,7 @@
 
     <!-- Include My App's JS file(s)-->
     <script src="scripts/app.js"></script>
+    <script src="scripts/Services/shareDataService.js"></script>
     <script src="scripts/Controllers/navController.js"></script>
     <script src="scripts/Controllers/scrollController.js"></script>
     <script src="scripts/Controllers/contentController.js"></script>
@@ -89,7 +66,6 @@
     <script src="scripts/Controllers/imageController.js"></script>
     <script src="scripts/Controllers/searchController.js"></script>
     <script src="scripts/Services/ajaxFactory.js"></script>
-    <script src="scripts/Services/shareDataService.js"></script>
     <script src="scripts/Directives/registerModal.js"></script>
     <script src="scripts/Directives/loginModal.js"></script>
     <script src="scripts/Directives/showContent.js"></script>
@@ -99,6 +75,11 @@
     <script src="scripts/Directives/forgotPasswordModal.js"></script>
     <script src="scripts/Directives/lowerNavbar.js"></script>
     <script src="scripts/Config/config.js"></script>
+    <script src="scripts/Directives/contentViewContent.js"></script>
+    <script src="scripts/Directives/notifications.js"></script>
+    <script src="scripts/Controllers/likeController.js"></script>
+    <script src="scripts/Controllers/commentController.js"></script>
+    <script src="scripts/Controllers/addCommentController.js"></script>
 </body>
 
 </html>

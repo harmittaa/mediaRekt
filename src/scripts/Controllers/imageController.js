@@ -1,15 +1,17 @@
 // test.html main controller, for image editing and setting the image file for user to see
 
-mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFactory) {
-    console.log(window.location.href);
-    var urlParam = window.location.href.split("=");
+mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFactory, $location, $rootScope, ShareDataService) {
+/*    console.log($location.path());
+    var urlParam = $location.path().split("=");
     $scope.contentId = urlParam[1];
-    console.log($scope.contentId);
+    console.log($scope.contentId);*/
+    $scope.contentId = ShareDataService.getVariable("contentId");
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
             $scope.currentContent = response;
-            console.log("Data fetched ");
+            console.log("Data fetched");
             console.log($scope.currentContent);
+            $rootScope.$broadcast("updateComments");
         }, function errorCallback(response) {
             console.log(response);
         })
@@ -95,20 +97,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
         });
     };
 
-    $(document).ready(function ($) {
-        $('.rrssb-buttons').rrssb({
-            // required:
-            title: 'ASDASD',
-            url: "http://util.mw.metropolia.fi/uploads/",
-
-            // optional:
-            description: "$scope.currentContent.data.title",
-            emailBody: 'BODY'
-
-         });
-    });
     $scope.getType = function (type) {
-        console.log("asdasd " + type);
         return type.substr(0, 5);
         
     };

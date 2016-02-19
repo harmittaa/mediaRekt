@@ -372,7 +372,6 @@ loadMore {
     margin-top: 5px;
 }
 #likeButton {
-    
     padding: inherit;
     width: 77px;
     height: 34px;
@@ -411,7 +410,7 @@ loadMore {
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
-    margin-top: 20px;
+    margin-top: 60px;
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
     

@@ -3,6 +3,11 @@ mediaRekt.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state("mainView", {
             url: "/mainView",
-            templateUrl: "views/mainView.html",
+            templateUrl: "views/mainView.html"
+        })
+        .state("contentView", {
+            url: "/contentView/{contentId}",
+            controller: "ImageController",
+            templateUrl: "views/contentView.html"
         });
 });

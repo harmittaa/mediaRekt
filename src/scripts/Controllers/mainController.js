@@ -1,6 +1,6 @@
 // main controller of app.html, used for creating trustURL and changing .html files when user clicks on content
 
-mediaRekt.controller("MainController", function ($scope, $sce) {
+mediaRekt.controller("MainController", function ($scope, $sce, $state, ShareDataService) {
 
     $scope.selectedType = {
         type: "image"
@@ -12,8 +12,9 @@ mediaRekt.controller("MainController", function ($scope, $sce) {
 
     // open image in new window
     $scope.openImageView = function (element) {
-        console.log(element.file.fileId);
-        window.location.assign("test.html?id=" + element.file.fileId);
+        ShareDataService.setVariable("contentId", element.file.fileId);
+        $scope.currentContentId = ShareDataService.getVariable("contentId");
+        $state.go('contentView', {contentId : $scope.currentContentId});
     };
     // open video in new window
     $scope.openVideoView = function (element) {
