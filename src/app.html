@@ -18,7 +18,12 @@
     <!--UPPER NAVBAR-->
     <navbar></navbar>
 
-    <div id="loginSuccess" class="alert alert-success hide-alert" role="alert" ng-click="closeSuccess()">
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+
+    <!-- <div id="loginSuccess" class="alert alert-success hide-alert" role="alert" ng-click="closeSuccess()">
         <strong>Logged in successfully!</strong> Begin uploading or go to <a ng-click="userUploads()" id="myprofile" class="alert-link">your images</a>.
     </div>
 
@@ -39,9 +44,9 @@
 
 <div id="registerFailure" class="alert alert-danger hide-alert" role="alert" ng-click="closeRegisterfailure()">
   <strong>Register unsuccessful, either wrong username or password!</strong> Please try again.
-</div>
+</div>-->
 
-    <show-content></show-content>
+    <!--<show-content></show-content>-->
     <!--MODAL STUFF-->
 
     <!--UPLOAD IMAGE-->
@@ -60,7 +65,7 @@
     <forgot-password-modal></forgot-password-modal>
 
     <!--LOWER NAVBAR-->
-    <lower-navbar></lower-navbar>
+    <!--<lower-navbar></lower-navbar>-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -69,6 +74,7 @@
 
     <!-- Include angular files & plugins -->
     <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <!-- Include My App's JS file(s)-->
     <script src="scripts/app.js"></script>
@@ -92,6 +98,7 @@
     <script src="scripts/Directives/searchModal.js"></script>
     <script src="scripts/Directives/forgotPasswordModal.js"></script>
     <script src="scripts/Directives/lowerNavbar.js"></script>
+    <script src="scripts/Config/config.js"></script>
 </body>
 
 </html>

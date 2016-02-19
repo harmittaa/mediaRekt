@@ -1,1 +1,1 @@
-var mediaRekt = angular.module('mediaRekt', []);
+var mediaRekt = angular.module('mediaRekt', ["ui.router"]);
