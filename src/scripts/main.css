@@ -393,7 +393,9 @@ loadMore {
     padding-left: 15px;
     padding-top: 15px;
 }
-
+#imageDescription{
+    padding-left: 15px;
+}
 /*
 .btn-group{
     display: inline;
