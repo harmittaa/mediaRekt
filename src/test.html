@@ -37,7 +37,7 @@
     <br>
     <h1 id="imageTitle">{{ currentContent.data.title }}</h1>
     <h4 id="imageTitle">by user: {{ currentContent.data.userId }}</h4>
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
@@ -45,17 +45,25 @@
             </div>
         </div>
     </div>
-    <p id="imageDescription">{{ currentContent.data.description }}</p>
-    <!--                <div ng-if="getType(currentContent.data.mimeType) == 'image'">
-                    <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
-                    <canvas id="testCanvas" width="200" height="200"></canvas>
-                </div>
-                <div ng-if="getType(currentContent.data.mimeType) == 'video'">
-                    <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}">
-                </div>
-                <div ng-if="getType(currentContent.data.mimeType) == 'audio'">
-                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
-                </div>-->
+    <p id="imageDescription">{{ currentContent.data.description }}</p>-->
+
+
+
+    <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'image'">
+        <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
+        <!--<canvas id="testCanvas" width="200" height="200"></canvas>-->
+        <p id="imageDescription">{{ currentContent.data.description }}</p>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9" ng-if="currentContent.data.mimeType.substr(0, 5) == 'video'">
+        <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls>
+        <p id="imageDescription">{{ currentContent.data.description }}</p>
+    </div>
+    <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
+       <audio controls>
+        <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
+        </audio>
+        <p id="imageDescription">{{ currentContent.data.description }}</p>
+    </div>
 
     <div class="container">
         <div class="row">
