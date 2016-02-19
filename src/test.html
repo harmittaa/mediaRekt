@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-<p id="imageDescription">{{ currentContent.data.description }}</p>
+    <p id="imageDescription">{{ currentContent.data.description }}</p>
     <!--                <div ng-if="getType(currentContent.data.mimeType) == 'image'">
                     <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
                     <canvas id="testCanvas" width="200" height="200"></canvas>
@@ -57,7 +57,7 @@
                     <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
                 </div>-->
 
-        <div class="container" >
+    <div class="container">
         <div class="row">
             <ul class="rrssb-buttons" id="shareButtons">
 
@@ -133,25 +133,25 @@
 
 
 
-    
-<!-- FILTER BUTTON -->                    
-    <div class="btn-group" >                                    
-  <div class="dropdown" id="filterButton">
-    <button class="btn btn-success dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Filters
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="blackAndWhite()">BlackandWhite</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="addText()" >Text</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="glfxTest()">GLFX</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="saveImage()">Save</a></li>
-    </ul>
-  </div>
+
+    <!-- FILTER BUTTON -->
+    <div class="btn-group">
+        <div class="dropdown" id="filterButton">
+            <button class="btn btn-success dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Filters
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="blackAndWhite()">BlackandWhite</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="addText()">Text</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="glfxTest()">GLFX</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="saveImage()">Save</a></li>
+            </ul>
+        </div>
 
 
-    
+
         <!--LIKE BUTTON-->
-     
+
         <div class="row" ng-controller="LikeController" id="test">
             <div class="col-md-6 col-md-offset-3">
                 <button id="likeButton" ng-click="toggleLike()">
