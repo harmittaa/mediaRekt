@@ -6,7 +6,8 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
 
     $scope.getLikeStatus = function () {
         console.log("getting likes");
-        if (ShareDataService.getVariable("user") === true) {
+        console.log("getting likes");
+        if (ShareDataService.getVariable("logged") === true) {
             AjaxFactory.getUserLikes(ShareDataService.getVariable("user")).then(function successCallback(response) {
                 $scope.likes = response;
                 console.log($scope.likes.data.length);

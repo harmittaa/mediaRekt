@@ -1,13 +1,13 @@
 <div class="container" id="imageLayout">
     <div class="row">
         <h1 id="imageTitle">{{ currentContent.data.title }}</h1>
-        <h4 id="imageTitle">by user: {{ currentContent.data.userId }}</h4>
+        <h4 id="imageTitle">by user: {{ uploaderUsername }}</h4>
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(0, 5) == 'image'">
             <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
             <p id="imageDescription">{{ currentContent.data.description }}</p>
         </div>
         <div class="embed-responsive embed-responsive-16by9" ng-if="currentContent.data.mimeType.substr(0, 5) == 'video'">
-            <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls>
+            <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls> </video>
                 <p id="imageDescription">{{ currentContent.data.description }}</p>
         </div>
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">

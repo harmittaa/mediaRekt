@@ -122,7 +122,7 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
         console.log("Finding user by ID");
         var findUserById = {
             method: "GET",
-            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/users/"
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/user/" + data
         };
         return $http(findUserById);
     };
@@ -173,6 +173,15 @@ mediaRekt.factory("AjaxFactory", function ($http, $httpParamSerializer) {
             url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/unlike/" + file + "/" + user
         };
         return $http(dislikeImageInfo);
+    };
+
+    ajaxMethods.getRandomContent = function () {
+        console.log("Getting random content");
+        var getRandomContent = {
+            method: "GET",
+            url: "http://util.mw.metropolia.fi/ImageRekt/api/v2/file/random"
+        };
+        return $http(getRandomContent);
     };
     return ajaxMethods;
 });

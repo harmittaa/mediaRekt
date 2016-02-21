@@ -10,13 +10,36 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
     $scope.contentId = urlParam[1];
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
-            $scope.currentContent = response;
-            console.log("Data fetched");
-            console.log($scope.currentContent);
-            $rootScope.$broadcast("updateComments");
-        }, function errorCallback(response) {
-            console.log(response);
-        });/*
+        $scope.currentContent = response;
+        console.log("Data fetched");
+        console.log($scope.currentContent);
+        $rootScope.$broadcast("updateComments");
+        $scope.getUploaderUsername();
+    }, function errorCallback(response) {
+        console.log(response);
+    });
+
+    $scope.saveContentData = function (response) {
+        console.log("SAve content data");
+        $scope.currentContent = response;
+        console.log("Data fetched");
+        console.log($scope.currentContent);
+        $rootScope.$broadcast("updateComments");
+        $scope.getUploaderUsername();
+    };
+
+    $scope.getUploaderUsername = function () {
+        console.log("Getting uploader username");
+        var request = AjaxFactory.findUserById($scope.currentContent.data.userId);
+        request.then($scope.saveUploaderUsername, ShareDataService.error);
+    };
+
+    $scope.saveUploaderUsername = function (response) {
+        console.log(response);
+        $scope.uploaderUsername = response.data.username;
+    };
+
+    /*
         .then(function testtest() {
             $scope.canvas = document.getElementById("testCanvas");
             $scope.ctx = $scope.canvas.getContext("2d");

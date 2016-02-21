@@ -2,8 +2,16 @@
 <div>
     <!--THIS IS REPLACES test.html-->
     <contentview-content></contentview-content>
+    
+    <div class="row" ng-controller="ContentButtonController">
+        <button class="btn btn-success" ng-click="nextContent()">
+            Next
+        </button>
+        <button class="btn btn-success" ng-click="previousContent()">Previous</button>
+        <button class="btn btn-success" ng-click="randomContent()">Random</button>
+    </div>
+    
     <!-- FILTER BUTTON -->
-    <!--<div ng-controller="ImageController">-->
     <div class="btn-group">
         <div class="dropdown" id="filterButton">
             <button class="btn btn-success dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Filters

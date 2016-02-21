@@ -13,7 +13,6 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
     };
 
     $scope.saveLogin = function (response) {
-
         if (response.data.status == "login ok") {
             console.log(response.data.userId);
             localStorage.setItem("user", response.data.userId);
