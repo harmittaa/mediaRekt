@@ -371,13 +371,13 @@ loadMore {
 #commentButton{
     margin-top: 5px;
 }
-#likeButton {
+/*#likeButton {
     padding: inherit;
     width: 77px;
     height: 34px;
     border-radius: 4px;
     background-color: crimson;
-}
+}*/
 
 #test{
     padding-left: 15px;
@@ -414,6 +414,18 @@ loadMore {
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
     
+}
+
+#hideElement {
+    display: none;
+}
+
+#testitest {
+    display: none;
+}
+
+.testitest {
+    display: none;
 }
 
 /*

@@ -1,9 +1,21 @@
 // handles navbar
 
-mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
+mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataService, $http, AjaxFactory) {
     $scope.title = "MediaRekt";
-    $scope.hideSignup = true;
     $scope.showNavbar = true;
+    $scope.loggedIn = ShareDataService.getVariable("logged");
+
+    $scope.hideButtons = function () {
+        console.log("HIDING BUTTONS! CURRENT LOGIN STATUS IS " + ShareDataService.getVariable("logged"));
+        $scope.loggedIn = ShareDataService.getVariable("logged");
+    };
+
+    $scope.hideButtons();
+
+    $scope.$on("userLoggedIn", function () {
+        console.log("RECEIVED BROADCAST AND HIDING BUTTONS");
+        $scope.hideButtons();
+    });
 
     // show the signup modal
     $scope.showSignup = function () {
@@ -29,13 +41,19 @@ mediaRekt.controller("NavController", function ($scope, $http, AjaxFactory) {
         $('#logInMod').modal('show');
     };
 
-    // removes the user info from localStorage
+    // removes the user info from localStorage & ShareDataService
     $scope.logout = function () {
         console.log("log out");
+
         localStorage.removeItem("user");
         localStorage.setItem("logged", "false");
+        ShareDataService.setVariable("user", "");
+        ShareDataService.setVariable("logged", "false");
+
         $('#loggedOut').toggleClass('hide-alert');
+        $scope.$broadcast("userLoggedIn");
     };
+
 
     $scope.userUploads = function () {
         console.log(localStorage.getItem("user"));

@@ -12,9 +12,9 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, ShareData
 
     // open image in new window
     $scope.openImageView = function (element) {
-        ShareDataService.setVariable("contentId", element.file.fileId);
-        $scope.currentContentId = ShareDataService.getVariable("contentId");
-        $state.go('contentView', {contentId : $scope.currentContentId});
+/*        ShareDataService.setVariable("contentId", element.file.fileId);
+        $scope.currentContentId = ShareDataService.getVariable("contentId");*/
+        $state.go('contentView', {contentId : element.file.fileId});
     };
     // open video in new window
     $scope.openVideoView = function (element) {

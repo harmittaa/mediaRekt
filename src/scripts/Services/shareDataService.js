@@ -1,9 +1,10 @@
-// used for sharing the gallery data with different controllers
+// used for sharing data with different controllers
 
 mediaRekt.service("ShareDataService", function () {
     var sharedVariables = {
         contentId: "",
-        userData: {},
+        user: "",
+        logged: "false",
         contentData: {},
         selectedId: {}
     };

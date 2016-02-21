@@ -1,11 +1,13 @@
 // test.html main controller, for image editing and setting the image file for user to see
 
 mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFactory, $location, $rootScope, ShareDataService) {
-/*    console.log($location.path());
+    /*    console.log($location.path());
+        var urlParam = $location.path().split("=");
+        $scope.contentId = urlParam[1];
+        console.log($scope.contentId);*/
+    $scope.contentId = ShareDataService.getVariable("contentId");
     var urlParam = $location.path().split("=");
     $scope.contentId = urlParam[1];
-    console.log($scope.contentId);*/
-    $scope.contentId = ShareDataService.getVariable("contentId");
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
             $scope.currentContent = response;
@@ -14,7 +16,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
             $rootScope.$broadcast("updateComments");
         }, function errorCallback(response) {
             console.log(response);
-        })
+        });/*
         .then(function testtest() {
             $scope.canvas = document.getElementById("testCanvas");
             $scope.ctx = $scope.canvas.getContext("2d");
@@ -73,7 +75,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
         }, function errorCallback(response) {
             console.log(response);
         });
-    };
+    };*/
 
     $scope.dataURItoBlob = function (dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
@@ -99,9 +101,9 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
 
     $scope.getType = function (type) {
         return type.substr(0, 5);
-        
+
     };
-    $scope.trustURL = function(url) {
+    $scope.trustURL = function (url) {
         return $sce.trustAsResourceUrl(url);
     };
 });

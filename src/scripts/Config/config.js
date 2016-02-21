@@ -6,7 +6,7 @@ mediaRekt.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "views/mainView.html"
         })
         .state("contentView", {
-            url: "/contentView/{contentId}",
+            url: "/contentView/id={contentId}",
             controller: "ImageController",
             templateUrl: "views/contentView.html"
         });

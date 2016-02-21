@@ -1,6 +1,6 @@
 // handles login and shows necessary alerts
 
-mediaRekt.controller("LoginController", function ($scope, $http, ShareDataService, AjaxFactory) {
+mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, ShareDataService, AjaxFactory) {
     $scope.login = function () {
         console.log("login function");
         $scope.loginData = {
@@ -19,8 +19,11 @@ mediaRekt.controller("LoginController", function ($scope, $http, ShareDataServic
             localStorage.setItem("user", response.data.userId);
             localStorage.setItem("logged", "true");
             $("#navi").collapse('hide');
-            console.log("logged in");
             $('#loginSuccess').toggleClass('hide-alert');
+            ShareDataService.setVariable("user", response.data.userId);
+            ShareDataService.setVariable("logged", true);
+            //sends a broadcast that user has logged in
+            $rootScope.$broadcast("userLoggedIn");
         } else {
             $('#loginFailure').toggleClass('hide-alert');
         }

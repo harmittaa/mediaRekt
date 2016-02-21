@@ -5,7 +5,7 @@ mediaRekt.controller("CommentController", function ($scope, $http, $location, Aj
 
     // gets the comments
     $scope.getComments = function () {
-        AjaxFactory.getFileComments(ShareDataService.getVariable("contentId")).then(function successCallback(response) {
+        AjaxFactory.getFileComments($scope.contentId).then(function successCallback(response) {
             $scope.commentData = response.data.reverse();
         }, function errorCallback(response) {
             console.log("Error getting comments");
