@@ -1,16 +1,13 @@
-
 <div>
     <!--THIS IS REPLACES test.html-->
     <contentview-content></contentview-content>
-    
+
     <div class="row" ng-controller="ContentButtonController">
-        <button class="btn btn-success" ng-click="nextContent()">
-            Next
-        </button>
-        <button class="btn btn-success" ng-click="previousContent()">Previous</button>
+        <button class="btn btn-success" ng-click="previousContent()"><span class="glyphicon glyphicon-arrow-left"></span>Previous</button>
+        <button class="btn btn-success" ng-click="nextContent()">Next<span class="glyphicon glyphicon-arrow-right"></button>
         <button class="btn btn-success" ng-click="randomContent()">Random</button>
     </div>
-    
+
     <!-- FILTER BUTTON -->
     <div class="btn-group">
         <div class="dropdown" id="filterButton">
@@ -26,11 +23,11 @@
         </div>
 
 
-        
+
         <!--LIKE BUTTON-->
         <div class="row" ng-controller="LikeController" id="test">
             <div class="col-md-6 col-md-offset-3">
-                <button id="likeButton" class="btn btn-default disabled" ng-click="toggleLike()">
+                <button id="likeButton" class="btn btn-success disabled" ng-click="toggleLike()">
                     <span id="likeSpan" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                 </button>
             </div>
