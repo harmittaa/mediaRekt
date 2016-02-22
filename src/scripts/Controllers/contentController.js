@@ -1,7 +1,8 @@
 // getting the data when user selects front page
 
-mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDataService) {
+mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFactory, ShareDataService) {
     $scope.loadAmount = 5;
+    $scope.contentToShow = "all";
 
     AjaxFactory.getAllFiles().then(function successCallback(response) {
         console.log(response);
@@ -22,4 +23,9 @@ mediaRekt.controller("ContentController", function ($scope, AjaxFactory, ShareDa
         console.log("loading content!");
         $scope.loadAmount += 5;
     };
+    
+    $scope.$on("contentChanged", function(event, args) {
+        $scope.contentToShow = args.contentType;
+        console.log("Conten type changed to " + args.contentType);
+    });
 });

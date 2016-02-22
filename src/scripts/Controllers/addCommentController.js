@@ -6,7 +6,7 @@ mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http
     $scope.comment = "";
 
     $scope.checkLoginStatus = function () {
-        console.log("checking log in status! " + ShareDataService.getVariable("logged"));
+        console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
         if (ShareDataService.getVariable("logged") === true) {
             $("#commentingBox").attr("placeholder", "Write your comment");
             $("#addCommentButton").toggleClass("disabled");

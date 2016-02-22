@@ -5,6 +5,10 @@
             <button id="loadmoreButton" ng-click="loadContent()" type="button" class="btn btn-success">Load more stuff</button>
 
             <div id="mediaButton" class="btn-group" ng-controller="FileTypeController">
+                <button type="button" class="btn btn-success " ng-click="getAll()">
+                    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                </button>
+                
                 <button type="button" class="btn btn-success " ng-click="getImages()">
                     <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                 </button>

@@ -1,10 +1,8 @@
 // main controller of app.html, used for creating trustURL and changing .html files when user clicks on content
 
 mediaRekt.controller("MainController", function ($scope, $sce, $state, ShareDataService) {
-
-    $scope.selectedType = {
-        type: "image"
-    };
+    console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
+    
     $scope.contentData = {
         data: []
     };

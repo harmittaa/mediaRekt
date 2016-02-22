@@ -1,45 +1,37 @@
 <div id="contents" class="container" ng-controller="ContentController">
-    <div id="tasku" ng-if="getType(file.mimeType) == 'image'" ng-repeat="file in contentData.data | limitTo:loadAmount" when-scrolled="loadContent()">
+    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }}</p>
-                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
-                <br>
-                <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
-                <br>
-                <br>
-            </div>
-        </div>
-    </div>
 
-    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'audio'" when-scrolled="loadContent()">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }}</p>
-                <audio controls>
-                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
-                </audio>
-                <br>
-                <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
-                <br>
-                <br>
-            </div>
-        </div>
-    </div>
+                <div id="imageDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
+                    <p>{{ file.title }}</p>
+                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    <br>
+                    <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
+                    <br>
+                    <br>
+                </div>
 
-    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount" ng-if="getType(file.mimeType) == 'video'" when-scrolled="loadContent()">
-        <div class="row" ng-if="getType(file.mimeType) == 'video'">
-            <div class="col-md-6 col-sm-6 col-sx-6">
-                <p>{{ file.title }}</p>
-                <!--                <video width="300">
-                    <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openVideoView(this)" type="{{ file.mimeType }}">
-                </video>-->
-                <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                <div id="audioDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
+                    <p>{{ file.title }}</p>
+                    <audio controls>
+                        <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
+                    </audio>
+                    <br>
+                    <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
+                    <br>
+                    <br>
 
-                <br>
-                <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
-                <br>
-                <br>
+                </div>
+
+                <div id="videoDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
+                    <p>{{ file.title }}</p>
+                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    <br>
+                    <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
+                    <br>
+                    <br>
+                </div>
             </div>
         </div>
     </div>
