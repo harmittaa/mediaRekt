@@ -416,7 +416,9 @@ loadMore {
     
 }
 
-#hideElement {
+#testCanvas {
+    width: 300px;
+    height: 300px;
     display: none;
 }
 
@@ -430,6 +432,10 @@ loadMore {
 
 #contentIcon {
     color:azure;
+}
+
+#exifDataFromImage {
+    color: azure;
 }
 
 /*

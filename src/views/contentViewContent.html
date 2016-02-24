@@ -5,10 +5,21 @@
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(0, 5) == 'image'">
             <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
             <p id="imageDescription">{{ currentContent.data.description }}</p>
+            <button id="exifDataButton" class="btn btn-default" ng-click="getExifData()">Show exif data</button>
+            <table style="margin-top: 12px;">
+                <thead>
+                    <tr>
+                        <th id="exifDataFromImage">Tag name</th>
+                        <th id="exifDataFromImage">Tag value</th>
+                    </tr>
+                </thead>
+                <tbody id="exif-table-body">
+                </tbody>
+            </table>
         </div>
         <div class="embed-responsive embed-responsive-16by9" ng-if="currentContent.data.mimeType.substr(0, 5) == 'video'">
             <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls> </video>
-                <p id="imageDescription">{{ currentContent.data.description }}</p>
+            <p id="imageDescription">{{ currentContent.data.description }}</p>
         </div>
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
             <audio controls>
