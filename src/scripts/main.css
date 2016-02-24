@@ -428,6 +428,10 @@ loadMore {
     display: none;
 }
 
+#contentIcon {
+    color:azure;
+}
+
 /*
 .btn-group{
     display: inline;

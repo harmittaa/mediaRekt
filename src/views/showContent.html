@@ -6,6 +6,9 @@
                 <div id="imageDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
                     <p>{{ file.title }}</p>
                     <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    <div class="carousel-caption">
+                        <span id="contentIcon" class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    </div>
                     <br>
                     <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
                     <br>
@@ -15,9 +18,11 @@
                 <div id="audioDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
                     <p>{{ file.title }}</p>
                     <audio controls>
-                        <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" ng-click="openImageView(this)" type="{{ file.mimeType }}">
+                        <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" type="{{ file.mimeType }}">
                     </audio>
-                    <br>
+                    <div class="carousel-caption">
+                        <span id="contentIcon" class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                    </div>                    <br>
                     <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
                     <br>
                     <br>
@@ -27,7 +32,9 @@
                 <div id="videoDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
                     <p>{{ file.title }}</p>
                     <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
-                    <br>
+                    <div class="carousel-caption">
+                        <span id="contentIcon" class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                    </div>                    <br>
                     <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
                     <br>
                     <br>
