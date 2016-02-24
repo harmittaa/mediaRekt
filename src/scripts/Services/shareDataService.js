@@ -5,12 +5,14 @@ mediaRekt.service("ShareDataService", function () {
         contentId: "",
         user: "",
         logged: "false",
+        loadAmount: 5,
+        contentType: "all",
         contentData: {},
         selectedId: {}
     };
+    
     sharedVariables.setVariable = function (key, value) {
         sharedVariables[key] = value;
-        console.log(sharedVariables);
     };
     
     sharedVariables.getVariable = function (key) {

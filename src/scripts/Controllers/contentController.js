@@ -1,8 +1,9 @@
 // getting the data when user selects front page
 
 mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFactory, ShareDataService) {
-    $scope.loadAmount = 5;
-    $scope.contentToShow = "all";
+    $scope.loadAmount = ShareDataService.getVariable("loadAmount");
+    console.log("LOAD AMOUNT IN SDS " + ShareDataService.getVariable("loadAmount"));
+    $scope.contentToShow = ShareDataService.getVariable("contentType");
 
     AjaxFactory.getAllFiles().then(function successCallback(response) {
         console.log(response);
@@ -21,11 +22,13 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     // load more content to show on gallery
     $scope.loadContent = function () {
         console.log("loading content!");
-        $scope.loadAmount += 5;
+        $scope.loadAmount = ShareDataService.getVariable("loadAmount") + 5;
+        ShareDataService.setVariable("loadAmount", $scope.loadAmount);
+        console.log("LOAD AMOUNT IN SDS increased to " + ShareDataService.getVariable("loadAmount"));
     };
-    
-    $scope.$on("contentChanged", function(event, args) {
-        $scope.contentToShow = args.contentType;
-        console.log("Conten type changed to " + args.contentType);
+
+    $scope.$on("contentChanged", function () {
+        $scope.contentToShow = ShareDataService.getVariable("contentType");
+        console.log("Content changed to " + ShareDataService.getVariable("contentType"));
     });
 });

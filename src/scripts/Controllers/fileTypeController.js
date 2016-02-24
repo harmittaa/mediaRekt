@@ -13,7 +13,8 @@ mediaRekt.controller("FileTypeController", function ($scope, $rootScope, $http, 
         }, function errorCallback(response) {
             console.log(response);
         });*/
-        $rootScope.$broadcast("contentChanged", {contentType: "image"});
+        ShareDataService.setVariable("contentType", "image");
+        $rootScope.$broadcast("contentChanged");
     };
 
     $scope.getVideo = function () {
@@ -25,7 +26,8 @@ mediaRekt.controller("FileTypeController", function ($scope, $rootScope, $http, 
         }, function errorCallback(response) {
             console.log(response);
         });*/
-        $rootScope.$broadcast("contentChanged", {contentType: "video"});
+        ShareDataService.setVariable("contentType", "video");
+        $rootScope.$broadcast("contentChanged");
     };
 
     $scope.getAudio = function () {
@@ -35,7 +37,8 @@ mediaRekt.controller("FileTypeController", function ($scope, $rootScope, $http, 
         }, function errorCallback(response) {
             console.log(response);
         });*/
-        $rootScope.$broadcast("contentChanged", {contentType: "audio"});
+        ShareDataService.setVariable("contentType", "audio");
+        $rootScope.$broadcast("contentChanged");
     };
     
     $scope.getAll = function () {
@@ -45,6 +48,7 @@ mediaRekt.controller("FileTypeController", function ($scope, $rootScope, $http, 
         }, function errorCallback(response) {
             console.log(response);
         });*/
-        $rootScope.$broadcast("contentChanged", {contentType: "all"});
+        ShareDataService.setVariable("contentType", "all");
+        $rootScope.$broadcast("contentChanged");
     };
 });
