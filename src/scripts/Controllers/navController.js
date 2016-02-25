@@ -6,8 +6,8 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.loggedIn = ShareDataService.getVariable("logged");
 
     $scope.hideButtons = function () {
-        console.log("HIDING BUTTONS! CURRENT LOGIN STATUS IS " + ShareDataService.getVariable("logged"));
-        $scope.loggedIn = ShareDataService.getVariable("logged");
+       $('#logout').hide();
+           
     };
 
     $scope.hideButtons();
@@ -49,7 +49,8 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         localStorage.setItem("logged", "false");
         ShareDataService.setVariable("user", "");
         ShareDataService.setVariable("logged", "false");
-
+        $('#signup').show();
+        $('#login').show();
         $('#loggedOut').toggleClass('hide-alert');
         $scope.$broadcast("userLoggedIn");
     };
