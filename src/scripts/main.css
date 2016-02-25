@@ -27,37 +27,11 @@ ul {
     display: none;
 }
 
-#loginSuccess, #loginFailure, #loggedOut, #registerSuccess, #registerFailure, #searchNotification {
+#loginSuccess, #loginFailure, #loggedOut, #registerSuccess, #registerFailure, #searchNotification, #uploadFailureNotification {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
-
-/*
-#loginFailure {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-#loggedOut {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    
-}
-#registerSuccess {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    
-}
-#registerFailure {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-*/
 
 #testCanvas {
     width: 100%;

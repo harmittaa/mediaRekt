@@ -8,6 +8,7 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $("#myfavourites").hide();
     $("#myprofile").hide();
     $("#logout").hide();
+    /*$("#uploadbutton").toggleClass("disabled");*/
 
 
     // show the signup modal
@@ -18,8 +19,11 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
 
     // show the upload modal
     $scope.showUpload = function () {
-        console.log("showUpload called");
-        $('#uploadUpMod').modal('show');
+        if (ShareDataService.getVariable("logged") === true) {
+            $('#uploadUpMod').modal('show');
+        } else {
+            $("#uploadFailureNotification").toggleClass('hide-alert');
+        }
     };
 
     // show the search modal
@@ -45,6 +49,7 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         $("#myprofile").hide();
         $("#logout").hide();
         $('#loggedOut').toggleClass('hide-alert');
+        $("#uploadbutton").toggleClass("disabled");
         $scope.$broadcast("userLoggedIn");
     };
 

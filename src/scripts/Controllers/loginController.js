@@ -16,6 +16,7 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
         if (response.data.status == "login ok") {
             console.log(response.data.userId);
             $("#navi").collapse('hide');
+            $("#uploadbutton").toggleClass("disabled");
             $('#loginSuccess').toggleClass('hide-alert');
             $("#myprofile").show();
             $("#myfavourites").show();

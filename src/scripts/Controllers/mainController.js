@@ -55,4 +55,7 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScop
     $scope.closeRegisterFailure = function () {
         $('#registerFailure').toggleClass('hide-alert');
     };
+    $scope.closeUploadNotification = function () {
+        $('#uploadFailureNotification').toggleClass('hide-alert');
+    };
 });

@@ -1,6 +1,6 @@
 // handling the uploading of the picture, also set image to canvas (not implemented)
 
-mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory, ShareDataService) {
+mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFactory, ShareDataService) {
     //set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
         console.log(element.files[0]);
@@ -48,11 +48,13 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory, S
         AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
             console.log(response);
             console.log("success");
-            /*            $("#uploadUpMod").hide("slow", function () {
-                            alert("Animation complete.");
-                        });*/
+            $state.go('contentView', {
+                contentId: response.data.fileId
+            });
+
         }, function errorCallback(response) {
             console.log(response);
         });
+
     };
 });
