@@ -2,16 +2,21 @@
     <!--THIS IS REPLACES test.html-->
     <contentview-content></contentview-content>
 
-    <div class="row" ng-controller="ContentButtonController">
+    <div class="row" id="navgButtons" ng-controller="ContentButtonController">
         <button class="btn btn-success" ng-click="previousContent()">
             <span class="glyphicon glyphicon-arrow-left"></span>Previous</button>
-        <button class="btn btn-success" ng-click="nextContent()">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
         <button class="btn btn-success" ng-click="randomContent()">Random</button>
+        <button class="btn btn-success" ng-click="nextContent()">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
+
     </div>
 
     <!-- FILTER BUTTON -->
-    <div class="btn-group">
+    <div class="row" id="test">
+            
         <div class="dropdown" id="filterButton">
+            <button ng-controller="LikeController" id="likeButton" class="btn btn-success disabled" ng-click="toggleLike()">
+            <span id="likeSpan" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+        </button>
             <button class="btn btn-success dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Filters
                 <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -21,19 +26,31 @@
                 <li role="presentation" class="divider"></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="saveImage()">Save</a></li>
             </ul>
+            
+     
         </div>
-
-
-
-        <!--LIKE BUTTON-->
-        <div class="row" ng-controller="LikeController" id="test">
-            <div class="col-md-6 col-md-offset-3">
-                <button id="likeButton" class="btn btn-success disabled" ng-click="toggleLike()">
-                    <span id="likeSpan" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
+               <button class="btn btn-success dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Share
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" >Facebook</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" >Twitter</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" >WhatsApp</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" >Reddit</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" >Google+</a></li>
+                
+            </ul>
+    
     </div>
+
+
+
+    <!--LIKE BUTTON-->
+    <!--<div class="row" id="test">
+        <div class="col-md-6 col-md-offset-3">
+
+        </div>
+    </div>-->
+
 
     <!--ADD NEW COMMENT-->
     <div class="container" ng-controller="AddCommentController">
