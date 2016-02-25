@@ -2,7 +2,10 @@
     <div id="loginSuccess" class="alert alert-success hide-alert" role="alert" ng-click="closeSuccess()">
         <strong>Logged in successfully!</strong> Begin uploading or go to <a href="#" ng-click="userUploads()" id="myprofile" class="alert-link">your images</a>.
     </div>
-
+    
+    <div id="searchNotification" class="alert alert-success hide-alert" role="alert" ng-click="closeSearchResults()">
+        <strong>Showing search results</strong> Click here to dismiss search results.
+    </div>
 
     <div id="loginFailure" class="alert alert-danger hide-alert" role="alert" ng-click="closeFailure()">
         <strong>Wrong username or password!</strong> Please try again.
@@ -20,5 +23,5 @@
 
     <div id="registerFailure" class="alert alert-danger hide-alert" role="alert" ng-click="closeRegisterfailure()">
         <strong>Register unsuccessful, username is already in use!</strong> Please try again.
-    </div> 
+    </div>
 </div>

@@ -1,13 +1,23 @@
 // main controller of app.html, used for creating trustURL and changing .html files when user clicks on content
 
-mediaRekt.controller("MainController", function ($scope, $sce, $state, ShareDataService) {
+mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScope, ShareDataService) {
     console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
     
-    $scope.contentData = {
+/*    $scope.contentData = {
         data: []
-    };
+    };*/
+    
+    if (ShareDataService.getVariable("searched")) {
+        console.log("Search notification should pop up!");
+        $('#searchNotification').toggleClass('hide-alert');
+    }
+    
+    $scope.contentData = ShareDataService.getVariable("contentData");
 
-
+    $rootScope.$on("contentDataChanged", function() {
+        $scope.contentData = ShareDataService.getVariable("contentData");
+    });
+    
     // open image in new window
     $scope.openImageView = function (element) {
         $state.go('contentView', {contentId : element.file.fileId});
@@ -27,6 +37,9 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, ShareData
     $scope.trustURL = function (url) {
         return $sce.trustAsResourceUrl(url);
     };
+    
+    
+    
     $scope.closeSuccess = function () {
         $('#loginSuccess').toggleClass('hide-alert');
     };

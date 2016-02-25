@@ -1,10 +1,6 @@
 // test.html main controller, for image editing and setting the image file for user to see
 
 mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFactory, $location, $rootScope, ShareDataService) {
-    /*    console.log($location.path());
-        var urlParam = $location.path().split("=");
-        $scope.contentId = urlParam[1];
-        console.log($scope.contentId);*/
     $scope.contentId = ShareDataService.getVariable("contentId");
     var urlParam = $location.path().split("=");
     $scope.contentId = urlParam[1];
@@ -19,6 +15,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
     }, function errorCallback(response) {
         console.log(response);
     });
+
 
     //gets the exif data from image
     var handleFile = function () {
@@ -40,7 +37,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
 
                 // Output the tags on the page.
                 tags = exif.getAllTags();
-                
+
                 tableBody = document.getElementById('exif-table-body');
                 for (name in tags) {
                     if (tags.hasOwnProperty(name)) {

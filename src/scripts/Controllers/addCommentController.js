@@ -9,6 +9,7 @@ mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http
         console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
         if (ShareDataService.getVariable("logged") === true) {
             $("#commentingBox").attr("placeholder", "Write your comment");
+            $("#commentingBox").removeAttr("disabled");
             $("#addCommentButton").toggleClass("disabled");
         }
     };

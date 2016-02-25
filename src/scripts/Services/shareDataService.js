@@ -7,8 +7,9 @@ mediaRekt.service("ShareDataService", function () {
         logged: "false",
         loadAmount: 5,
         contentType: "all",
-        contentData: {},
-        selectedId: {}
+        contentData: [],
+        selectedId: {},
+        searched: false
     };
     
     sharedVariables.setVariable = function (key, value) {

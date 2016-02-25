@@ -27,12 +27,13 @@ ul {
     display: none;
 }
 
-#loginSuccess {
+#loginSuccess, #loginFailure, #loggedOut, #registerSuccess, #registerFailure, #searchNotification {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
 
+/*
 #loginFailure {
     margin-top: 50px;
     margin-left: 50px;
@@ -55,8 +56,8 @@ ul {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    
 }
+*/
 
 #testCanvas {
     width: 100%;
