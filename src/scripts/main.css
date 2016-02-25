@@ -366,10 +366,15 @@ loadMore {
     padding-left: 15px;
 }
 
-/*#filterButton{
-    padding-left: 15px;
-    padding-top: 15px;
-}*/
+#shareButton{
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+#filterButton{
+    margin-left: 0.1px;
+    border-radius: 4px;
+}
 #imageDescription{
     
 }
@@ -414,6 +419,15 @@ loadMore {
 
 #navgButtons{
     text-align: center;
+}
+
+#mediaButtons2{
+    text-align: center;
+    padding-top: 15px;
+}
+
+#addCommentButton{
+    margin-top: 5px;
 }
 
 /*
