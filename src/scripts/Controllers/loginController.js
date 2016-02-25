@@ -15,14 +15,13 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
     $scope.saveLogin = function (response) {
         if (response.data.status == "login ok") {
             console.log(response.data.userId);
-            localStorage.setItem("user", response.data.userId);
-            localStorage.setItem("logged", "true");
             $("#navi").collapse('hide');
             $('#loginSuccess').toggleClass('hide-alert');
+            $("#myprofile").show();
+            $("#myfavourites").show();
             $('#signup').hide();
             $('#login').hide();
             $('#logout').show();
-            e.preventDefault();
             ShareDataService.setVariable("user", response.data.userId);
             ShareDataService.setVariable("logged", true);
             //sends a broadcast that user has logged in

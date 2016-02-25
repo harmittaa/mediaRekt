@@ -1,6 +1,6 @@
 // handling the uploading of the picture, also set image to canvas (not implemented)
 
-mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
+mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory, ShareDataService) {
     //set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
         console.log(element.files[0]);
@@ -36,11 +36,11 @@ mediaRekt.controller("UploadController", function ($scope, $http, AjaxFactory) {
     $scope.uploadFile = function () {
         console.log("uploadFile");
         $scope.formData = new FormData(document.querySelector("#uploadform"));
-        if (localStorage.getItem("user") === null) {
+        if (ShareDataService.getVariable("user") === "") {
             $scope.formData.append("user", "1");
             alert("not logged in!");
         } else {
-            $scope.formData.append("user", localStorage.getItem("user"));
+            $scope.formData.append("user", ShareDataService.getVariable("user"));
         }
         $scope.formData.append("type", $scope.fileType);
         $scope.formData.append("mime-type", $scope.mimeType);

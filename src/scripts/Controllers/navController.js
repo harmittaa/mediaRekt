@@ -5,17 +5,10 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.showNavbar = true;
     $scope.loggedIn = ShareDataService.getVariable("logged");
 
-    $scope.hideButtons = function () {
-       $('#logout').hide();
-           
-    };
+    $("#myfavourites").hide();
+    $("#myprofile").hide();
+    $("#logout").hide();
 
-    $scope.hideButtons();
-
-    $scope.$on("userLoggedIn", function () {
-        console.log("RECEIVED BROADCAST AND HIDING BUTTONS");
-        $scope.hideButtons();
-    });
 
     // show the signup modal
     $scope.showSignup = function () {
@@ -41,24 +34,24 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         $('#logInMod').modal('show');
     };
 
-    // removes the user info from localStorage & ShareDataService
+    // removes the user info from ShareDataService
     $scope.logout = function () {
         console.log("log out");
-
-        localStorage.removeItem("user");
-        localStorage.setItem("logged", "false");
         ShareDataService.setVariable("user", "");
         ShareDataService.setVariable("logged", "false");
         $('#signup').show();
         $('#login').show();
+        $("#myfavourites").hide();
+        $("#myprofile").hide();
+        $("#logout").hide();
         $('#loggedOut').toggleClass('hide-alert');
         $scope.$broadcast("userLoggedIn");
     };
 
 
     $scope.userUploads = function () {
-        console.log(localStorage.getItem("user"));
-        AjaxFactory.getUserUploads(localStorage.getItem("user")).then(function successCallback(response) {
+        console.log(ShareDataService.getVariable("user"));
+        AjaxFactory.getUserUploads(ShareDataService.getVariable("user")).then(function successCallback(response) {
             console.log(response);
             console.log("setting data to contentdata.data");
             $scope.contentData.data = response.data;
@@ -69,8 +62,8 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     };
 
     $scope.userFavourites = function () {
-        console.log(localStorage.getItem("user"));
-        AjaxFactory.getUserFavourites(localStorage.getItem("user")).then(function successCallback(response) {
+        console.log(ShareDataService.getVariable("user"));
+        AjaxFactory.getUserFavourites(ShareDataService.getVariable("user")).then(function successCallback(response) {
             console.log(response);
             console.log("setting data to contentdata.data");
             $scope.contentData.data = response.data.reverse();
