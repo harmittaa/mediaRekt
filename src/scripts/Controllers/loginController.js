@@ -21,6 +21,7 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
             $('#loginSuccess').toggleClass('hide-alert');
             $('#signup').hide();
             $('#login').hide();
+            $('#logout').show();
             e.preventDefault();
             ShareDataService.setVariable("user", response.data.userId);
             ShareDataService.setVariable("logged", true);
