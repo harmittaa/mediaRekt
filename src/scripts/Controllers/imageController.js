@@ -105,7 +105,6 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
                 $scope.imageBlob = $scope.dataURItoBlob(imgAsDataUrl);
                 console.log($scope.imageBlob);
                 handleFile();
-
             };
 
             $scope.image.crossOrigin = "anonymous";
