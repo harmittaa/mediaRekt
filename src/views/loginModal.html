@@ -11,12 +11,11 @@
                     <input type="text" id="usernameLogIn" placeholder="Username" name="username" ng-model="logUsername" />
                     <br>
                     <input type="password" id="passwordLogIn" placeholder="Password" name="password" ng-model="logPassword" />
-                    <br>
-                    <button id="forgotpass" type="button" class="btn btn-forgot" data-dismiss="modal">Forgot password?</button>
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="notuser" type="button" class="btn btn-info" data-dismiss="modal">Not user? Sign up, here!</button>
+                <button id="notuser" type="button" class="btn btn-info" data-dismiss="modal" ng-click="showSignup()">Not a user? Sign up here!</button>
                 <button id="logincheck" type="button" class="btn btn-success" ng-click="login()" data-dismiss="modal">Login</button>
             </div>
         </div>

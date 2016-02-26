@@ -55,9 +55,15 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
 
 
     $scope.userUploads = function () {
+        $("#myfavourites").show();
+        $("#myprofile").show();
+        $("#logout").show();
         console.log(ShareDataService.getVariable("user"));
         AjaxFactory.getUserUploads(ShareDataService.getVariable("user")).then(function successCallback(response) {
             console.log(response);
+            $("#myfavourites").show();
+            $("#myprofile").show();
+            $("#logout").show();
             console.log("setting data to contentdata.data");
             $scope.contentData.data = response.data;
             console.log($scope.contentData.data);
@@ -70,6 +76,9 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         console.log(ShareDataService.getVariable("user"));
         AjaxFactory.getUserFavourites(ShareDataService.getVariable("user")).then(function successCallback(response) {
             console.log(response);
+            $("#myfavourites").show();
+            $("#myprofile").show();
+            $("#logout").show();
             console.log("setting data to contentdata.data");
             $scope.contentData.data = response.data.reverse();
             console.log($scope.contentData.data);
