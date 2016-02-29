@@ -37,11 +37,11 @@
                 <button class="btn btn-success dropdown-toggle" type="button" id="shareButton" data-toggle="dropdown">Share
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Facebook</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Twitter</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">WhatsApp</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Reddit</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Google+</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1"  href="https://www.facebook.com/sharer/sharer.php?u={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Facebook</a></li>
+                    <li role="presentation"><a class="popup" role="menuitem" tabindex="-1" href="https://twitter.com/intent/tweet?text={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Twitter</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="whatsapp://send?text={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}" data-action="share/whatsapp/share">WhatsApp</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.reddit.com/submit?url={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Reddit</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://plus.google.com/share?url={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Google+</a></li>
 
                 </ul>
             </div>
