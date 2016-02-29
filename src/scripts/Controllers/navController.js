@@ -4,11 +4,13 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.title = "MediaRekt";
     $scope.showNavbar = true;
     $scope.loggedIn = ShareDataService.getVariable("logged");
+    
 
-    $("#myfavourites").hide();
-    $("#myprofile").hide();
-    $("#logout").hide();
-    /*$("#uploadbutton").toggleClass("disabled");*/
+    if ($scope.loggedIn == "false") {
+        $("#myfavourites").hide();
+        $("#myprofile").hide();
+        $("#logout").hide();
+    }
 
 
     // show the signup modal

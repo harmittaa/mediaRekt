@@ -7,18 +7,32 @@
                 <h4 class="modal-title" id="modalHeader">Upload</h4>
             </div>
             <div class="modal-body">
-                <form id="uploadform">
-                    <canvas id="previewCanvas" style="width: 100%;" ng-click="brightenCanvas()"> </canvas>
                     <input id="imgInp" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)">
-                    <!--<img id="imagesss" src="/src/images/tontu.jpg" style="width: 100%;" ng-click="brightenCanvas()">-->
-                    <!--<img id="imagesss" src="http://util.mw.metropolia.fi/uploads/thumbs/tn640_qmzokvokhx41.jpg"--> style="width: 100%;" ng-click="glfx()">
+                <form id="uploadform">
+
+                    <!--CAMANJS TOIMII-->
+                    <!--<canvas id="previewCanvas" style="width: 100%;" ng-click="brightenCanvas()"> </canvas>-->
+
+
+                    <canvas id="previewCanvas" style="width: 100%;"> </canvas>
+
+
+                    <!--GLFX TOIMII-->
+<!--                    <img id="imagesss" class="testitest" src="/src/images/tontu.jpg" style="width: 100%;" ng-click="glfx()">-->
                     <br>
                     <textarea class="form-control" rows="1" id="titleinput" name="title" placeholder="Title"></textarea>
                     <br>
                     <textarea class="form-control" rows="4" id="descriptioninput" name="description" placeholder="Description (max 140 characters)"></textarea>
                     <p id="remain"></p>
                     <br>
-                    <button id="upload" class="btn btn-success btn-sm" ng-click="uploadFile()" data-dismiss="modal">Upload</button>
+                    <button ng-click="glfxAddEffects()">Effect</button>
+                    <button ng-click="glfxAddEffects2()">Effect2</button>
+                    <button ng-click="addSepia()">Sepia</button>
+                    <button ng-click="addTiltShift()">Tilt</button>
+                    <button ng-click="unsharpMask()">Unsharp</button>
+                    <button ng-click="addText()">addText</button>
+                    <button ng-click="acceptEdit()">Acecpt</button>
+                    <button id="upload" class="btn btn-success btn-sm" ng-click="uploadContent()" data-dismiss="modal">Upload</button>
                 </form>
             </div>
         </div>
