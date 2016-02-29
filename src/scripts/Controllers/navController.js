@@ -86,4 +86,17 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
             console.log(response);
         });
     };
+    $scope.refreshContent = function () {
+        AjaxFactory.getAllFiles().then(function successCallback(response) {
+            console.log(response);
+            console.log("setting data to contentdata.data");
+            /*$scope.contentData.data = response.data;*/
+            ShareDataService.setVariable("contentData", response);
+            $rootScope.$broadcast("contentDataChanged");
+            ShareDataService.setVariable("contentType", "all");
+            $rootScope.$broadcast("contentChanged");
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
 });
