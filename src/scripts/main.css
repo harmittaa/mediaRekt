@@ -161,6 +161,9 @@ body {
 #uploadbutton {
     margin-top: 7px;
 }
+#refreshButton {
+    margin-top: 7px;
+}
 #loadMore {
     margin-bottom: 20px;
     margin-top: 30px;
@@ -377,6 +380,9 @@ loadMore {
 }
 #imageDescription{
     
+}
+#imageDiv{
+    padding: 50px;
 }
 #imageToEdit{
     display: block;

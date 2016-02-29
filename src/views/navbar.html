@@ -3,9 +3,10 @@
         <div class="navbar-header">
 
             <button id="uploadbutton" ng-click="showUpload()" type="button" class="btn btn-success disabled">Upload</button>
-            
-            <button id="refreshButton" ng-click="refreshContent()" type="button" class="btn btn-success">Refresh</button>
-        
+
+            <button id="refreshButton" ng-click="refreshContent()" type="button" class="btn btn-success"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+            </button>
+
             <a class="navbar-brand" href="app.html" id="logo">{{ title }}</a>
             </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" ng-click="showNavbar != showNavbar">
@@ -17,17 +18,17 @@
 
         <div class="collapse navbar-collapse" id="myNav">
             <ul class="nav navbar-nav">
-                
+
                 <li><a href="#" ng-click="showSearch()" id="search" data-toggle="collapse" data-target=".navbar-collapse">Search</a></li>
-                
+
                 <li><a href="#" ng-click="userUploads()" id="myprofile" data-toggle="collapse" data-target=".navbar-collapse">My Images</a></li>
-                
+
                 <li><a href="#" ng-click="userFavourites()" id="myfavourites" data-toggle="collapse" data-target=".navbar-collapse">My favourites</a></li>
-                
+
                 <li><a ng-click="showSignup()" id="signup" data-toggle="collapse" data-target=".navbar-collapse">Signup</a></li>
-                
+
                 <li><a ng-click="showLogin()" id="login" data-toggle="collapse" data-target=".navbar-collapse">Login</a></li>
-                
+
                 <li><a id="logout" ng-click="logout()" data-toggle="collapse" data-target=".navbar-collapse">Logout</a></li>
             </ul>
         </div>
