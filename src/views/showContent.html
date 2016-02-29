@@ -1,9 +1,9 @@
 <div id="contents" class="container" ng-controller="ContentController">
     <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-sx-6">
 
-                <div id="imageDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
+        <div id="imageDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
                     <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     <div class="carousel-caption">
@@ -14,27 +14,37 @@
                     <br>
                     <br>
                 </div>
+            </div>
+        </div>
 
-                <div id="audioDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
+        <div id="audioDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
                     <audio controls>
                         <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  file.path)}}" type="{{ file.mimeType }}">
                     </audio>
                     <div class="carousel-caption">
                         <span id="contentIcon" class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-                    </div>                    <br>
+                    </div>
+                    <br>
                     <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
                     <br>
                     <br>
 
                 </div>
+            </div>
+        </div>
 
-                <div id="videoDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
+        <div id="videoDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
                     <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.screenCapture }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     <div class="carousel-caption">
                         <span id="contentIcon" class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
-                    </div>                    <br>
+                    </div>
+                    <br>
                     <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
                     <br>
                     <br>
