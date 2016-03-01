@@ -384,6 +384,12 @@ loadMore {
 #imageDiv{
     padding: 50px;
 }
+#videoDiv{
+    padding: 50px;
+}
+#audioDiv{
+    padding: 50px;
+}
 #imageToEdit{
     display: block;
     margin-left: auto;
