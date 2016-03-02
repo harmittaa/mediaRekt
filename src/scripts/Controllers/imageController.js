@@ -6,6 +6,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
     $scope.contentId = urlParam[1];
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
+        $("#refreshButton").hide();
         $scope.currentContent = response;
         console.log("Data fetched");
         console.log($scope.currentContent);

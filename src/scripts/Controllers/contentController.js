@@ -9,6 +9,7 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     
     $scope.contentData = ShareDataService.getVariable("contentData");
 
+    $("#refreshButton").show();
     if (ShareDataService.getVariable("contentData").length < 1) {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
