@@ -3,6 +3,8 @@
 mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFactory, ShareDataService) {
     $scope.imageEdited = false;
     $scope.glfx = false;
+    $scope.contentEdited = false;
+    $scope.editableContent = false;
 
     //set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
@@ -10,7 +12,18 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
         // getting image data for uploading
         $scope.mimeType = element.files[0].type;
         var filetype = element.files[0].type.split("/");
+        $scope.element = element;
         $scope.fileType = filetype[0];
+        console.log($scope.mimeType);
+        console.log($scope.fileType);
+        
+        if ($scope.fileType == "image") {
+            console.log($scope.editableContent);
+            console.log("scope filetype on image");
+            $scope.editableContent = true;
+            $scope.$apply();
+            console.log($scope.editableContent);
+        }
 
         $scope.image = new Image();
         $scope.canvas = angular.element("#previewCanvas")[0];
@@ -54,6 +67,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
 
 
     $scope.acceptEdit = function () {
+        $scope.contentEdited = true;
         $scope.texture.destroy();
         $scope.texture = $scope.canvass.contents();
     };
@@ -65,7 +79,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
             x: evt.clientX - rect.left,
             y: evt.clientY - rect.top
         };
-    };
+    }
 
     $scope.addTiltShift = function () {
         $scope.canvas.addEventListener('mouseup', function (evt) {
@@ -76,9 +90,9 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
             $scope.ctx.drawImage($scope.canvass, 0, 0, $scope.canvass.width, $scope.canvass.height);
         });
     };
-    
-    $scope.addText = function() {
-      $scope.ctx.fillText("someMsg", 50, 50);  
+
+    $scope.addText = function () {
+        $scope.ctx.fillText("someMsg", 50, 50);
     };
 
     $scope.addSepia = function () {
@@ -138,12 +152,20 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
     };
 
     $scope.uploadContent = function () {
-        console.log($scope.dataURItoBlob($scope.canvas.toDataURL("image/png")));
-        $scope.formData = new FormData(document.querySelector("#uploadform"));
-        $scope.formData.append("type", "image");
-        $scope.formData.append("mime-type", "image/png");
-        $scope.formData.append("user", ShareDataService.getVariable("user"));
-        $scope.formData.append("file", $scope.dataURItoBlob($scope.canvas.toDataURL("image/png")), "edited_image.png");
+        if ($scope.contentEdited === true) {
+            console.log($scope.dataURItoBlob($scope.canvas.toDataURL("image/png")));
+            $scope.formData = new FormData(document.querySelector("#uploadform"));
+            $scope.formData.append("mime-type", "image/png");
+            $scope.formData.append("user", ShareDataService.getVariable("user"));
+            $scope.formData.append("type", "image");
+            $scope.formData.append("file", $scope.dataURItoBlob($scope.canvas.toDataURL("image/png")), "edited_image.png");
+        } else {
+            $scope.formData = new FormData(document.querySelector("#uploadform"));
+            $scope.formData.append("type", $scope.fileType);
+            $scope.formData.append("mime-type", $scope.mimeType);
+            $scope.formData.append("user", ShareDataService.getVariable("user"));
+            $scope.formData.append("file", $scope.element.files[0], "content");
+        }
         $scope.createUpload();
     };
 

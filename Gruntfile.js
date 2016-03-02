@@ -10,12 +10,17 @@ module.exports = function (grunt) {
                 src: [
               'bower_components/jquery/dist/jquery.min.js',
               'bower_components/bootstrap/dist/js/bootstrap.min.js',
-              'bower_components/angular/angular.min.js'
+              'bower_components/angular/angular.min.js',
+              'bower_components/glfx-bower/glfx.js',
+              'bower_components/caman/dist/caman.full.min.js',
+              'bower_components/exifreader/js/ExifReader.js',
+              'bower_components/angular-ui-router/release/angular-ui-router.js'
+
              ],
                 dest: 'build/vendor.js'
             },
             app: {
-                src: ['src/**/*.js'],
+                src: ['src/**/app.js', 'src/**/*.js'],
                 dest: 'build/app.js'
             }
         },
@@ -50,7 +55,21 @@ module.exports = function (grunt) {
                     flatten: true,
                     src: ['bower_components/bootstrap/dist/css/bootstrap.min.css',
                 'src/**/*.css'],
+                    /*dest: 'build/scripts/'*/
                     dest: 'build/css/'
+        }]
+            },
+
+            fonts: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: [
+            'bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf',
+            'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff',
+            'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2'
+          ],
+                    dest: 'build/fonts/'
         }]
             },
             views: {
