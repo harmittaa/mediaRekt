@@ -390,6 +390,17 @@ loadMore {
 #audioDiv{
     padding: 50px;
 }
+
+#audioPlayer{
+     display: table;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#audioDescription{
+    text-align: center;
+    padding-top: 25px;
+}
+
 #imageToEdit{
     display: block;
     margin-left: auto;
@@ -404,7 +415,6 @@ loadMore {
     margin-top: 60px;
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
-    
 }
 
 #testCanvas {

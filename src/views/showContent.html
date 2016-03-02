@@ -1,7 +1,7 @@
 <div id="contents" class="container" ng-controller="ContentController">
-    <div id="tasku" ng-repeat="file in contentData.data | limitTo:loadAmount">
+    <div id="tasku" ng-repeat="file in contentData.data | filter:contentToShow | limitTo:loadAmount track by $index">
 
-        <div id="imageDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
+        <div id="imageDiv" ng-if="contentToShow == '' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
@@ -10,14 +10,14 @@
                         <span id="contentIcon" class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                     </div>
                     <br>
-                    <button id="commentBut" class="btn btn-success" ng-click="openImageView(this)">Open</button>
+                    <button id="commentBut" class="btn btns-success" ng-click="openImageView(this)">Open</button>
                     <br>
                     <br>
                 </div>
             </div>
         </div>
 
-        <div id="audioDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
+        <div id="audioDiv" ng-if="contentToShow == '' && getType(file.mimeType) == 'audio' || contentToShow == 'audio' && getType(file.mimeType) == 'audio'">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div id="videoDiv" ng-if="contentToShow == 'all' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
+        <div id="videoDiv" ng-if="contentToShow == '' && getType(file.mimeType) == 'video' || contentToShow == 'video' && getType(file.mimeType) == 'video'">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>

@@ -4,6 +4,8 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     $scope.loadAmount = ShareDataService.getVariable("loadAmount");
     console.log("LOAD AMOUNT IN SDS " + ShareDataService.getVariable("loadAmount"));
     $scope.contentToShow = ShareDataService.getVariable("contentType");
+    $scope.contentToShow = "";
+    console.log($scope.contentToShow);
 
     if (ShareDataService.getVariable("contentData").length < 1) {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
@@ -17,11 +19,11 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
         });
     }
     
+    // shows the search notification if the user has searched and returns
+    // to the mainView
     if (ShareDataService.getVariable("searched") === true) {
         $('#searchNotification').toggleClass('hide-alert');
     }
-
-
 
     // splits the fileType from mimeType and returns to html
     $scope.getType = function (type) {
@@ -36,7 +38,7 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
         console.log("LOAD AMOUNT IN SDS increased to " + ShareDataService.getVariable("loadAmount"));
     };
 
-    // contentChanged is broadcasted when either the contentType to show is changed (audio, image etc)
+    // contentChanged is broadcasted when either the contentType to show is changed
     // when user has searched and the actual content data is changed
     // or when first entering the website/refreshing
     $scope.$on("contentChanged", function () {

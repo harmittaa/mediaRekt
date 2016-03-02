@@ -6,18 +6,18 @@ mediaRekt.service("ShareDataService", function () {
         user: "",
         logged: "false",
         loadAmount: 5,
-        contentType: "all",
+        contentType: "",
         contentData: [],
         selectedId: {},
         searched: false
     };
-    
+
     sharedVariables.setVariable = function (key, value) {
         sharedVariables[key] = value;
     };
-    
+
     sharedVariables.getVariable = function (key) {
-      return sharedVariables[key];  
+        return sharedVariables[key];
     };
 
     sharedVariables.error = function (error) {

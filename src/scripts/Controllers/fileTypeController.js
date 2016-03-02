@@ -48,7 +48,8 @@ mediaRekt.controller("FileTypeController", function ($scope, $rootScope, $http, 
         }, function errorCallback(response) {
             console.log(response);
         });*/
-        ShareDataService.setVariable("contentType", "all");
+        ShareDataService.setVariable("contentType", "");
         $rootScope.$broadcast("contentChanged");
+        console.log(ShareDataService.getVariable("contentType"));
     };
 });
