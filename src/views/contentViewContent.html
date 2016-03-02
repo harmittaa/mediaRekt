@@ -3,7 +3,9 @@
         <h1 id="imageTitle">{{ currentContent.data.title }}</h1>
         <h4 id="imageTitle">by user: {{ uploaderUsername }}</h4>
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(0, 5) == 'image'">
-            <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
+            <a href="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}">
+                <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
+            </a>
             <p id="imageDescription">{{ currentContent.data.description }}</p>
         </div>
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(6, 10) == 'jpeg'">
@@ -20,9 +22,10 @@
             </div>
         </div>
         <div class="embed-responsive embed-responsive-16by9" ng-if="currentContent.data.mimeType.substr(0, 5) == 'video'">
-            <video ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls> </video>
-            <p id="imageDescription">{{ currentContent.data.description }}</p>
+            <video id="videoPlayer" ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls> </video>
+
         </div>
+        <p id="videoDescription">{{ currentContent.data.description }}</p>
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
             <audio controls id="audioPlayer">
                 <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">

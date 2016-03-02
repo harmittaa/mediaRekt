@@ -19,7 +19,7 @@ ul {
 }
 
 #tasku {
-/*    padding: 50px;
+    /*    padding: 50px;
     color: black;*/
 }
 
@@ -27,7 +27,13 @@ ul {
     display: none;
 }
 
-#loginSuccess, #loginFailure, #loggedOut, #registerSuccess, #registerFailure, #searchNotification, #uploadFailureNotification {
+#loginSuccess,
+#loginFailure,
+#loggedOut,
+#registerSuccess,
+#registerFailure,
+#searchNotification,
+#uploadFailureNotification {
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
@@ -334,8 +340,9 @@ loadMore {
     padding: 3px;
 }
 #commentBox {
-   /* border-bottom-right-radius: 0.5em;
+    /* border-bottom-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;*/
+    
     border-radius: 4px;
     background-color: dimgray;
     margin-top: 20px;
@@ -346,9 +353,10 @@ loadMore {
 #commentContainer {
     border-radius: 25px;
 }
-#commentButton{
+#commentButton {
     margin-top: 5px;
 }
+
 /*#likeButton {
     padding: inherit;
     width: 77px;
@@ -356,58 +364,58 @@ loadMore {
     border-radius: 4px;
     background-color: crimson;
 }*/
-
-#test{
+#test {
     display: block;
-    
 }
 .likeSpanColor {
     color: orangered;
 }
-
-#shareButtons{
+#shareButtons {
     padding-left: 15px;
 }
-
-#shareButton{
+#shareButton {
     margin-left: 5px;
     border-radius: 4px;
 }
-
-#filterButton{
+#filterButton {
     margin-left: 0.1px;
     border-radius: 4px;
 }
-#imageDescription{
+#imageDescription {
     
 }
-#imageDiv{
+#imageDiv {
     padding: 50px;
 }
-#videoDiv{
+#videoDiv {
     padding: 50px;
 }
-#audioDiv{
+#videoPlayer{
+    width: 100%;
+    height: 100%;
+}
+#videoDescription {
+    padding-left: 15px;
+    padding-top: 10px;
+}
+#audioDiv {
     padding: 50px;
 }
-
-#audioPlayer{
-     display: table;
+#audioPlayer {
+    display: table;
     margin: 0 auto;
     padding-top: 50px;
 }
-#audioDescription{
+#audioDescription {
     text-align: center;
     padding-top: 25px;
 }
-
-#imageToEdit{
+#imageToEdit {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
-#imageLayout{
+#imageLayout {
     background-color: #272723;
     margin-left: 15px;
     margin-right: 15px;
@@ -416,39 +424,31 @@ loadMore {
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
 }
-
 #testCanvas {
     width: 300px;
     height: 300px;
     display: none;
 }
-
 #testitest {
     display: none;
 }
-
 .testitest {
     display: none;
 }
-
 #contentIcon {
-    color:azure;
+    color: azure;
 }
-
 #exifDataFromImage {
     color: azure;
 }
-
-#navgButtons{
+#navgButtons {
     text-align: center;
 }
-
-#mediaButtons2{
+#mediaButtons2 {
     text-align: center;
     padding-top: 15px;
 }
-
-#addCommentButton{
+#addCommentButton {
     margin-top: 5px;
 }
 
@@ -457,6 +457,5 @@ loadMore {
     display: inline;
 }
 */
-
 
 /*COMMENT BUBBLE*/
