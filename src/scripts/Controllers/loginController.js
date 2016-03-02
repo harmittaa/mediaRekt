@@ -23,8 +23,12 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
             $('#signup').hide();
             $('#login').hide();
             $('#logout').show();
+/*
             ShareDataService.setVariable("user", response.data.userId);
             ShareDataService.setVariable("logged", true);
+*/
+            localStorage.setItem("user", response.data.userId);
+            localStorage.setItem("logged", "true");
             //sends a broadcast that user has logged in
             $rootScope.$broadcast("userLoggedIn");
         } else {

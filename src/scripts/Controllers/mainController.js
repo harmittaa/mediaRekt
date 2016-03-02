@@ -2,25 +2,30 @@
 
 mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScope, ShareDataService) {
     console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
-    
-/*    $scope.contentData = {
-        data: []
-    };*/
-    
+
+
+    /*    $scope.contentData = {
+            data: []
+        };*/
+
     if (ShareDataService.getVariable("searched")) {
         console.log("Search notification should pop up!");
         $('#searchNotification').toggleClass('hide-alert');
     }
-    
-    $scope.contentData = ShareDataService.getVariable("contentData");
 
-    $rootScope.$on("contentDataChanged", function() {
+/*    $scope.contentData = ShareDataService.getVariable("contentData");
+
+    $rootScope.$on("contentDataChanged", function () {
+        console.log("Getting new content data");
         $scope.contentData = ShareDataService.getVariable("contentData");
-    });
-    
+        console.log($scope.contentData);
+    });*/
+
     // open image in new window
     $scope.openImageView = function (element) {
-        $state.go('contentView', {contentId : element.file.fileId});
+        $state.go('contentView', {
+            contentId: element.file.fileId
+        });
     };
     // open video in new window
     $scope.openVideoView = function (element) {
@@ -37,9 +42,9 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScop
     $scope.trustURL = function (url) {
         return $sce.trustAsResourceUrl(url);
     };
-    
-    
-    
+
+
+
     $scope.closeSuccess = function () {
         $('#loginSuccess').toggleClass('hide-alert');
     };

@@ -6,7 +6,6 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
 
     $scope.search = function () {
         console.log("user clicked search");
-        $('#searchNotification').toggleClass('hide-alert');
         if ($scope.titleSearch !== "") {
 
             $scope.searchInfo = {
@@ -15,10 +14,11 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
 
             AjaxFactory.searchByTitle($scope.searchInfo).then(function successCallback(response) {
                 console.log(response);
-                /*$scope.contentData.data = response.data;*/
-                /*console.log($scope.contentData.data);*/
+                $('#searchNotification').toggleClass('hide-alert');
                 ShareDataService.setVariable("contentData", response);
+                ShareDataService.setVariable("contentType", "");
                 $rootScope.$broadcast("contentDataChanged");
+                $rootScope.$broadcast("contentChanged");
                 ShareDataService.setVariable("searched", true);
             }, function errorCallback(response) {
                 console.log(response);
@@ -29,11 +29,12 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
                 "desc": $scope.descSearch
             };
             AjaxFactory.searchByDescription($scope.searchInfo).then(function successCallback(response) {
+                $('#searchNotification').toggleClass('hide-alert');
                 console.log(response);
-               /* $scope.contentData.data = response.data;
-                console.log($scope.contentData.data);*/
                 ShareDataService.setVariable("contentData", response);
+                ShareDataService.setVariable("contentType", "");
                 $rootScope.$broadcast("contentDataChanged");
+                $rootScope.$broadcast("contentChanged");
                 ShareDataService.setVariable("searched", true);
             }, function errorCallback(response) {
                 console.log(response);

@@ -2,13 +2,12 @@
 
 mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, ShareDataService) {
     $scope.liked = false;
-    $scope.currentUser = ShareDataService.getVariable("user");
+    $scope.currentUser = localStorage.getItem("user");
 
     $scope.getLikeStatus = function () {
         console.log("getting likes");
-        console.log("getting likes");
-        if (ShareDataService.getVariable("logged") === true) {
-            AjaxFactory.getUserLikes(ShareDataService.getVariable("user")).then(function successCallback(response) {
+        if (localStorage.getItem("logged") == "true") {
+            AjaxFactory.getUserLikes(localStorage.getItem("user")).then(function successCallback(response) {
                 $scope.likes = response;
                 console.log($scope.likes.data.length);
                 for (var i = 0; i < $scope.likes.data.length; i++) {
@@ -27,7 +26,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
     $scope.getLikeStatus();
 
     $scope.checkLoginStatus = function () {
-        if (ShareDataService.getVariable("logged") === true) {
+        if (localStorage.getItem("logged") == "true") {
             $("#likeButton").toggleClass("disabled");
         }
     };
@@ -40,7 +39,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
 
     $scope.toggleLike = function () {
         console.log("TOGGLE LIKE " + ShareDataService.getVariable("logged"));
-        if (ShareDataService.getVariable("logged") === true) {
+        if (localStorage.getItem("logged") == "true") {
             if ($scope.liked === false) {
                 $scope.likeImage();
             } else {
@@ -50,7 +49,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
     };
 
     $scope.likeImage = function () {
-        AjaxFactory.likeImage($scope.contentId, ShareDataService.getVariable("user")).then(function successCallback(response) {
+        AjaxFactory.likeImage($scope.contentId, localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
             $scope.liked = true;
             $("#likeSpan").toggleClass("likeSpanColor");
@@ -60,7 +59,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
     };
 
     $scope.dislikeImage = function () {
-        AjaxFactory.dislikeImage($scope.contentId, ShareDataService.getVariable("user")).then(function successCallback(response) {
+        AjaxFactory.dislikeImage($scope.contentId, localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
             $scope.liked = false;
             $("#likeSpan").toggleClass("likeSpanColor");

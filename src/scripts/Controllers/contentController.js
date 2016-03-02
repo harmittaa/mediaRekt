@@ -4,15 +4,16 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     $scope.loadAmount = ShareDataService.getVariable("loadAmount");
     console.log("LOAD AMOUNT IN SDS " + ShareDataService.getVariable("loadAmount"));
     $scope.contentToShow = ShareDataService.getVariable("contentType");
-    $scope.contentToShow = "";
+    /*$scope.contentToShow = "";*/
     console.log($scope.contentToShow);
+    
+    $scope.contentData = ShareDataService.getVariable("contentData");
 
     if (ShareDataService.getVariable("contentData").length < 1) {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
-            console.log("setting data to contentdata.data");
-            /*$scope.contentData.data = response.data;*/
             ShareDataService.setVariable("contentData", response);
+            $scope.contentData = ShareDataService.getVariable("contentData");
             $rootScope.$broadcast("contentDataChanged");
         }, function errorCallback(response) {
             console.log(response);
@@ -46,6 +47,7 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
         console.log("Content changed to " + ShareDataService.getVariable("contentType"));
         $scope.contentData = ShareDataService.getVariable("contentData");
     });
+    
 
     $scope.$on("getAllDataAgain", function () {
         AjaxFactory.getAllFiles().then(function successCallback(response) {

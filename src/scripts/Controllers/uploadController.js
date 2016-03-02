@@ -156,14 +156,14 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
             console.log($scope.dataURItoBlob($scope.canvas.toDataURL("image/png")));
             $scope.formData = new FormData(document.querySelector("#uploadform"));
             $scope.formData.append("mime-type", "image/png");
-            $scope.formData.append("user", ShareDataService.getVariable("user"));
+            $scope.formData.append("user", localStorage.getItem("user"));
             $scope.formData.append("type", "image");
             $scope.formData.append("file", $scope.dataURItoBlob($scope.canvas.toDataURL("image/png")), "edited_image.png");
         } else {
             $scope.formData = new FormData(document.querySelector("#uploadform"));
             $scope.formData.append("type", $scope.fileType);
             $scope.formData.append("mime-type", $scope.mimeType);
-            $scope.formData.append("user", ShareDataService.getVariable("user"));
+            $scope.formData.append("user", localStorage.getItem("user"));
             $scope.formData.append("file", $scope.element.files[0], "content");
         }
         $scope.createUpload();

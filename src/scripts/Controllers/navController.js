@@ -3,15 +3,23 @@
 mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataService, $http, AjaxFactory) {
     $scope.title = "MediaRekt";
     $scope.showNavbar = true;
-    $scope.loggedIn = ShareDataService.getVariable("logged");
+    $scope.loggedIn = localStorage.getItem("logged");
 
-
-    if ($scope.loggedIn == "false") {
-        $("#myfavourites").hide();
-        $("#myprofile").hide();
-        $("#logout").hide();
+    if (!ShareDataService.getVariable("checkedLogin")) {
+        console.log("Checking checkedLogin " + $scope.checkedLogin);
+        if (localStorage.getItem("logged") == "false") {
+            $("#myfavourites").hide();
+            $("#myprofile").hide();
+            $("#logout").hide();
+            $scope.checkedLogin = true;
+            ShareDataService.setVariable("checkedLogin", true);
+        } else {
+            $("#login").hide();
+            $("#signup").hide();
+            $("#uploadbutton").toggleClass("disabled");
+            ShareDataService.setVariable("checkedLogin", true);
+        }
     }
-
 
     // show the signup modal
     $scope.showSignup = function () {
@@ -21,7 +29,7 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
 
     // show the upload modal
     $scope.showUpload = function () {
-        if (ShareDataService.getVariable("logged") === true) {
+        if (localStorage.getItem("logged") == "true") {
             $('#uploadUpMod').modal('show');
         } else {
             $("#uploadFailureNotification").toggleClass('hide-alert');
@@ -43,8 +51,8 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     // removes the user info from ShareDataService
     $scope.logout = function () {
         console.log("log out");
-        ShareDataService.setVariable("user", "");
-        ShareDataService.setVariable("logged", "false");
+        localStorage.setItem("user", "");
+        localStorage.setItem("logged", "false");
         $('#signup').show();
         $('#login').show();
         $("#myfavourites").hide();
@@ -55,36 +63,37 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         $scope.$broadcast("userLoggedIn");
     };
 
-
+    // gets the user uploads
     $scope.userUploads = function () {
-        console.log(ShareDataService.getVariable("user"));
-        AjaxFactory.getUserUploads(ShareDataService.getVariable("user")).then(function successCallback(response) {
+        AjaxFactory.getUserUploads(localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
-            console.log("setting data to contentdata.data");
-            $scope.contentData.data = response.data;
-            console.log($scope.contentData.data);
+            ShareDataService.setVariable("contentData", response);
+            ShareDataService.setVariable("contentType", "");
+            $rootScope.$broadcast("contentChanged");
         }, function errorCallback(response) {
             console.log(response);
         });
     };
 
+    // gets the user favourites and reverses them
     $scope.userFavourites = function () {
         console.log(ShareDataService.getVariable("user"));
-        AjaxFactory.getUserFavourites(ShareDataService.getVariable("user")).then(function successCallback(response) {
+        AjaxFactory.getUserFavourites(localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
-            console.log("setting data to contentdata.data");
-            $scope.contentData.data = response.data.reverse();
-            console.log($scope.contentData.data);
+            response.data = response.data.reverse();
+            ShareDataService.setVariable("contentData", response);
+            ShareDataService.setVariable("contentType", "");
+            $rootScope.$broadcast("contentChanged");
         }, function errorCallback(response) {
             console.log(response);
         });
     };
-    
+
+    // refreshes the content, bringin up 
     $scope.refreshContent = function () {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
-            console.log("setting data to contentdata.data");
-            /*$scope.contentData.data = response.data;*/
+            ShareDataService.setVariable("searched", "false");
             ShareDataService.setVariable("contentData", response);
             $rootScope.$broadcast("contentDataChanged");
             ShareDataService.setVariable("contentType", "");

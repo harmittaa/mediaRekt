@@ -5,7 +5,6 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
     var urlParam = $location.path().split("=");
     $scope.contentId = urlParam[1];
 
-
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
         $scope.currentContent = response;
         console.log("Data fetched");
