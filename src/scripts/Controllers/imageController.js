@@ -16,7 +16,6 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
         console.log(response);
     });
 
-
     //gets the exif data from image
     var handleFile = function () {
         var reader;
@@ -37,6 +36,15 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
 
                 // Output the tags on the page.
                 tags = exif.getAllTags();
+                $scope.latitude = exif.getTagDescription('GPSLatitude');
+                $scope.longitude = exif.getTagDescription('GPSLongitude');
+
+                var mapa = document.createElement("img");
+                mapa.id = "locationMap"
+                var parentElement = document.getElementById("contentRow");
+                parentElement.appendChild(mapa);
+                console.log(mapa);
+                $("#locationMap").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=' + $scope.latitude + ',' + $scope.longitude + '&zoom=14&size=640x400&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08');
 
                 tableBody = document.getElementById('exif-table-body');
                 for (name in tags) {
@@ -50,6 +58,8 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
                 alert(error);
             }
         };
+
+
         // We only need the start of the file for the Exif info.
         reader.readAsArrayBuffer(files[0].slice(0, 128 * 1024));
     };
