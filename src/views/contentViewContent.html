@@ -24,9 +24,9 @@
             <p id="imageDescription">{{ currentContent.data.description }}</p>
         </div>
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
-            <audio controls>
+            <audio controls id="audioPlayer">
                 <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
             </audio>
-            <p id="imageDescription">{{ currentContent.data.description }}</p>
+            <p id="audioDescription">{{ currentContent.data.description }}</p>
         </div>
     </div>
