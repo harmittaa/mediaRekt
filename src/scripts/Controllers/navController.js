@@ -35,6 +35,10 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
 
     // show the upload modal
     $scope.showUpload = function () {
+        $('#descriptioninput').val('');
+        $('#titleinput').val('');
+        $('#imgInp').val('');
+        
         if (localStorage.getItem("logged") == "true") {
             $('#uploadUpMod').modal('show');
         } else {

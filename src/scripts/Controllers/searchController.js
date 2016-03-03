@@ -6,6 +6,8 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
 
     $scope.search = function () {
         console.log("user clicked search");
+        $('#searchboxDesc').val('');
+        $('#searchbox').val('');
         if ($scope.titleSearch !== "") {
 
             $scope.searchInfo = {

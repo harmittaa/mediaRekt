@@ -19,13 +19,13 @@ mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http
     $scope.addComment = function () {
         if (localStorage.getItem("logged") == "true") {
             $scope.newComment = {
-                /*"user": ShareDataService.getVariable("user"),*/
                 "user": localStorage.getItem("user"),
                 "comment": $scope.comment
             };
             AjaxFactory.comment($scope.contentId, $scope.newComment).then(function successCallback(response) {
                 console.log("comment made succcesfully!");
                 $rootScope.$broadcast("updateComments");
+                $('#commentingBox').val('');
             }, function errorCallback(response) {
                 console.log(response);
             });

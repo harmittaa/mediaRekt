@@ -16,7 +16,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
         $scope.fileType = filetype[0];
         console.log($scope.mimeType);
         console.log($scope.fileType);
-        
+
         if ($scope.fileType == "image") {
             console.log($scope.editableContent);
             console.log("scope filetype on image");
