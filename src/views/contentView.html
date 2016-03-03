@@ -21,7 +21,7 @@
                     <button ng-controller="LikeController" id="likeButton" class="btn btn-success disabled" ng-click="toggleLike()">
                         <span id="likeSpan" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     </button>
-                    <a href="http://util.mw.metropolia.fi/uploads/{{currentContent.data.path}}" download>
+                    <a href="http://util.mw.metropolia.fi/uploads/{{currentContent.data.path}}" +.+ "" download="{{currentContent.data.path}}">
                     <button id="downloadButton" class="btn btn-success">Download
                         </button></a>
                 </div>
