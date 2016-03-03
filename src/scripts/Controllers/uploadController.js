@@ -158,7 +158,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
         var description = document.getElementById("descriptioninput").value;
         var imgInp = document.getElementById("imgInp").value;
         console.log(imgInp);
-        if (title == "" || description == "" || imgInp == "") {
+        if (title === "" || description === "" || imgInp === "") {
             alert("Title and Description necessary!");
         } else {
             if ($scope.contentEdited === true) {
