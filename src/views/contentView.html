@@ -21,9 +21,10 @@
                     <button ng-controller="LikeController" id="likeButton" class="btn btn-success disabled" ng-click="toggleLike()">
                         <span id="likeSpan" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     </button>
-                    <a href="http://util.mw.metropolia.fi/uploads/{{currentContent.data.path}}" +.+ "" download="{{currentContent.data.path}}">
-                    <button id="downloadButton" class="btn btn-success">Download
-                        </button></a>
+                    <a href="http://util.mw.metropolia.fi/uploads/{{currentContent.data.path}}" download="{{currentContent.data.path}}">
+                        <button id="downloadButton" class="btn btn-success">Download
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="btn-group dropdown2">
@@ -35,7 +36,6 @@
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="whatsapp://send?text={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}" data-action="share/whatsapp/share">WhatsApp</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.reddit.com/submit?url={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Reddit</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="https://plus.google.com/share?url={{trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path) }}">Google+</a></li>
-
                 </ul>
             </div>
         </div>
@@ -68,6 +68,4 @@
             </div>
         </div>
     </div>
-
-</div>
 </div>

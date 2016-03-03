@@ -4,9 +4,8 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     $scope.loadAmount = ShareDataService.getVariable("loadAmount");
     console.log("LOAD AMOUNT IN SDS " + ShareDataService.getVariable("loadAmount"));
     $scope.contentToShow = ShareDataService.getVariable("contentType");
-    /*$scope.contentToShow = "";*/
     console.log($scope.contentToShow);
-    
+
     $scope.contentData = ShareDataService.getVariable("contentData");
 
     $("#refreshButton").show();
@@ -20,7 +19,7 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
             console.log(response);
         });
     }
-    
+
     // shows the search notification if the user has searched and returns
     // to the mainView
     if (ShareDataService.getVariable("searched") === true) {
@@ -48,7 +47,10 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
         console.log("Content changed to " + ShareDataService.getVariable("contentType"));
         $scope.contentData = ShareDataService.getVariable("contentData");
     });
-    
+
+    $scope.$on("loadAmount reset", function () {
+        $scope.loadAmount = ShareDataService.getVariable("loadAmount");
+    });
 
     $scope.$on("getAllDataAgain", function () {
         AjaxFactory.getAllFiles().then(function successCallback(response) {

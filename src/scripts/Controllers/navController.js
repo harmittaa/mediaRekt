@@ -103,8 +103,10 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.refreshContent = function () {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
+            ShareDataService.setVariable("loadAmount", 5);
             ShareDataService.setVariable("searched", "false");
             ShareDataService.setVariable("contentData", response);
+            $rootScope.$broadcast("loadAmount reset");
             $rootScope.$broadcast("contentDataChanged");
             ShareDataService.setVariable("contentType", "");
             $rootScope.$broadcast("contentChanged");
