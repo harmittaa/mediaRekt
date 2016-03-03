@@ -16,9 +16,9 @@
                     <!--GLFX TOIMII-->
                     <!--                    <img id="imagesss" class="testitest" src="/src/images/tontu.jpg" style="width: 100%;" ng-click="glfx()">-->
                     <br>
-                    <textarea class="form-control" rows="1" id="titleinput" name="title" placeholder="Title"></textarea>
+                    <textarea ng-model="uploadTitle" class="form-control" rows="1" id="titleinput" name="title" placeholder="Title"></textarea>
                     <br>
-                    <textarea class="form-control" rows="4" id="descriptioninput" name="description" placeholder="Description (max 140 characters)"></textarea>
+                    <textarea class="form-control" rows="4" id="descriptioninput" ng-model="uploadDescription" name="description" placeholder="Description (max 140 characters)"></textarea>
                     <p id="remain"></p>
                     <br>
 
@@ -36,14 +36,6 @@
                             <li><a ng-click="addText()">addText</a></li>
                         </ul>
                     </div>
-
-
-                    <!--<button>Effect</button>
-                    <button>Effect2</button>
-                    <button>Sepia</button>
-                    <button >Tilt</button>
-                    <button >Unsharp</button>
-                    <button >addText</button>-->
                     <button class="btn btn-success " ng-click="acceptEdit()" ng-show="editableContent">Accept</button>
                     <button id="upload" class="btn btn-success " ng-click="uploadContent()" data-dismiss="modal">Upload</button>
                 </form>

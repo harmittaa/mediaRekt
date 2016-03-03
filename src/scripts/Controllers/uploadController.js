@@ -5,6 +5,8 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
     $scope.glfx = false;
     $scope.contentEdited = false;
     $scope.editableContent = false;
+    $scope.uploadTitle = "";
+    $scope.uploadDescription = "";
 
     //set the image to be uploaded into a canvas
     $scope.setMediaFile = function (element) {
@@ -152,21 +154,29 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
     };
 
     $scope.uploadContent = function () {
-        if ($scope.contentEdited === true) {
-            console.log($scope.dataURItoBlob($scope.canvas.toDataURL("image/png")));
-            $scope.formData = new FormData(document.querySelector("#uploadform"));
-            $scope.formData.append("mime-type", "image/png");
-            $scope.formData.append("user", localStorage.getItem("user"));
-            $scope.formData.append("type", "image");
-            $scope.formData.append("file", $scope.dataURItoBlob($scope.canvas.toDataURL("image/png")), "edited_image.png");
+        var title = document.getElementById("titleinput").value;
+        var description = document.getElementById("descriptioninput").value;
+        var imgInp = document.getElementById("imgInp").value;
+        console.log(imgInp);
+        if (title == "" || description == "" || imgInp == "") {
+            alert("Title and Description necessary!");
         } else {
-            $scope.formData = new FormData(document.querySelector("#uploadform"));
-            $scope.formData.append("type", $scope.fileType);
-            $scope.formData.append("mime-type", $scope.mimeType);
-            $scope.formData.append("user", localStorage.getItem("user"));
-            $scope.formData.append("file", $scope.element.files[0], "content");
+            if ($scope.contentEdited === true) {
+                console.log($scope.dataURItoBlob($scope.canvas.toDataURL("image/png")));
+                $scope.formData = new FormData(document.querySelector("#uploadform"));
+                $scope.formData.append("mime-type", "image/png");
+                $scope.formData.append("user", localStorage.getItem("user"));
+                $scope.formData.append("type", "image");
+                $scope.formData.append("file", $scope.dataURItoBlob($scope.canvas.toDataURL("image/png")), "edited_image.png");
+            } else {
+                $scope.formData = new FormData(document.querySelector("#uploadform"));
+                $scope.formData.append("type", $scope.fileType);
+                $scope.formData.append("mime-type", $scope.mimeType);
+                $scope.formData.append("user", localStorage.getItem("user"));
+                $scope.formData.append("file", $scope.element.files[0], "content");
+            }
+            $scope.createUpload();
         }
-        $scope.createUpload();
     };
 
     $scope.dataURItoBlob = function (dataURI) {
