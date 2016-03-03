@@ -57,7 +57,7 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScop
     $scope.closeRegistersuccess = function () {
         $('#registerSuccess').toggleClass('hide-alert');
     };
-    $scope.closeRegisterFailure = function () {
+    $scope.closeRegisterfailure = function () {
         $('#registerFailure').toggleClass('hide-alert');
     };
     $scope.closeUploadNotification = function () {

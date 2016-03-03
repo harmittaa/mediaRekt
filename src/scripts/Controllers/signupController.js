@@ -18,7 +18,7 @@ mediaRekt.controller("SignupController", function ($scope, $http, AjaxFactory) {
         AjaxFactory.register($scope.signupData).then(function successCallback(response) {
             if (response.data.status == "ok") {
                 console.log(response);
-                $('#signup').hide();
+                /*$('#signup').hide();*/
             e.preventDefault();
                 $('#registerSuccess').toggleClass('hide-alert');
             } else {
