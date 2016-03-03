@@ -451,6 +451,9 @@ loadMore {
 #addCommentButton {
     margin-top: 5px;
 }
+#contentTitle{
+    color: white;
+}
 
 /*
 .btn-group{
