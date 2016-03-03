@@ -167,6 +167,9 @@ body {
 #uploadbutton {
     margin-top: 7px;
 }
+#upload{
+    float: right;
+}
 #refreshButton {
     margin-top: 7px;
 }
