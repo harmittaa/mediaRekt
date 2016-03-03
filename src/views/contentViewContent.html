@@ -25,7 +25,7 @@
             <video id="videoPlayer" ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" controls> </video>
 
         </div>
-        <p id="videoDescription">{{ currentContent.data.description }}</p>
+        <!--<p id="videoDescription">{{ currentContent.data.description }}</p>-->
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
             <audio controls id="audioPlayer">
                 <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
@@ -33,5 +33,4 @@
             <p id="audioDescription">{{ currentContent.data.description }}</p>
         </div>
     </div>
-    <!--<img src="https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=37.530101,38.600062&zoom=14&size=640x400&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08">-->
 </div>

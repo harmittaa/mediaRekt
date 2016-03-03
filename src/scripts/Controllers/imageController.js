@@ -40,7 +40,8 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
                 $scope.longitude = exif.getTagDescription('GPSLongitude');
 
                 var mapa = document.createElement("img");
-                mapa.id = "locationMap"
+                mapa.id = "locationMap";
+                mapa.className = "img-thumbnail";
                 var parentElement = document.getElementById("contentRow");
                 parentElement.appendChild(mapa);
                 console.log(mapa);

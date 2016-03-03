@@ -4,19 +4,25 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.title = "MediaRekt";
     $scope.showNavbar = true;
     $scope.loggedIn = localStorage.getItem("logged");
+    console.log(ShareDataService.getVariable("checkedLogin"));
 
     if (!ShareDataService.getVariable("checkedLogin")) {
         console.log("Checking checkedLogin " + $scope.checkedLogin);
-        if (localStorage.getItem("logged") == "false") {
+        console.log(localStorage.getItem("logged"));
+        if (localStorage.getItem("logged") == "false" || localStorage.getItem("logged") === null) {
+            console.log("User has not logged in");
             $("#myfavourites").hide();
             $("#myprofile").hide();
             $("#logout").hide();
             $scope.checkedLogin = true;
+            console.log("Changing checked login");
             ShareDataService.setVariable("checkedLogin", true);
         } else {
+            console.log("User has logged in");
             $("#login").hide();
             $("#signup").hide();
             $("#uploadbutton").toggleClass("disabled");
+            console.log("Changing checked login");
             ShareDataService.setVariable("checkedLogin", true);
         }
     }
