@@ -329,9 +329,11 @@ loadMore {
     margin-top: 20px;
     background-color: #222222;
     padding: 3px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px black;
 }
 #commentInfo {
     color: white;
+    
 }
 #commentContent {
     border-bottom-right-radius: 0.5em;
@@ -341,10 +343,12 @@ loadMore {
     margin-right: 20px;
     margin-bottom: 20px;
     padding: 3px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px black;
 }
 #commentBox {
     /* border-bottom-right-radius: 0.5em;
     border-bottom-left-radius: 0.5em;*/
+    box-shadow: 0.5px 0.5px 0.5px 0.5px black;
     
     border-radius: 4px;
     background-color: #333;
@@ -432,6 +436,11 @@ loadMore {
     display: none;
 }
 
+#exifDataButton{
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
 #exifDataTable {
     margin-top: 12px;
     width: : 120%;
@@ -444,6 +453,7 @@ loadMore {
 #exifType {
     padding-right: 10px;
 }
+
 
 #testCanvas {
     width: 300px;
