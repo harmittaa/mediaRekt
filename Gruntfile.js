@@ -63,6 +63,15 @@ module.exports = function (grunt) {
         }]
             },
 
+            images: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['src/**/*.jpg'],
+                    dest: 'build/images/'
+        }]
+            },
+
             fonts: {
                 files: [{
                     expand: true,
