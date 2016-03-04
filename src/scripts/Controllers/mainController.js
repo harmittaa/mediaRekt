@@ -63,4 +63,7 @@ mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScop
     $scope.closeUploadNotification = function () {
         $('#uploadFailureNotification').toggleClass('hide-alert');
     };
+     $scope.showExif = function () {
+        $('#exif-table-body').toggleClass('hide');
+    };
 });
