@@ -60,10 +60,11 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
 
                 var locationIframe = document.createElement("IFRAME");
                 locationIframe.id = "locationIframe";
-                /*locationIframe.className = "img-thumbnail";*/
                 parentElement = document.getElementById("iframeDiv");
-                parentElement.appendChild(locationIframe);
-                if ($scope.gpsLatitude !== undefined && $scope.gpsLongitude !== undefined) {
+                console.log($scope.gpsLatitude + " and " + $scope.gpsLongitude);
+
+                if ($scope.gpsLatitude !== undefined || $scope.gpsLongitude !== undefined) {
+                    parentElement.appendChild(locationIframe);
                     $("#locationIframe").attr("src", "https://www.google.com/maps/embed/v1/place?q=" + $scope.gpsLatitude + "%2C%20" + $scope.gpsLongitude + "&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08");
                     $("#locationIframe").attr("width", "1200");
                     $("#locationIframe").attr("height", "1200");
