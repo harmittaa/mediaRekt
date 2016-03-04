@@ -1,7 +1,7 @@
 <div class="container" id="imageLayout">
     <div class="row" id="contentRow">
         <h2 id="imageTitle">{{ currentContent.data.title }}</h2>
-        <h4 id="imageTitle">by user: {{ uploaderUsername }}</h4>
+        <h4 id="imageTitle">by: {{ uploaderUsername }}</h4>
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(0, 5) == 'image'">
             <a href="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}">
                 <img id="imageToEdit" class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ currentContent.data.path }}">
