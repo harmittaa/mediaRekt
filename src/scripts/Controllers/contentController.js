@@ -5,7 +5,13 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     console.log("LOAD AMOUNT IN SDS " + ShareDataService.getVariable("loadAmount"));
     $scope.contentToShow = ShareDataService.getVariable("contentType");
     console.log($scope.contentToShow);
-
+    
+  /*  Gifffer();
+    console.log("Gifffer in ContentController");
+    window.onload = function () {
+        Gifffer();
+    };
+*/
     $scope.contentData = ShareDataService.getVariable("contentData");
 
     $("#refreshButton").show();
@@ -30,13 +36,16 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     $scope.getType = function (type) {
         return type.substr(0, 5);
     };
+    
+    $scope.getImageType = function (type) {
+        return type.substr(6, 8);
+    };
 
     // load more content to show on gallery
     $scope.loadContent = function () {
         console.log("loading content!");
         $scope.loadAmount = ShareDataService.getVariable("loadAmount") + 5;
         ShareDataService.setVariable("loadAmount", $scope.loadAmount);
-        console.log("LOAD AMOUNT IN SDS increased to " + ShareDataService.getVariable("loadAmount"));
     };
 
     // contentChanged is broadcasted when either the contentType to show is changed

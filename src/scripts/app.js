@@ -1,6 +1,6 @@
 var mediaRekt = angular.module('mediaRekt', ["ui.router"]);
 
-window.onload = function() {
+window.onload = function() {    
     // try to create a WebGL canvas (will fail if WebGL isn't supported)
     try {
         var canvas = fx.canvas();

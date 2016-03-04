@@ -1,11 +1,16 @@
 <div id="contents" class="container" ng-controller="ContentController">
-    <div id="tasku" ng-repeat="file in contentData.data | filter:contentToShow | limitTo:loadAmount track by $index">
+    <div id="tasku" ng-repeat="file in contentData.data | filter:contentToShow | limitTo:loadAmount track by $index" ng-repeat-done-notification>
 
         <div id="imageDiv" ng-if="contentToShow == '' && getType(file.mimeType) == 'image' || contentToShow == 'image' && getType(file.mimeType) == 'image'">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-sx-6">
                     <p>{{ file.title }}</p>
-                    <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    <div ng-if="getImageType(file.mimeType) != 'gif'">
+                        <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    </div>
+                    <div ng-if="getImageType(file.mimeType) == 'gif'">
+                        <img class="img-thumbnail" onload="Gifffer()" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" data-gifffer="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                    </div>
                     <div class="carousel-caption">
                         <span id="contentIcon" class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                     </div>

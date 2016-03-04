@@ -1,9 +1,19 @@
 // main controller of app.html, used for creating trustURL and changing .html files when user clicks on content
 
 mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScope, ShareDataService) {
-    console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
-    
-    fartscroll();
+
+    $scope.$on('$viewContentLoaded', function () {
+        //Here your view content is fully loaded !!
+        console.log("ViewContentLoaded");
+        Gifffer();
+    });
+
+    window.onload = function () {
+        console.log("Giffffer");
+        Gifffer();
+    };
+
+    /*fartscroll();*/
 
     if (ShareDataService.getVariable("searched")) {
         console.log("Search notification should pop up!");
