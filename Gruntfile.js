@@ -16,7 +16,8 @@ module.exports = function (grunt) {
               'bower_components/exifreader/js/ExifReader.js',
               'bower_components/angular-ui-router/release/angular-ui-router.js',
               'bower_components/fartscroll.js/fartscroll.js',
-                'bower_components/gifffer/build/gifffer.min.js'
+                'bower_components/gifffer/build/gifffer.min.js',
+                'bower_components/exif-js/exif.js',
 
              ],
                 dest: 'build/vendor.js'

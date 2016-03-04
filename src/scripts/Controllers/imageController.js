@@ -48,7 +48,7 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
                 console.log($scope.time);
                 $scope.$apply();
 
-                var locationMap = document.createElement("img");
+                /*var locationMap = document.createElement("img");
                 locationMap.id = "locationMap";
                 locationMap.className = "img-thumbnail";
                 var parentElement = document.getElementById("exifDataRow");
@@ -56,8 +56,18 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
                 if ($scope.gpsLatitude !== undefined && $scope.gpsLongitude !== undefined) {
                     parentElement.appendChild(locationMap);
                     $("#locationMap").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=' + $scope.gpsLatitude + ',' + $scope.gpsLongitude + '&zoom=14&size=640x400&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08');
-                }
-
+                }*/
+                
+                var locationIframe = document.createElement("IFRAME");
+                locationIframe.id = "locationIframe";
+                /*locationIframe.className = "img-thumbnail";*/
+                parentElement = document.getElementById("iframeDiv");   
+                parentElement.appendChild(locationIframe);
+                
+                $("#locationIframe").attr("src", "https://www.google.com/maps/embed/v1/place?q=" + $scope.gpsLatitude + "%2C%20" + $scope.gpsLongitude + "&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08");
+                $("#locationIframe").attr("width", "1200");
+                $("#locationIframe").attr("height", "1200");
+                console.log(locationIframe);
             });
         };
         image.src = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
