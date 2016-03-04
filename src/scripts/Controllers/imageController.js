@@ -4,6 +4,11 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
     $scope.contentId = ShareDataService.getVariable("contentId");
     var urlParam = $location.path().split("=");
     $scope.contentId = urlParam[1];
+    $scope.make = "N/A";
+    $scope.model = "N/A";
+    $scope.time = "N/A";
+    $scope.gpsLongitude = "N/A";
+    $scope.gpsLatitude = "N/A";
 
     AjaxFactory.getFileById($scope.contentId).then(function successCallback(response) {
         $("#refreshButton").hide();
@@ -12,59 +17,61 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
         console.log($scope.currentContent);
         $rootScope.$broadcast("updateComments");
         $scope.getUploaderUsername();
+        $scope.exifData();
     }, function errorCallback(response) {
         console.log(response);
     });
 
-    //gets the exif data from image
-    var handleFile = function () {
-        var reader;
-        var files = [$scope.newImageblob];
-        reader = new FileReader();
-        reader.onload = function (event) {
-            var exif, tags, tableBody, name, row;
-            try {
-                exif = new ExifReader();
+    $scope.exifData = function () {
+        var image = new Image();
+        image.onload = function () {
+            EXIF.getData(image, function () {
 
-                // Parse the Exif tags.
-                exif.load(event.target.result);
-                // Or, with jDataView you would use this:
-                //exif.loadView(new jDataView(event.target.result));
-
-                // The MakerNote tag can be really large. Remove it to lower memory usage.
-                exif.deleteTag('MakerNote');
-
-                // Output the tags on the page.
-                tags = exif.getAllTags();
-                $scope.latitude = exif.getTagDescription('GPSLatitude');
-                $scope.longitude = exif.getTagDescription('GPSLongitude');
-
-                var mapa = document.createElement("img");
-                mapa.id = "locationMap";
-                mapa.className = "img-thumbnail";
-                var parentElement = document.getElementById("contentRow");
-                parentElement.appendChild(mapa);
-                console.log(mapa);
-                $("#locationMap").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=' + $scope.latitude + ',' + $scope.longitude + '&zoom=14&size=640x400&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08');
-
-                tableBody = document.getElementById('exif-table-body');
-                for (name in tags) {
-                    if (tags.hasOwnProperty(name)) {
-                        row = document.createElement('tr');
-                        row.innerHTML = '<td id="exifDataFromImage">' + name + '</td><td id="exifDataFromImage">' + tags[name].description + '</td>';
-                        tableBody.appendChild(row);
-                    }
+                $scope.gpsLatitude = EXIF.getTag(this, "GPSLatitude");
+                if ($scope.gpsLatitude !== undefined) {
+                    $scope.gpsLatitude = toDecimal($scope.gpsLatitude);
                 }
-            } catch (error) {
-                alert(error);
-            }
+
+                $scope.gpsLongitude = "";
+                $scope.gpsLongitude = EXIF.getTag(this, "GPSLongitude");
+                if ($scope.gpsLongitude !== undefined) {
+                    $scope.gpsLongitude = toDecimal($scope.gpsLongitude);
+                }
+
+                $scope.make = EXIF.getTag(this, "Make");
+                console.log($scope.make);
+
+                $scope.model = EXIF.getTag(this, "Model");
+                console.log($scope.model);
+
+                $scope.time = EXIF.getTag(this, "DateTime");
+                console.log($scope.time);
+                $scope.$apply();
+
+                var locationMap = document.createElement("img");
+                locationMap.id = "locationMap";
+                locationMap.className = "img-thumbnail";
+                var parentElement = document.getElementById("exifDataRow");
+
+                if ($scope.gpsLatitude !== undefined && $scope.gpsLongitude !== undefined) {
+                    parentElement.appendChild(locationMap);
+                    $("#locationMap").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=' + $scope.gpsLatitude + ',' + $scope.gpsLongitude + '&zoom=14&size=640x400&key=AIzaSyB-MSqFBTkmnzSc2ph2SqiTx1ffuSZAW08');
+                }
+
+            });
         };
-
-
-        // We only need the start of the file for the Exif info.
-        reader.readAsArrayBuffer(files[0].slice(0, 128 * 1024));
+        image.src = "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path;
     };
 
+
+    var toDecimal = function (number) {
+        return number[0].numerator + number[1].numerator /
+            (60 * number[1].denominator) + number[2].numerator / (3600 * number[2].denominator);
+    };
+
+    $scope.showExifData = function () {
+        $("#exifDataRow").toggleClass("hide");
+    };
 
     $scope.saveContentData = function (response) {
         console.log("SAve content data");
@@ -85,19 +92,6 @@ mediaRekt.controller("ImageController", function ($scope, $sce, $http, AjaxFacto
         console.log(response);
         $scope.uploaderUsername = response.data.username;
     };
-
-    //creates a XMLHttpRequest to get image from server, then calls the handleFile which gets exif data
-    $scope.getExifData = function () {
-        var x = new XMLHttpRequest();
-        x.open('GET', "http://util.mw.metropolia.fi/uploads/" + $scope.currentContent.data.path);
-        x.responseType = 'blob';
-        x.onload = function () {
-            $scope.newImageblob = x.response;
-            handleFile();
-        };
-        x.send();
-    };
-
 
     /*        
     $scope.imageToCanvas = function () {

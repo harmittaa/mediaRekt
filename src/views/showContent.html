@@ -9,7 +9,7 @@
                         <img class="img-thumbnail" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     </div>
                     <div ng-if="getImageType(file.mimeType) == 'gif'">
-                        <img class="img-thumbnail" onload="Gifffer()" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.large }}" data-gifffer="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
+                        <img onload="Gifffer()" class="img-responsive" ng-src="http://util.mw.metropolia.fi/uploads/{{ file.thumbNails.small }}" data-gifffer="http://util.mw.metropolia.fi/uploads/{{ file.path }}" alt="{{ file.fileId }}" ng-click="openImageView(this)">
                     </div>
                     <div class="carousel-caption">
                         <span id="contentIcon" class="glyphicon glyphicon-picture" aria-hidden="true"></span>

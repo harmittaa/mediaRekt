@@ -15,6 +15,7 @@
     "caman": "~4.1.2",
     "glfx-bower": "*",
     "fartscroll.js": "fartscroll#*",
-    "gifffer": "~1.0.0"
+    "gifffer": "~1.0.0",
+    "exif-js": "https://github.com/exif-js/exif-js.git#~2.1.1"
   }
 }

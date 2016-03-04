@@ -347,7 +347,7 @@ loadMore {
     border-bottom-left-radius: 0.5em;*/
     
     border-radius: 4px;
-    background-color: dimgray;
+    background-color: #333;
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
@@ -427,11 +427,30 @@ loadMore {
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
 }
+
+.hide {
+    display: none;
+}
+
+#exifDataTable {
+    margin-top: 12px;
+    width: : 120%;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+}
+
+#exifType {
+    padding-right: 10px;
+}
+
 #testCanvas {
     width: 300px;
     height: 300px;
     display: none;
 }
+
 #testitest {
     display: none;
 }

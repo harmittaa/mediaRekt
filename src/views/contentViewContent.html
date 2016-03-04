@@ -9,16 +9,44 @@
             <p id="imageDescription" ng-show="currentContent.data.mimeType.substr(0, 5) == 'image'">{{ currentContent.data.description }}</p>
         </div>
         <div class="col-md-6 col-md-offset-3" ng-if="currentContent.data.mimeType.substr(6, 10) == 'jpeg'">
-            <div id="row">
-                <button id="exifDataButton" class="btn btn-success btn-sm" ng-click="getExifData()">Image details</button>
-                <table style="margin-top: 12px;">
-                    <thead>
-                        <tr>
-                        </tr>
-                    </thead>
-                    <tbody id="exif-table-body">
-                    </tbody>
-                </table>
+            <div class="row">
+                <button id="exifDataButton" class="btn btn-success btn-sm" ng-click="showExifData()">Image details</button>
+                <div class="hide" id="exifDataRow">
+                    <table id="exifDataTable">
+                        <thead>
+                            <tr>
+                                <td id="exifType">Image type</td>
+                                <td>{{currentContent.data.mimeType}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Upload time</td>
+                                <td>{{currentContent.data.uploadTime}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Make</td>
+                                <td>{{make}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Model</td>
+                                <td>{{model}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Time</td>
+                                <td>{{time}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Longitude</td>
+                                <td>{{gpsLongitude}}</td>
+                            </tr>
+                            <tr>
+                                <td id="exifType">Latitude</td>
+                                <td>{{gpsLatitude}}</td>
+                            </tr>
+                        </thead>
+                        <tbody id="exif-table-body">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="embed-responsive embed-responsive-16by9" ng-if="currentContent.data.mimeType.substr(0, 5) == 'video'">
@@ -26,7 +54,7 @@
 
         </div>
         <p id="videoDescription" ng-show="currentContent.data.mimeType.substr(0, 5) == 'video'">{{ currentContent.data.description }}</p>
-        
+
         <div ng-if="currentContent.data.mimeType.substr(0, 5) == 'audio'">
             <audio controls id="audioPlayer">
                 <source ng-src="{{ trustURL('http://util.mw.metropolia.fi/uploads/' +  currentContent.data.path)}}" type="{{ file.mimeType }}">
