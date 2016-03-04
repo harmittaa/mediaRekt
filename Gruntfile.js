@@ -14,7 +14,8 @@ module.exports = function (grunt) {
               'bower_components/glfx-bower/glfx.js',
               'bower_components/caman/dist/caman.full.min.js',
               'bower_components/exifreader/js/ExifReader.js',
-              'bower_components/angular-ui-router/release/angular-ui-router.js'
+              'bower_components/angular-ui-router/release/angular-ui-router.js',
+              'bower_components/fartscroll.js/fartscroll.js'
 
              ],
                 dest: 'build/vendor.js'

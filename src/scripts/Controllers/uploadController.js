@@ -42,6 +42,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
 
     $scope.resetImage = function () {
         console.log("reset image");
+        $scope.contentEdited = false;
         $scope.canvas.height = $scope.image.height;
         $scope.canvas.width = $scope.image.width;
         $scope.ctx.drawImage($scope.image, 0, 0, $scope.canvas.width, $scope.canvas.height);
@@ -115,7 +116,7 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
     };
 
     $scope.unsharpMask = function () {
-        $scope.canvass.draw($scope.texture).unsharpMask(34, 0.22).update();
+        $scope.canvass.draw($scope.texture).unsharpMask(16, 1.54).update();
         $scope.ctx.drawImage($scope.canvass, 0, 0, $scope.canvass.width, $scope.canvass.height);
     };
 

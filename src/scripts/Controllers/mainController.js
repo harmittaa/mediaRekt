@@ -2,24 +2,14 @@
 
 mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScope, ShareDataService) {
     console.log("checking log in status! " + ShareDataService.getVariable("logged") + " user " + ShareDataService.getVariable("user"));
-
-
-    /*    $scope.contentData = {
-            data: []
-        };*/
+    
+    fartscroll();
 
     if (ShareDataService.getVariable("searched")) {
         console.log("Search notification should pop up!");
         $('#searchNotification').toggleClass('hide-alert');
     }
 
-/*    $scope.contentData = ShareDataService.getVariable("contentData");
-
-    $rootScope.$on("contentDataChanged", function () {
-        console.log("Getting new content data");
-        $scope.contentData = ShareDataService.getVariable("contentData");
-        console.log($scope.contentData);
-    });*/
 
     // open image in new window
     $scope.openImageView = function (element) {
