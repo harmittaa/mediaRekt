@@ -14,6 +14,7 @@
     "exifreader": "~1.1.1",
     "caman": "~4.1.2",
     "glfx-bower": "*",
-    "fartscroll.js": "fartscroll#*"
+    "fartscroll.js": "fartscroll#*",
+    "gifffer": "~1.0.0"
   }
 }
