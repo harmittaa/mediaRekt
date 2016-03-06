@@ -17,12 +17,6 @@ ul {
     margin: 0;
     padding: 0;
 }
-
-#tasku {
-    /*    padding: 50px;
-    color: black;*/
-}
-
 .hide-alert {
     display: none;
 }
@@ -38,21 +32,6 @@ ul {
     margin-left: 50px;
     margin-right: 50px;
 }
-
-#testCanvas {
-    width: 100%;
-    height: auto;
-    background: #fff;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    padding: 8px;
-    -webkit-box-shadow: 1px 2px 1px #d1d1d1;
-    -moz-box-shadow: 1px 2px 1px #d1d1d1;
-    box-shadow: 1px 2px 1px #d1d1d1;
-}
-
-
 }
 .container {
     margin: 0 auto;
@@ -243,9 +222,6 @@ loadMore {
     margin-bottom: 5px;
     margin-top: 5px;
 }
-#blah {
-    margin-bottom: 5px;
-}
 .rating {
     unicode-bidi: bidi-override;
     direction: rtl;
@@ -364,17 +340,6 @@ loadMore {
 #commentButton {
     margin-top: 5px;
 }
-
-/*#likeButton {
-    padding: inherit;
-    width: 77px;
-    height: 34px;
-    border-radius: 4px;
-    background-color: crimson;
-}*/
-#test {
-    display: block;
-}
 .likeSpanColor {
     color: orangered;
 }
@@ -441,16 +406,13 @@ loadMore {
     border-radius: 4px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px black;
 }
-
 .hide {
     display: none;
 }
-
 #exifDataButton{
     margin-bottom: 10px;
     margin-left: 15px;
 }
-
 #exifDataTable {
     margin-top: 12px;
     width: : 120%;
@@ -459,23 +421,8 @@ loadMore {
     margin-right: auto;
     margin-bottom: 12px;
 }
-
 #exifType {
     padding-right: 10px;
-}
-
-
-#testCanvas {
-    width: 300px;
-    height: 300px;
-    display: none;
-}
-
-#testitest {
-    display: none;
-}
-.testitest {
-    display: none;
 }
 #contentIcon {
     color: azure;
@@ -504,15 +451,7 @@ loadMore {
     margin-left: auto;
     margin-right: auto;
 }
-
 #mainAudioPlayer{
     width: 100%;
 }
-
-/*
-.btn-group{
-    display: inline;
-}
-*/
-
 /*COMMENT BUBBLE*/
