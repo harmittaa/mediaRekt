@@ -4,6 +4,7 @@ mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http
     $scope.user = localStorage.getItem("user");
     $scope.comment = "";
 
+    // checks whether the user has logged in and allows the user to comment
     $scope.checkLoginStatus = function () {
         console.log("checking log in status! " + localStorage.getItem("logged") + " user " + localStorage.getItem("user"));
         /*if (ShareDataService.getVariable("logged") === true) {*/
@@ -16,19 +17,23 @@ mediaRekt.controller("AddCommentController", function ($scope, $rootScope, $http
 
     $scope.checkLoginStatus();
 
+    // for adding a new comment, second check to see if the user has truly logged in
     $scope.addComment = function () {
         if (localStorage.getItem("logged") == "true") {
             $scope.newComment = {
                 "user": localStorage.getItem("user"),
                 "comment": $scope.comment
             };
-            AjaxFactory.comment($scope.contentId, $scope.newComment).then(function successCallback(response) {
-                console.log("comment made succcesfully!");
-                $rootScope.$broadcast("updateComments");
-                $('#commentingBox').val('');
-            }, function errorCallback(response) {
-                console.log(response);
-            });
+            if ($scope.comment !== "") {
+                AjaxFactory.comment($scope.contentId, $scope.newComment).then(function successCallback(response) {
+                    console.log("comment made succcesfully!");
+                    $rootScope.$broadcast("updateComments");
+                    $('#commentingBox').val('');
+                    $scope.comment = "";
+                }, function errorCallback(response) {
+                    console.log(response);
+                });
+            }
         }
     };
 

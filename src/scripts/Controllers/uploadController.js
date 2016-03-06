@@ -119,33 +119,17 @@ mediaRekt.controller("UploadController", function ($scope, $http, $state, AjaxFa
         $scope.canvass.draw($scope.texture).unsharpMask(16, 1.54).update();
         $scope.ctx.drawImage($scope.canvass, 0, 0, $scope.canvass.width, $scope.canvass.height);
     };
-
-    $scope.brightenCanvas = function () {
-        $scope.imageEdited = true;
-        Caman("#previewCanvas", function () {
-            this.brightness(10);
-            this.render();
-        });
+    
+    $scope.lensBlur = function () {
+        $scope.canvass.draw($scope.texture).lensBlur(11, 0.75, 2.69841).update();
+        $scope.ctx.drawImage($scope.canvass, 0, 0, $scope.canvass.width, $scope.canvass.height);
     };
-
-    $scope.saveCamanImage = function () {
-        $scope.imageEdited = true;
-        /*console.log($scope.canvas.toDataURL("image/png"));*/
-        Caman("#previewCanvas", function () {
-            this.render(function () {
-                var newImage = this.toBase64("png");
-                /*console.log(newImage);*/
-                /*var newImageBlob = $scope.dataURItoBlob(newImage);*/
-                $scope.newImageBlob = $scope.dataURItoBlob(newImage);
-                /*return newImageBlob;*/
-            });
-        });
-    };
-
+    
     $scope.createUpload = function () {
         AjaxFactory.uploadFile($scope.formData).then(function successCallback(response) {
             console.log(response);
             console.log("success");
+            $scope.ctx.clearRect(0, 0, $scope.canvas.width, $scope.canvas.height);
             $state.go('contentView', {
                 contentId: response.data.fileId
             });

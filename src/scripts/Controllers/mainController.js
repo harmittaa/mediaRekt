@@ -2,49 +2,47 @@
 
 mediaRekt.controller("MainController", function ($scope, $sce, $state, $rootScope, ShareDataService) {
 
-    $scope.$on('$viewContentLoaded', function () {
-        //Here your view content is fully loaded !!
+/*    $scope.$on('$viewContentLoaded', function () {
         console.log("ViewContentLoaded");
         Gifffer();
-    });
+    });*/
 
-    window.onload = function () {
+/*    window.onload = function () {
         console.log("Giffffer");
         Gifffer();
-    };
+    };*/
 
     /*fartscroll();*/
 
-    if (ShareDataService.getVariable("searched")) {
+/*    if (ShareDataService.getVariable("searched")) {
         console.log("Search notification should pop up!");
         $('#searchNotification').toggleClass('hide-alert');
-    }
+    }*/
 
-
-    // open image in new window
+    // open the contentView, with the fileId in the URL
     $scope.openImageView = function (element) {
         $state.go('contentView', {
             contentId: element.file.fileId
         });
     };
+    
     // open video in new window
     $scope.openVideoView = function (element) {
         console.log(element.file.fileId);
         window.location.assign("video.html?id=" + element.file.fileId);
     };
 
-    $(window).scroll(function () {
+/*    $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
             console.log("bottom");
         }
-    });
+    });*/
 
     $scope.trustURL = function (url) {
         return $sce.trustAsResourceUrl(url);
     };
 
-
-
+    // these handle closing the alerts
     $scope.closeSuccess = function () {
         $('#loginSuccess').toggleClass('hide-alert');
     };

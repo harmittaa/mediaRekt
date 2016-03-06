@@ -8,6 +8,8 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
         console.log("user clicked search");
         $('#searchboxDesc').val('');
         $('#searchbox').val('');
+        console.log("User searched for title " + $scope.titleSearch);
+        console.log("User searched for desc " + $scope.descSearch);
         if ($scope.titleSearch !== "") {
 
             $scope.searchInfo = {
@@ -22,6 +24,8 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
                 $rootScope.$broadcast("contentDataChanged");
                 $rootScope.$broadcast("contentChanged");
                 ShareDataService.setVariable("searched", true);
+                $scope.titleSearch = "";
+                $scope.descSearch = "";
             }, function errorCallback(response) {
                 console.log(response);
             });
@@ -38,16 +42,13 @@ mediaRekt.controller("SearchController", function ($scope, $http, $rootScope, Aj
                 $rootScope.$broadcast("contentDataChanged");
                 $rootScope.$broadcast("contentChanged");
                 ShareDataService.setVariable("searched", true);
+                $scope.titleSearch = "";
+                $scope.descSearch = "";
             }, function errorCallback(response) {
                 console.log(response);
             });
         } else {
             alert("CHOOSE SOMETHING!");
         }
-    };
-
-    $scope.closeSearchResults = function () {
-        $('#searchNotification').toggleClass('hide-alert');
-        $rootScope.$broadcast("getAllDataAgain");
     };
 });

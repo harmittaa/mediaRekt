@@ -22,6 +22,9 @@ mediaRekt.controller("SignupController", function ($scope, $http, AjaxFactory) {
                 $('#registerName').val('');
                 $('#registerPassword').val('');
                 $('#registerEmail').val('');
+                $scope.regUsername = "";
+                $scope.regPassword = "";
+                $scope.regEmail = "";
             } else {
                 $('#registerFailure').toggleClass('hide-alert');
             }

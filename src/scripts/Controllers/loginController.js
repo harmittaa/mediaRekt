@@ -1,5 +1,4 @@
 // handles login and shows necessary alerts
-
 mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, ShareDataService, AjaxFactory) {
     $scope.login = function () {
         console.log("login function");
@@ -8,10 +7,12 @@ mediaRekt.controller("LoginController", function ($scope, $rootScope, $http, Sha
             "password": $scope.logPassword
         };
 
+        // checks the login
         var request = AjaxFactory.login($scope.loginData);
         request.then($scope.saveLogin, ShareDataService.error);
     };
-
+    
+    // does all the changes to the navbar that are necessary
     $scope.saveLogin = function (response) {
         if (response.data.status == "login ok") {
             console.log(response.data.userId);

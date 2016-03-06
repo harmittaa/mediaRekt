@@ -1,9 +1,10 @@
-// for getting the like status when entering test.html and toggling the like status when user clicks like button
+// for getting the like status when entering contentView and toggling the like status when user clicks like button
 
 mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, ShareDataService) {
     $scope.liked = false;
     $scope.currentUser = localStorage.getItem("user");
 
+    // gets the like status
     $scope.getLikeStatus = function () {
         console.log("getting likes");
         if (localStorage.getItem("logged") == "true") {
@@ -25,6 +26,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
 
     $scope.getLikeStatus();
 
+    // checks if user has logged in, if yes then shows the likeButton
     $scope.checkLoginStatus = function () {
         if (localStorage.getItem("logged") == "true") {
             $("#likeButton").toggleClass("disabled");
@@ -37,6 +39,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
 
     $scope.checkLoginStatus();
 
+    // like/unline the content
     $scope.toggleLike = function () {
         console.log("TOGGLE LIKE " + ShareDataService.getVariable("logged"));
         if (localStorage.getItem("logged") == "true") {
@@ -48,6 +51,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
         }
     };
 
+    // tells the server to like the content
     $scope.likeImage = function () {
         AjaxFactory.likeImage($scope.contentId, localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);
@@ -58,6 +62,7 @@ mediaRekt.controller("LikeController", function ($scope, $http, AjaxFactory, Sha
         });
     };
 
+    // tells the server to dislike the content
     $scope.dislikeImage = function () {
         AjaxFactory.dislikeImage($scope.contentId, localStorage.getItem("user")).then(function successCallback(response) {
             console.log(response);

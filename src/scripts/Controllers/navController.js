@@ -6,8 +6,9 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
     $scope.loggedIn = localStorage.getItem("logged");
     console.log(ShareDataService.getVariable("checkedLogin"));
 
+    // checks whether or not it's necessary to hide navbar items based on if the user has logged in or notö
     if (!ShareDataService.getVariable("checkedLogin")) {
-        console.log("Checking checkedLogin " + $scope.checkedLogin);
+        console.log("Checking checkedLogin " + ShareDataService.getVariable("checkedLogin"));
         console.log(localStorage.getItem("logged"));
         if (localStorage.getItem("logged") == "false" || localStorage.getItem("logged") === null) {
             console.log("User has not logged in");
@@ -15,16 +16,16 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
             $("#myprofile").hide();
             $("#logout").hide();
             $scope.checkedLogin = true;
-            console.log("Changing checked login");
             ShareDataService.setVariable("checkedLogin", true);
         } else {
             console.log("User has logged in");
             $("#login").hide();
             $("#signup").hide();
             $("#uploadbutton").toggleClass("disabled");
-            console.log("Changing checked login");
             ShareDataService.setVariable("checkedLogin", true);
         }
+    } else {
+        console.log("Login has been cheched, nothing to show or hide!");
     }
 
     // show the signup modal
@@ -85,7 +86,7 @@ mediaRekt.controller("NavController", function ($scope, $rootScope, ShareDataSer
         });
     };
 
-    // gets the user favourites and reverses them
+    // gets the user favourites
     $scope.userFavourites = function () {
         console.log(ShareDataService.getVariable("user"));
         AjaxFactory.getUserFavourites(localStorage.getItem("user")).then(function successCallback(response) {

@@ -6,15 +6,10 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
     $scope.contentToShow = ShareDataService.getVariable("contentType");
     console.log($scope.contentToShow);
     
-  /*  Gifffer();
-    console.log("Gifffer in ContentController");
-    window.onload = function () {
-        Gifffer();
-    };
-*/
     $scope.contentData = ShareDataService.getVariable("contentData");
-
     $("#refreshButton").show();
+    
+    // if the contentData file to show is empty, gets more all files
     if (ShareDataService.getVariable("contentData").length < 1) {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
@@ -28,17 +23,17 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
 
     // shows the search notification if the user has searched and returns
     // to the mainView
-    if (ShareDataService.getVariable("searched") === true) {
+/*    if (ShareDataService.getVariable("searched") === true) {
         $('#searchNotification').toggleClass('hide-alert');
-    }
+    }*/
 
     // splits the fileType from mimeType and returns to html
     $scope.getType = function (type) {
-        return type.substr(0, 5);
+        return type.substr(0, 5); // returns image, video, audio
     };
     
     $scope.getImageType = function (type) {
-        return type.substr(6, 8);
+        return type.substr(6, 8); // returns jpg, gif, png
     };
 
     // load more content to show on gallery
@@ -57,15 +52,16 @@ mediaRekt.controller("ContentController", function ($scope, $rootScope, AjaxFact
         $scope.contentData = ShareDataService.getVariable("contentData");
     });
 
+    // when loadamount is resetted
     $scope.$on("loadAmount reset", function () {
         $scope.loadAmount = ShareDataService.getVariable("loadAmount");
     });
 
+    // when a call comes to get the contentData again
     $scope.$on("getAllDataAgain", function () {
         AjaxFactory.getAllFiles().then(function successCallback(response) {
             console.log(response);
             console.log("setting data to contentdata.data");
-            /*$scope.contentData.data = response.data;*/
             ShareDataService.setVariable("contentData", response);
             $rootScope.$broadcast("contentDataChanged");
         }, function errorCallback(response) {
