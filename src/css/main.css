@@ -151,6 +151,7 @@ body {
     -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    
 }
 #alanavi {
     background-color: #222222;
@@ -392,10 +393,16 @@ loadMore {
     padding-top: 10px;
 }
 #imageDiv {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 #videoDiv {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 #videoPlayer{
     width: 100%;
@@ -406,7 +413,10 @@ loadMore {
     padding-top: 10px;
 }
 #audioDiv {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 #audioPlayer {
     display: table;
@@ -493,6 +503,10 @@ loadMore {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#mainAudioPlayer{
+    width: 100%;
 }
 
 /*
