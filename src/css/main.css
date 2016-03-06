@@ -394,13 +394,13 @@ loadMore {
 }
 #imageDiv {
     padding-top: 50px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     padding-left: 50px;
     padding-right: 50px;
 }
 #videoDiv {
     padding-top: 50px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -414,7 +414,7 @@ loadMore {
 }
 #audioDiv {
     padding-top: 50px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     padding-left: 50px;
     padding-right: 50px;
 }
