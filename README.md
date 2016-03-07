@@ -12,7 +12,7 @@ Edit, upload, share and browse your content on MediaRekt!
 * Uploading image / video / audio
 * Editing images on 3D canvas with WebGL
 * Viewing exif data
-* Viewing image location based on GPS coordinates
+* Viewing image location based on GPS coordinates (iFrame Google Maps, zoom in/out, move the map)
 * Play / stop GIFs
 * View favourites
 * View uploads
@@ -23,4 +23,3 @@ Edit, upload, share and browse your content on MediaRekt!
 * Image editing with WebGL - GLFX library
 * No gif autoplay - Gifffer library
 * Exif data from JPEG - Exif.js library
-
