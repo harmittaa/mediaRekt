@@ -1,10 +1,11 @@
-# MediaRekt
+MediaRekt
+===
 
-## by Matti Mäki-Kihniä, Antti Valkonen, Mikael Gousetis
+###### by Matti Mäki-Kihniä, Antti Valkonen, Mikael Gousetis
 
 Edit, upload, share and browse your content on MediaRekt!
 
-## Functionalities:
+##### Functionalities:
 * Registeration
 * Log in/out
 * Comment
@@ -17,7 +18,7 @@ Edit, upload, share and browse your content on MediaRekt!
 * View favourites
 * View uploads
 
-## Techincal:
+##### Techincal:
 * Cordova compatible
 * Angular UI router
 * Image editing with WebGL - GLFX library
